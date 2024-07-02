@@ -104,16 +104,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xs22"]
-size = Vector2(16, 6)
+size = Vector2(20, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afpwn"]
-size = Vector2(16, 6)
+size = Vector2(20, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo76l"]
-size = Vector2(6, 16)
+size = Vector2(6, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j46u5"]
-size = Vector2(6, 16)
+size = Vector2(6, 20)
 
 [node name="Baconawa" type="CharacterBody2D"]
 collision_layer = 4
@@ -161,3 +161,5 @@ collision_mask = 2
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Colliders/Left"]
 position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_j46u5")
+
+[node name="InternalTimer" type="Timer" parent="."]
