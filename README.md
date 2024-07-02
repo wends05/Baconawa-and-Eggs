@@ -1,4 +1,7 @@
 # Baconawa and Eggs
-by team NYATS
----
-## created for Odyssey Festival 2024
+
+
+Team NYATS
+
+created for Odyssey Festival 2024
+
