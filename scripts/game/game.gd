@@ -1,0 +1,46 @@
+extends Node2D
+
+class_name Game
+
+var game_finished = false
+
+signal game_ended
+
+@onready var baconawa : Baconawa = $Baconawa
+@onready var transition = $UI/Transition
+@onready var timer = $Timer
+
+var can_check_timer = false
+
+
+func _ready() -> void:
+	transition.visible = true
+	var tween = create_tween()
+	tween.tween_property(transition, "color", Color(0, 0), 1).set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
+	timer.start(180)
+	transition.visible = false
+	can_check_timer = true
+
+func _process(delta: float) -> void:
+	if ((can_check_timer and timer.is_stopped()) or baconawa.moons_collected == 7) and not game_finished:
+		game_ended.emit()
+		game_finished = true
+		timer.paused = true
+		transition.visible = true
+		var tween = create_tween()
+		tween.tween_property(transition, "color", Color(0, 1), 1).set_ease(Tween.EASE_IN_OUT).set_delay(1)
+		await tween.finished
+		G.set_results.emit(timer.time_left, baconawa.moons_collected)
+		print("game finished")
+		get_tree().change_scene_to_file("res://scenes/screens/end_game.tscn")
+
+
+
+
+func _on_button_button_up() -> void:
+	baconawa.moons_collected = 7
+
+
+func _on_button_2_button_up() -> void:
+	timer.stop()
