@@ -1,7 +1,10 @@
 [gd_scene load_steps=19 format=3 uid="uid://bi37f5gm8dmgk"]
 
+[ext_resource type="Script" path="res://scripts/game/baconawa.gd" id="1_2ge8w"]
 [ext_resource type="Texture2D" uid="uid://b67espc2fi1hf" path="res://assets/Sprout Lands - Sprites - Basic pack (2)/Characters/Basic Charakter Spritesheet.png" id="1_4x8a4"]
-[ext_resource type="Script" path="res://scripts/b_controls.gd" id="1_6s3dk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
+size = Vector2(14, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vx0nd"]
 atlas = ExtResource("1_4x8a4")
@@ -101,9 +104,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
-size = Vector2(14, 14)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xs22"]
 size = Vector2(14, 5)
 
@@ -119,15 +119,15 @@ size = Vector2(5, 14)
 [node name="Baconawa" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_6s3dk")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_skxty")
-animation = &"idle"
-autoplay = "idle"
+script = ExtResource("1_2ge8w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osxse")
+
+[node name="Animations" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_skxty")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Colliders" type="Node2D" parent="."]
 
