@@ -10,8 +10,10 @@ signal game_ended
 @onready var transition = $UI/Transition
 @onready var timer = $Timer
 
+# since i made a slight delay for the fade in transition
+# can_check_timer will be true after the fade transition
+# can be used in another transition if prefer niyoo
 var can_check_timer = false
-
 
 func _ready() -> void:
 	transition.visible = true
@@ -21,6 +23,8 @@ func _ready() -> void:
 	timer.start(180)
 	transition.visible = false
 	can_check_timer = true
+
+# only checks for end game, and emit the game_ended signal to other Nodes
 
 func _process(delta: float) -> void:
 	if ((can_check_timer and timer.is_stopped()) or baconawa.moons_collected == 7) and not game_finished:
@@ -37,10 +41,10 @@ func _process(delta: float) -> void:
 
 
 
+# debug code
 
 func _on_button_button_up() -> void:
 	baconawa.moons_collected = 7
-
 
 func _on_button_2_button_up() -> void:
 	timer.stop()

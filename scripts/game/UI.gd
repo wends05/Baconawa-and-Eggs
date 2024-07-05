@@ -5,6 +5,8 @@ extends Control
 @onready var moons_collected_label = $"HBoxContainer/Moon Info"
 @onready var timer = $"../Timer"
 
+# Pause screen functions
+
 func _on_resume_button_up() -> void:
 	pause_game(false)
 
@@ -18,6 +20,9 @@ func pause_game(isPaused: bool) -> void:
 	pause_screen.visible = isPaused
 	get_tree().paused = isPaused
 
+# G.display_time is a custom function i made in scripts/g.gd
+# all these are just for display of moons collected and time remaining
+# also checks if nag pause ang players
 func _process(delta: float) -> void:
 	$Time.text = "%s" % G.display_time(ceili(timer.time_left))
 	moons_collected_label.text = "%s" % baconawa.moons_collected

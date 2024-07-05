@@ -2,19 +2,26 @@ extends Sprite2D
 
 class_name Moon
 var hello_world = "Hello World"
+
+# created this in case we use an animation
+# and to make sure if the moon is collected already
+# and if ever the animation makes the moon move, and
+# the baconawa's collisions detects the moon again,
+# this will stop another moon to be added to the baconawa.moons_collected
+
 var is_collected = false
-@onready var delay = $Timer
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Baconawa:
-
 		if is_collected:
 			return
 
 		body.moons_collected += 1
-		position.y -= 10
-		scale = Vector2(0.5, 0.5)
 		is_collected = true
-		delay.start()
-		await delay.timeout
+		var tween = create_tween()
+		tween.parallel().tween_property(self, "scale", Vector2(0.5, 0.5), 0.5)
+		tween.parallel().tween_property(self, "position:y", -20, 1).as_relative()
+		tween.tween_property(self, "modulate:a", 0, 1)
+		await tween.finished
 		get_parent().remove_child(self)
 
