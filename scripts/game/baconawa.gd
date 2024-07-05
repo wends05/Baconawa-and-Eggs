@@ -1,8 +1,13 @@
 extends CharacterBody2D
 
+# important to make a class_name to
+# be able to reference this in other scripts
+
 class_name Baconawa
 @export var SPEED: int = 100
 @export var game : Game
+
+# Reference on children
 @onready var anim = $Animations
 
 @onready var top_collider = $Colliders/Top
@@ -11,30 +16,29 @@ class_name Baconawa
 @onready var right_collider = $Colliders/Right
 
 @onready var internal_timer = $InternalTimer
-var move = 0
 
+# information used if baconawa can change directions
 var down_colliding = false
 var top_colliding = false
 var left_colliding = false
 var right_colliding = false
 
+# checks last input to identify where to go after finishing
+# colliding to a wall
 var last_input = ""
 
+# Game proper variables
 var moons_collected : int = 0
 var game_finished = false
 
 func _ready() -> void:
 	anim.play("idle")
-	top_collider.connect("body_entered", colliding.bind(top_collider, true))
-	down_collider.connect("body_entered", colliding.bind(down_collider, true))
-	left_collider.connect("body_entered", colliding.bind(left_collider, true))
-	right_collider.connect("body_entered", colliding.bind(right_collider, true))
+	for collider: Area2D in [top_collider, down_collider, left_collider, right_collider]:
+		collider.connect("body_entered", colliding.bind(collider, true))
+		collider.connect("body_exited", colliding.bind(collider, false))
 
-	top_collider.connect("body_exited", colliding.bind(top_collider, false))
-	down_collider.connect("body_exited", colliding.bind(down_collider, false))
-	left_collider.connect("body_exited", colliding.bind(left_collider, false))
-	right_collider.connect("body_exited", colliding.bind(right_collider, false))
-
+	# connect the game ended signal to disallow inputs from player
+	# and play the idle animation
 	game.game_ended.connect(finish_game)
 
 func finish_game():
@@ -42,6 +46,8 @@ func finish_game():
 	anim.play("idle")
 
 func _physics_process(delta: float) -> void:
+
+	# refer to the game.game_ended signal
 	if game_finished:
 		return
 
@@ -49,25 +55,21 @@ func _physics_process(delta: float) -> void:
 		if not down_colliding:
 			velocity = Vector2(0, SPEED)
 			anim.play("move_down")
-		move = 0
 		last_input = "down"
 	if Input.is_action_pressed("b_up"):
 		if not top_colliding:
 			velocity = Vector2(0, -SPEED)
 			anim.play("move_up")
-		move = 1
 		last_input = "up"
 	if Input.is_action_pressed("b_left"):
 		if not left_colliding:
 			velocity = Vector2(-SPEED, 0)
 			anim.play("move_left")
-		move = 2
 		last_input = "left"
 	if Input.is_action_pressed("b_right"):
 		if not right_colliding:
 			velocity = Vector2(SPEED, 0)
 			anim.play("move_right")
-		move = 3
 		last_input = "right"
 	move_and_slide()
 
@@ -75,29 +77,21 @@ func colliding(_body, collider: Area2D, isColliding):
 	match collider.name:
 		"Top":
 			top_colliding = isColliding
-			if not isColliding and move == 1:
-				#internal_timer.start(0.5)
-				#await internal_timer
+			if not isColliding and last_input == "up":
 				velocity = Vector2(0, -SPEED)
 				anim.play("move_up")
 		"Down":
 			down_colliding = isColliding
-			if not isColliding and move == 0:
-				#internal_timer.start(0.5)
-				#await internal_timer
+			if not isColliding and last_input == "down":
 				velocity = Vector2(0, SPEED)
 				anim.play("move_down")
 		"Right":
 			right_colliding = isColliding
-			if not isColliding and move == 3:
-				#internal_timer.start(0.5)
-				#await internal_timer
+			if not isColliding and last_input == "right":
 				velocity = Vector2(SPEED, 0)
 				anim.play("move_right")
 		"Left":
 			left_colliding = isColliding
-			if not isColliding and move == 2:
-				#internal_timer.start(0.5)
-				#await internal_timer
+			if not isColliding and last_input == "left":
 				velocity = Vector2(-SPEED, 0)
 				anim.play("move_left")
