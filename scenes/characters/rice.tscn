@@ -1,0 +1,166 @@
+[gd_scene load_steps=19 format=3 uid="uid://cwbbda5vd2ofb"]
+
+[ext_resource type="Script" path="res://scripts/game/rice.gd" id="1_77n87"]
+[ext_resource type="Texture2D" uid="uid://b67espc2fi1hf" path="res://assets/Sprout Lands - Sprites - Basic pack (2)/Characters/Basic Charakter Spritesheet.png" id="2_ds4wb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
+size = Vector2(14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx0nd"]
+atlas = ExtResource("2_ds4wb")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5t4p"]
+atlas = ExtResource("2_ds4wb")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i853i"]
+atlas = ExtResource("2_ds4wb")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebsdo"]
+atlas = ExtResource("2_ds4wb")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eydb"]
+atlas = ExtResource("2_ds4wb")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bbcn"]
+atlas = ExtResource("2_ds4wb")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv7xb"]
+atlas = ExtResource("2_ds4wb")
+region = Rect2(96, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptpv3"]
+atlas = ExtResource("2_ds4wb")
+region = Rect2(144, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwdnd"]
+atlas = ExtResource("2_ds4wb")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1127k"]
+atlas = ExtResource("2_ds4wb")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_skxty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx0nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5t4p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i853i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebsdo")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eydb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bbcn")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv7xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptpv3")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwdnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1127k")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xs22"]
+size = Vector2(14, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afpwn"]
+size = Vector2(14, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo76l"]
+size = Vector2(5, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j46u5"]
+size = Vector2(5, 14)
+
+[node name="Rice" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_77n87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_osxse")
+
+[node name="Animations" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_skxty")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Colliders" type="Node2D" parent="."]
+
+[node name="Top" type="Area2D" parent="Colliders"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Top"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_0xs22")
+
+[node name="Down" type="Area2D" parent="Colliders"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colliders/Down"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_afpwn")
+
+[node name="Right" type="Area2D" parent="Colliders"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Colliders/Right"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_xo76l")
+
+[node name="Left" type="Area2D" parent="Colliders"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Colliders/Left"]
+position = Vector2(-7, 0)
+shape = SubResource("RectangleShape2D_j46u5")
+
+[node name="InternalTimer" type="Timer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://gh2pejm23613"]
+[gd_scene load_steps=13 format=3 uid="uid://gh2pejm23613"]
 
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_gs6nt"]
 [ext_resource type="Texture2D" uid="uid://chyp3vd3d57t0" path="res://assets/Sprout Lands - Sprites - Basic pack (2)/Tilesets/Grass.png" id="2_runy4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/game/UI.gd" id="6_cohqq"]
 [ext_resource type="Script" path="res://scripts/game/texts.gd" id="7_xp6q4"]
 [ext_resource type="Texture2D" uid="uid://cxswbsf5byuy1" path="res://icon.svg" id="8_a174r"]
+[ext_resource type="PackedScene" uid="uid://cwbbda5vd2ofb" path="res://scenes/characters/rice.tscn" id="9_ui3i6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gat3j"]
 texture = ExtResource("2_runy4")
@@ -1174,6 +1175,9 @@ offset_top = 288.0
 offset_right = 713.0
 offset_bottom = 319.0
 text = "(:"
+
+[node name="Rice" parent="." instance=ExtResource("9_ui3i6")]
+position = Vector2(385, 164)
 
 [connection signal="button_up" from="UI/Pause" to="UI" method="_on_pause_button_up"]
 [connection signal="button_up" from="UI/Pause Screen/VBoxContainer/VBoxContainer/Resume" to="UI" method="_on_resume_button_up"]
