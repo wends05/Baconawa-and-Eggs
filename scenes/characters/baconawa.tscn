@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bi37f5gm8dmgk"]
+[gd_scene load_steps=20 format=3 uid="uid://bi37f5gm8dmgk"]
 
 [ext_resource type="Script" path="res://scripts/game/baconawa.gd" id="1_2ge8w"]
 [ext_resource type="Texture2D" uid="uid://b67espc2fi1hf" path="res://assets/Sprout Lands - Sprites - Basic pack (2)/Characters/Basic Charakter Spritesheet.png" id="1_4x8a4"]
@@ -104,6 +104,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eni0p"]
+size = Vector2(14, 14)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xs22"]
 size = Vector2(14, 5)
 
@@ -130,6 +133,13 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Colliders" type="Node2D" parent="."]
+
+[node name="Main" type="Area2D" parent="Colliders"]
+collision_layer = 0
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Main"]
+shape = SubResource("RectangleShape2D_eni0p")
 
 [node name="Top" type="Area2D" parent="Colliders"]
 collision_layer = 4
@@ -164,3 +174,6 @@ position = Vector2(-7, 0)
 shape = SubResource("RectangleShape2D_j46u5")
 
 [node name="InternalTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Colliders/Main" to="." method="_on_main_area_entered"]
+[connection signal="body_exited" from="Colliders/Main" to="." method="_on_main_body_exited"]
