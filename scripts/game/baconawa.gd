@@ -99,10 +99,9 @@ func colliding(_body, collider: Area2D, isColliding):
 
 
 func _on_main_area_entered(area: Area2D) -> void:
-	print(typeof(area.get_parent()))
-	if area.get_parent() is Moon:
-		var moon : Moon = area.get_parent()
-		print("Moon")
+	var node = area.get_parent()
+	if node is Moon and not node.is_collected:
+		moons_collected += 1
 		buff_id = randi_range(1, 3)
 
 func move():
@@ -144,6 +143,6 @@ func buff_handler():
 				set_collision_mask_value(2, false)
 				buff_id = 0
 
-func _on_main_body_exited(body: Node2D) -> void:
+func _on_main_body_exited(_body: Node2D) -> void:
 	set_collision_mask_value(2, true)
 	print("Please work")

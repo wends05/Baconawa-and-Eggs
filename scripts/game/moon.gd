@@ -1,7 +1,6 @@
 extends Sprite2D
 
 class_name Moon
-var hello_world = "Hello World"
 
 # created this in case we use an animation
 # and to make sure if the moon is collected already
@@ -15,8 +14,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Baconawa:
 		if is_collected:
 			return
-
-		body.moons_collected += 1
 		is_collected = true
 		var tween = create_tween()
 		tween.parallel().tween_property(self, "scale", Vector2(0.5, 0.5), 0.5)
