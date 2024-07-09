@@ -1026,6 +1026,9 @@ position = Vector2(560, 128)
 position = Vector2(56, 56)
 game = NodePath("..")
 
+[node name="Rice" parent="." instance=ExtResource("9_ui3i6")]
+position = Vector2(385, 164)
+
 [node name="UI" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
@@ -1175,9 +1178,6 @@ offset_top = 288.0
 offset_right = 713.0
 offset_bottom = 319.0
 text = "(:"
-
-[node name="Rice" parent="." instance=ExtResource("9_ui3i6")]
-position = Vector2(385, 164)
 
 [connection signal="button_up" from="UI/Pause" to="UI" method="_on_pause_button_up"]
 [connection signal="button_up" from="UI/Pause Screen/VBoxContainer/VBoxContainer/Resume" to="UI" method="_on_resume_button_up"]

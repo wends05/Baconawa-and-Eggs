@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 class_name Baconawa
 @export var SPEED: int = 100
-@export var game : Game
+@export var game: Game
 
 # Reference on children
 @onready var anim = $Animations
@@ -28,7 +28,7 @@ var right_colliding = false
 var last_input = ""
 
 # Game proper variables
-var moons_collected : int = 0
+var moons_collected: int = 0
 var game_finished = false
 
 func _ready() -> void:
@@ -45,7 +45,7 @@ func finish_game():
 	game_finished = true
 	anim.play("idle")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 
 	# refer to the game.game_ended signal
 	if game_finished:
@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 		last_input = "up"
 	if Input.is_action_pressed("b_left"):
 		if not left_colliding:
-			velocity = Vector2(-SPEED, 0)
+			velocity = Vector2( - SPEED, 0)
 			anim.play("move_left")
 		last_input = "left"
 	if Input.is_action_pressed("b_right"):
@@ -93,5 +93,5 @@ func colliding(_body, collider: Area2D, isColliding):
 		"Left":
 			left_colliding = isColliding
 			if not isColliding and last_input == "left":
-				velocity = Vector2(-SPEED, 0)
+				velocity = Vector2( - SPEED, 0)
 				anim.play("move_left")
