@@ -32,5 +32,5 @@ text = "Play"
 layout_mode = 2
 text = "Instructions"
 
-[connection signal="button_up" from="VBoxContainer/Play" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/Play" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="VBoxContainer/Instructions" to="." method="_on_instructions_button_up"]
