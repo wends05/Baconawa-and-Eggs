@@ -5,7 +5,6 @@ class_name Game
 var game_finished = false
 
 signal game_ended
-
 @onready var baconawa : Baconawa = $Baconawa
 @onready var transition = $UI/Transition
 @onready var timer = $Timer
@@ -26,7 +25,7 @@ func _ready() -> void:
 
 # only checks for end game, and emit the game_ended signal to other Nodes
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if ((can_check_timer and timer.is_stopped()) or baconawa.moons_collected == 7) and not game_finished:
 		game_ended.emit()
 		game_finished = true

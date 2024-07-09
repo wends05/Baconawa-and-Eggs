@@ -3,7 +3,7 @@ extends CharacterBody2D
 #variables
 
 class_name Rice
-var player_number = 1
+@export var player_number = 1
 @export var SPEED: int = 90
 @export var game: Game
 @onready var anim = $Animations
@@ -14,7 +14,7 @@ var player_number = 1
 @onready var left_collider = $Colliders/Left
 @onready var right_collider = $Colliders/Right
 
-#???
+# will be used for delays
 @onready var internal_timer = $InternalTimer
 
 #collider check
@@ -35,7 +35,6 @@ var r_controls = []
 func _ready() -> void:
 
 	#colliders
-	anim.play("idle")
 	anim.play("idle")
 	for collider: Area2D in [top_collider, down_collider, left_collider, right_collider]:
 		collider.connect("body_entered", colliding.bind(collider, true))
@@ -101,3 +100,9 @@ func colliding(_body, collider: Area2D, isColliding):
 			if not isColliding and last_input == "left":
 				velocity = Vector2( - SPEED, 0)
 				anim.play("move_left")
+
+func respawn():
+	visible = false
+	internal_timer.start(2)
+	await internal_timer.timeout
+	visible = true
