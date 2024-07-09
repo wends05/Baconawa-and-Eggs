@@ -46,52 +46,61 @@ func finish_game():
 	anim.play("idle")
 
 func _physics_process(_delta: float) -> void:
-
 	# refer to the game.game_ended signal
 	if game_finished:
 		return
 
 	if Input.is_action_pressed("b_down"):
-		if not down_colliding:
-			velocity = Vector2(0, SPEED)
-			anim.play("move_down")
 		last_input = "down"
+		if not down_colliding:
+			move()
 	if Input.is_action_pressed("b_up"):
-		if not top_colliding:
-			velocity = Vector2(0, -SPEED)
-			anim.play("move_up")
 		last_input = "up"
+		if not top_colliding:
+			move()
 	if Input.is_action_pressed("b_left"):
-		if not left_colliding:
-			velocity = Vector2( - SPEED, 0)
-			anim.play("move_left")
 		last_input = "left"
+		if not left_colliding:
+			move()
 	if Input.is_action_pressed("b_right"):
-		if not right_colliding:
-			velocity = Vector2(SPEED, 0)
-			anim.play("move_right")
 		last_input = "right"
+		if not right_colliding:
+			move()
 	move_and_slide()
 
 func colliding(_body, collider: Area2D, isColliding):
 	match collider.name:
 		"Top":
 			top_colliding = isColliding
-			if not isColliding and last_input == "up":
-				velocity = Vector2(0, -SPEED)
-				anim.play("move_up")
 		"Down":
 			down_colliding = isColliding
-			if not isColliding and last_input == "down":
-				velocity = Vector2(0, SPEED)
-				anim.play("move_down")
-		"Right":
-			right_colliding = isColliding
-			if not isColliding and last_input == "right":
-				velocity = Vector2(SPEED, 0)
-				anim.play("move_right")
 		"Left":
 			left_colliding = isColliding
-			if not isColliding and last_input == "left":
-				velocity = Vector2( - SPEED, 0)
-				anim.play("move_left")
+		"Right":
+			right_colliding = isColliding
+	if not isColliding:
+		move()
+
+
+func _on_main_area_entered(area: Area2D) -> void:
+	print(typeof(area.get_parent()))
+	if area.get_parent() is Moon:
+		var moon : Moon = area.get_parent()
+		print("Moon")
+		buff_id = randi_range(1, 3)
+
+func move():
+	match last_input:
+		"up":
+			velocity = Vector2(0, -SPEED)
+			anim.play("move_up")
+		"down":
+			velocity = Vector2(0, SPEED)
+			anim.play("move_down")
+		"left":
+			velocity = Vector2(-SPEED, 0)
+			anim.play("move_left")
+		"right":
+				velocity = Vector2(SPEED, 0)
+				anim.play("move_right")
+
