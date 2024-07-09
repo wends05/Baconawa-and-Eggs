@@ -49,6 +49,7 @@ position = Vector2(560, 128)
 
 [node name="Baconawa" parent="." node_paths=PackedStringArray("game") instance=ExtResource("5_l56yx")]
 position = Vector2(56, 56)
+collision_mask = 34
 game = NodePath("..")
 
 [node name="Rice Players" type="Node2D" parent="." node_paths=PackedStringArray("baconawa")]
@@ -57,6 +58,7 @@ baconawa = NodePath("../Baconawa")
 
 [node name="Rice" parent="Rice Players" node_paths=PackedStringArray("game") instance=ExtResource("6_db1dq")]
 position = Vector2(385, 164)
+collision_mask = 34
 game = NodePath("../..")
 
 [node name="Rice2" parent="Rice Players" node_paths=PackedStringArray("game") instance=ExtResource("6_db1dq")]

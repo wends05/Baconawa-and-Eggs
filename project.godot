@@ -130,6 +130,7 @@ r3_right={
 2d_physics/layer_3="Baconawa"
 2d_physics/layer_4="Rice"
 2d_physics/layer_5="Moon"
+2d_physics/layer_6="World Edges"
 
 [rendering]
 
