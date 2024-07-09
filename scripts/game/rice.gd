@@ -49,7 +49,7 @@ func _ready() -> void:
 	]
 	#up-0, down-1, left-2, right-3
 
-#loop event
+# loop event
 func _physics_process(_delta: float) -> void:
 	# refer to the game.game_ended signal
 	if game_finished:
@@ -101,6 +101,7 @@ func colliding(_body, collider: Area2D, isColliding):
 				velocity = Vector2( - SPEED, 0)
 				anim.play("move_left")
 
+# Used by the Rice Players nga Node2D
 func respawn():
 	visible = false
 	internal_timer.start(2)

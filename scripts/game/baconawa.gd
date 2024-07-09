@@ -42,6 +42,21 @@ const BUFFS = {
 signal kill_someone
 var moving_through_wall = false
 
+func move():
+	match last_input:
+		"up":
+			velocity = Vector2(0, -SPEED)
+			anim.play("move_up")
+		"down":
+			velocity = Vector2(0, SPEED)
+			anim.play("move_down")
+		"left":
+			velocity = Vector2(-SPEED, 0)
+			anim.play("move_left")
+		"right":
+			velocity = Vector2(SPEED, 0)
+			anim.play("move_right")
+
 func _ready() -> void:
 	anim.play("idle")
 	for collider: Area2D in [top_collider, down_collider, left_collider, right_collider]:
@@ -63,6 +78,7 @@ func _physics_process(_delta: float) -> void:
 
 	buff_handler()
 
+	# stops getting movement inputs from the player while on a wall
 	if moving_through_wall:
 		return
 
@@ -82,6 +98,7 @@ func _physics_process(_delta: float) -> void:
 		last_input = "right"
 		if not right_colliding:
 			move()
+
 	move_and_slide()
 
 func colliding(_body, collider: Area2D, isColliding):
@@ -97,33 +114,11 @@ func colliding(_body, collider: Area2D, isColliding):
 	if not isColliding:
 		move()
 
-
-func _on_main_area_entered(area: Area2D) -> void:
-	var node = area.get_parent()
-	if node is Moon and not node.is_collected:
-		moons_collected += 1
-		buff_id = randi_range(1, 3)
-
-func move():
-	match last_input:
-		"up":
-			velocity = Vector2(0, -SPEED)
-			anim.play("move_up")
-		"down":
-			velocity = Vector2(0, SPEED)
-			anim.play("move_down")
-		"left":
-			velocity = Vector2(-SPEED, 0)
-			anim.play("move_left")
-		"right":
-			velocity = Vector2(SPEED, 0)
-			anim.play("move_right")
-
+# checks for buffs if buff_id is not 0
 func buff_handler():
 	if Input.is_action_just_pressed("b_activate"):
-
 		match buff_id:
-			1:
+			1: #Speed
 				SPEED = 150
 				internal_timer.start(1.5)
 				move()
@@ -131,10 +126,10 @@ func buff_handler():
 				await internal_timer.timeout
 				SPEED = 100
 				move()
-			2:
+			2: #Kill someone
 				buff_id = 0
 				kill_someone.emit()
-			3:
+			3: #Move to a wall
 				print("Collision mask 2 set to false")
 				top_colliding = false
 				down_colliding = false
@@ -143,6 +138,13 @@ func buff_handler():
 				set_collision_mask_value(2, false)
 				buff_id = 0
 
-func _on_main_body_exited(_body: Node2D) -> void:
-	set_collision_mask_value(2, true)
-	print("Please work")
+# Moon collector function
+func _on_main_collider_area_entered(area: Area2D) -> void:
+	var node = area.get_parent()
+	if node is Moon and not node.is_collected:
+		moons_collected += 1
+		buff_id = randi_range(1, 3)
+
+# If exited a wall, add the collision mask value again
+func _on_main_collider_body_exited(body: Node2D) -> void:
+		set_collision_mask_value(2, true)
