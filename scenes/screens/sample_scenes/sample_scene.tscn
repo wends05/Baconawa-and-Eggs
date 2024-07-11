@@ -56,17 +56,19 @@ game = NodePath("..")
 script = ExtResource("5_w0e2f")
 baconawa = NodePath("../Baconawa")
 
-[node name="Rice" parent="Rice Players" node_paths=PackedStringArray("game") instance=ExtResource("6_db1dq")]
+[node name="Rice1" parent="Rice Players" node_paths=PackedStringArray("game") instance=ExtResource("6_db1dq")]
 position = Vector2(385, 164)
 collision_mask = 34
 game = NodePath("../..")
 
 [node name="Rice2" parent="Rice Players" node_paths=PackedStringArray("game") instance=ExtResource("6_db1dq")]
 position = Vector2(504, 184)
+player_number = 2
 game = NodePath("../..")
 
 [node name="Rice3" parent="Rice Players" node_paths=PackedStringArray("game") instance=ExtResource("6_db1dq")]
 position = Vector2(504, 280)
+player_number = 3
 game = NodePath("../..")
 
 [node name="Timer" type="Timer" parent="Rice Players"]

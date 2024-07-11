@@ -55,22 +55,22 @@ func _physics_process(_delta: float) -> void:
 	if game_finished:
 		return
 
-	if Input.is_action_pressed("b_down"):
+	if Input.is_action_pressed(r_controls[1]):
 		if not down_colliding:
 			velocity = Vector2(0, SPEED)
 			anim.play("move_down")
 		last_input = "down"
-	if Input.is_action_pressed("b_up"):
+	if Input.is_action_pressed(r_controls[0]):
 		if not top_colliding:
 			velocity = Vector2(0, -SPEED)
 			anim.play("move_up")
 		last_input = "up"
-	if Input.is_action_pressed("b_left"):
+	if Input.is_action_pressed(r_controls[2]):
 		if not left_colliding:
 			velocity = Vector2( - SPEED, 0)
 			anim.play("move_left")
 		last_input = "left"
-	if Input.is_action_pressed("b_right"):
+	if Input.is_action_pressed(r_controls[3]):
 		if not right_colliding:
 			velocity = Vector2(SPEED, 0)
 			anim.play("move_right")
