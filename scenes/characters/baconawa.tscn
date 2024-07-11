@@ -134,11 +134,11 @@ autoplay = "idle"
 
 [node name="Colliders" type="Node2D" parent="."]
 
-[node name="Main" type="Area2D" parent="Colliders"]
+[node name="Main Collider" type="Area2D" parent="Colliders"]
 collision_layer = 0
 collision_mask = 18
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Main"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Main Collider"]
 shape = SubResource("RectangleShape2D_eni0p")
 
 [node name="Top" type="Area2D" parent="Colliders"]
@@ -175,5 +175,5 @@ shape = SubResource("RectangleShape2D_j46u5")
 
 [node name="InternalTimer" type="Timer" parent="."]
 
-[connection signal="area_entered" from="Colliders/Main" to="." method="_on_main_area_entered"]
-[connection signal="body_exited" from="Colliders/Main" to="." method="_on_main_body_exited"]
+[connection signal="area_entered" from="Colliders/Main Collider" to="." method="_on_main_collider_area_entered"]
+[connection signal="body_exited" from="Colliders/Main Collider" to="." method="_on_main_collider_body_exited"]
