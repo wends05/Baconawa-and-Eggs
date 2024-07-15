@@ -175,5 +175,7 @@ shape = SubResource("RectangleShape2D_j46u5")
 
 [node name="InternalTimer" type="Timer" parent="."]
 
+[node name="MoveTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Colliders/Main Collider" to="." method="_on_main_collider_area_entered"]
 [connection signal="body_exited" from="Colliders/Main Collider" to="." method="_on_main_collider_body_exited"]

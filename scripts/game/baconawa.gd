@@ -16,6 +16,7 @@ class_name Baconawa
 @onready var right_collider = $Colliders/Right
 
 @onready var internal_timer = $InternalTimer
+@onready var move_timer = $InternalTimer
 
 # information used if baconawa can change directions
 var down_colliding = false
@@ -102,10 +103,14 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func colliding(_body, collider: Area2D, isColliding):
+	move_timer.start(0.1)
+	await move_timer
 	match collider.name:
 		"Top":
 			top_colliding = isColliding
-			if last_input == "up" and not isColliding: move()
+			if last_input == "up" and not isColliding:
+
+				move()
 		"Down":
 			down_colliding = isColliding
 			if last_input == "down" and not isColliding: move()
@@ -115,6 +120,7 @@ func colliding(_body, collider: Area2D, isColliding):
 		"Right":
 			right_colliding = isColliding
 			if last_input == "right" and not isColliding: move()
+
 
 # checks for buffs if buff_id is not 0
 func buff_handler():

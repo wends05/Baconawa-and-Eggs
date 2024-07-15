@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://gh2pejm23613"]
+[gd_scene load_steps=9 format=3 uid="uid://gh2pejm23613"]
 
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_a42or"]
 [ext_resource type="TileSet" uid="uid://cb3qf23gojdcm" path="res://resources/TileSet.res" id="2_nycjy"]
@@ -7,11 +7,13 @@
 [ext_resource type="Script" path="res://scripts/game/rice_players.gd" id="5_w0e2f"]
 [ext_resource type="PackedScene" uid="uid://cwbbda5vd2ofb" path="res://scenes/characters/rice.tscn" id="6_db1dq"]
 [ext_resource type="Script" path="res://scripts/game/UI.gd" id="7_h1grr"]
-[ext_resource type="Script" path="res://scripts/game/texts.gd" id="8_8q4xg"]
 [ext_resource type="Texture2D" uid="uid://cxswbsf5byuy1" path="res://icon.svg" id="9_cdske"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("baconawa", "timer", "ui")]
 script = ExtResource("1_a42or")
+baconawa = NodePath("Baconawa")
+timer = NodePath("Timer")
+ui = NodePath("UI")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -149,14 +151,12 @@ text = "Resume"
 layout_mode = 2
 text = "Quit"
 
-[node name="debug stuff" type="Label" parent="UI" node_paths=PackedStringArray("baconawa")]
+[node name="debug stuff" type="Label" parent="UI"]
 layout_mode = 0
 offset_top = 192.0
 offset_right = 128.0
 offset_bottom = 384.0
 text = "label here"
-script = ExtResource("8_8q4xg")
-baconawa = NodePath("../../Baconawa")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
 layout_mode = 1
