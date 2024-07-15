@@ -73,7 +73,7 @@ game = NodePath("../..")
 
 [node name="Timer" type="Timer" parent="Rice Players"]
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("baconawa", "timer")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
@@ -84,6 +84,8 @@ offset_bottom = 416.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("7_h1grr")
+baconawa = NodePath("../Baconawa")
+timer = NodePath("../Timer")
 
 [node name="Pause" type="Button" parent="UI"]
 layout_mode = 1

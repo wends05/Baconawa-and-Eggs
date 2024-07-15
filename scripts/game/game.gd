@@ -5,9 +5,10 @@ class_name Game
 var game_finished = false
 
 signal game_ended
-@onready var baconawa : Baconawa = $Baconawa
-@onready var transition = $UI/Transition
-@onready var timer = $Timer
+@export var baconawa : Baconawa
+@export var timer: Timer
+@export var ui : UI
+@onready var transition = ui.transition
 
 # since i made a slight delay for the fade in transition
 # can_check_timer will be true after the fade transition

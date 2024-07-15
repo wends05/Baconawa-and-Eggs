@@ -1,10 +1,12 @@
 extends Control
 
+class_name UI
 @onready var pause_screen = $"Pause Screen"
-@onready var baconawa : Baconawa = $"../Baconawa"
+@export var baconawa : Baconawa
 @onready var moons_collected_label = $"HBoxContainer/Moon Info"
-@onready var timer = $"../Timer"
-
+@export var timer: Timer
+@onready var debugTexts = $"debug stuff"
+@onready var transition = $Transition
 # Pause screen functions
 
 func _on_resume_button_up() -> void:
@@ -29,3 +31,20 @@ func _process(_delta: float) -> void:
 	moons_collected_label.text = "%s" % baconawa.moons_collected
 	if Input.is_action_just_released("esc"):
 		pause_game(not get_tree().paused)
+
+	debugTexts.text = "top:%s
+	down:%s
+	left:%s
+	right:%s
+
+	last input:%s
+	%s
+	%s" % [
+		baconawa.top_colliding,
+		baconawa.down_colliding,
+		baconawa.left_colliding,
+		baconawa.right_colliding,
+		baconawa.last_input,
+		baconawa.BUFFS[baconawa.buff_id],
+		baconawa.SPEED
+		]
