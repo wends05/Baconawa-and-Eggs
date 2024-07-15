@@ -36,15 +36,17 @@ func _process(_delta: float) -> void:
 	down:%s
 	left:%s
 	right:%s
-
 	last input:%s
+
 	%s
-	%s" % [
+	%s
+	buff cd:%s" % [
 		baconawa.top_colliding,
 		baconawa.down_colliding,
 		baconawa.left_colliding,
 		baconawa.right_colliding,
 		baconawa.last_input,
-		baconawa.BUFFS[baconawa.buff_id],
-		baconawa.SPEED
+		baconawa.buffs,
+		baconawa.SPEED,
+		baconawa.buff_cooldown
 		]

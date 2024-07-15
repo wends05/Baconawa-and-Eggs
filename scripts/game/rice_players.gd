@@ -4,8 +4,8 @@ class_name RiceHandler
 
 @export var baconawa : Baconawa
 @onready var timer = $Timer
+
 func _ready() -> void:
-	if not baconawa: baconawa = $"../Baconawa"
 	baconawa.kill_someone.connect(kill_someone)
 
 func kill_someone():

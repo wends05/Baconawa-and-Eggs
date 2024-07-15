@@ -101,7 +101,7 @@ func colliding(_body, collider: Area2D, isColliding):
 				velocity = Vector2( - SPEED, 0)
 				anim.play("move_left")
 
-# Used by the Rice Players nga Node2D
+# Used by the Rice Players nga Node2Ds
 func respawn():
 	visible = false
 	internal_timer.start(2)

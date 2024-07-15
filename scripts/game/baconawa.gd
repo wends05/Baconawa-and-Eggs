@@ -16,7 +16,8 @@ class_name Baconawa
 @onready var right_collider = $Colliders/Right
 
 @onready var internal_timer = $InternalTimer
-@onready var move_timer = $InternalTimer
+@onready var move_timer = $MoveTimer
+@onready var buff_timer = $BuffTimer
 
 # information used if baconawa can change directions
 var down_colliding = false
@@ -33,7 +34,8 @@ var moons_collected: int = 0
 var game_finished = false
 
 # Buffs and debuffs
-var buff_id = 0
+var buffs : Array[int] = []
+var buff_cooldown = false
 const BUFFS = {
 	0: "No Buff",
 	1: "Speed",
@@ -108,9 +110,7 @@ func colliding(_body, collider: Area2D, isColliding):
 	match collider.name:
 		"Top":
 			top_colliding = isColliding
-			if last_input == "up" and not isColliding:
-
-				move()
+			if last_input == "up" and not isColliding:move()
 		"Down":
 			down_colliding = isColliding
 			if last_input == "down" and not isColliding: move()
@@ -124,18 +124,18 @@ func colliding(_body, collider: Area2D, isColliding):
 
 # checks for buffs if buff_id is not 0
 func buff_handler():
-	if Input.is_action_just_pressed("b_activate"):
-		match buff_id:
+	if Input.is_action_just_pressed("b_activate") and not buff_cooldown:
+		buff_cooldown = true
+		match buffs[0]:
 			1: #Speed
 				SPEED = 150
-				internal_timer.start(1.5)
+				internal_timer.start(3)
+				buffs.pop_front()
 				move()
-				buff_id = 0
 				await internal_timer.timeout
 				SPEED = 100
-				move()
 			2: #Kill someone
-				buff_id = 0
+				buffs.pop_front()
 				kill_someone.emit()
 			3: #Move to a wall
 				print("Collision mask 2 set to false")
@@ -144,14 +144,17 @@ func buff_handler():
 				left_colliding = false
 				right_colliding = false
 				set_collision_mask_value(2, false)
-				buff_id = 0
+				buffs.pop_front()
+		buff_timer.start(3)
+		await buff_timer.timeout
+		buff_cooldown = false
 
 # Moon collector function
 func _on_main_collider_area_entered(area: Area2D) -> void:
 	var node = area.get_parent()
 	if node is Moon and not node.is_collected:
 		moons_collected += 1
-		buff_id = randi_range(1, 3)
+		if len(buffs) != 2: buffs.append(randi_range(1,3))
 
 # If exited a wall, add the collision mask value again
 func _on_main_collider_body_exited(body: Node2D) -> void:
