@@ -105,14 +105,16 @@ func colliding(_body, collider: Area2D, isColliding):
 	match collider.name:
 		"Top":
 			top_colliding = isColliding
+			if last_input == "up" and not isColliding: move()
 		"Down":
 			down_colliding = isColliding
+			if last_input == "down" and not isColliding: move()
 		"Left":
 			left_colliding = isColliding
+			if last_input == "left" and not isColliding: move()
 		"Right":
 			right_colliding = isColliding
-	if not isColliding:
-		move()
+			if last_input == "right" and not isColliding: move()
 
 # checks for buffs if buff_id is not 0
 func buff_handler():
