@@ -59,21 +59,25 @@ func _physics_process(_delta: float) -> void:
 		if not down_colliding:
 			velocity = Vector2(0, SPEED)
 			anim.play("move_down")
+			anim.flip_h = false
 		last_input = "down"
 	if Input.is_action_pressed(r_controls[0]):
 		if not top_colliding:
 			velocity = Vector2(0, -SPEED)
 			anim.play("move_up")
+			anim.flip_h = false
 		last_input = "up"
 	if Input.is_action_pressed(r_controls[2]):
 		if not left_colliding:
 			velocity = Vector2( - SPEED, 0)
-			anim.play("move_left")
+			anim.play("move_side")
+			anim.flip_h = false
 		last_input = "left"
 	if Input.is_action_pressed(r_controls[3]):
 		if not right_colliding:
 			velocity = Vector2(SPEED, 0)
-			anim.play("move_right")
+			anim.play("move_side")
+			anim.flip_h = true
 		last_input = "right"
 	move_and_slide()
 
@@ -85,21 +89,25 @@ func colliding(_body, collider: Area2D, isColliding):
 			if not isColliding and last_input == "up":
 				velocity = Vector2(0, -SPEED)
 				anim.play("move_up")
+				anim.flip_h = false
 		"Down":
 			down_colliding = isColliding
 			if not isColliding and last_input == "down":
 				velocity = Vector2(0, SPEED)
 				anim.play("move_down")
+				anim.flip_h = false
 		"Right":
 			right_colliding = isColliding
 			if not isColliding and last_input == "right":
 				velocity = Vector2(SPEED, 0)
-				anim.play("move_right")
+				anim.play("move_side")
+				anim.flip_h = true
 		"Left":
 			left_colliding = isColliding
 			if not isColliding and last_input == "left":
 				velocity = Vector2( - SPEED, 0)
-				anim.play("move_left")
+				anim.play("move_side")
+				anim.flip_h = false
 
 # Used by the Rice Players nga Node2Ds
 func respawn():
