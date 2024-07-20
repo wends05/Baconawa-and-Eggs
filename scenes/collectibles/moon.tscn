@@ -1,14 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://biurlxqhbna7a"]
+[gd_scene load_steps=11 format=3 uid="uid://biurlxqhbna7a"]
 
-[ext_resource type="Texture2D" uid="uid://cxswbsf5byuy1" path="res://icon.svg" id="1_gx222"]
+[ext_resource type="Texture2D" uid="uid://cgfhy1pnovoh3" path="res://assets/main_sprites/item/spr_egg.png" id="2_6y22a"]
 [ext_resource type="Script" path="res://scripts/game/moon.gd" id="2_sxuni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxypx"]
 size = Vector2(96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u2ug"]
+atlas = ExtResource("2_6y22a")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ws4"]
+atlas = ExtResource("2_6y22a")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sxgc"]
+atlas = ExtResource("2_6y22a")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrtt8"]
+atlas = ExtResource("2_6y22a")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk1g1"]
+atlas = ExtResource("2_6y22a")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rydph"]
+atlas = ExtResource("2_6y22a")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lfo8r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u2ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52ws4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sxgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrtt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk1g1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rydph")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="Moon" type="Sprite2D"]
 scale = Vector2(0.125, 0.125)
-texture = ExtResource("1_gx222")
 script = ExtResource("2_sxuni")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -19,5 +68,10 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_vxypx")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_lfo8r")
+frame_progress = 0.434614
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

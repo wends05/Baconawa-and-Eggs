@@ -65,7 +65,6 @@ game = NodePath("../..")
 
 [node name="Rice2" parent="Rice Players" node_paths=PackedStringArray("game") instance=ExtResource("6_db1dq")]
 position = Vector2(504, 184)
-player_number = 2
 game = NodePath("../..")
 
 [node name="Rice3" parent="Rice Players" node_paths=PackedStringArray("game") instance=ExtResource("6_db1dq")]

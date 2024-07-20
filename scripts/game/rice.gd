@@ -3,10 +3,11 @@ extends CharacterBody2D
 #variables
 
 class_name Rice
-@export var player_number = 1
+@export var player_number = 2
 @export var SPEED: int = 90
 @export var game: Game
 @onready var anim = $Animations
+
 
 #collider checks
 @onready var top_collider = $Colliders/Top
@@ -48,7 +49,14 @@ func _ready() -> void:
 		"r%d_right" % player_number,
 	]
 	#up-0, down-1, left-2, right-3
-
+	
+	var material = anim.material
+	if material is ShaderMaterial:
+		# Set the shader parameter to the player number
+		material.set("shader_parameter/playernum", player_number)
+	else:
+		print("Material is not a ShaderMaterial.")
+	
 # loop event
 func _physics_process(_delta: float) -> void:
 	# refer to the game.game_ended signal
