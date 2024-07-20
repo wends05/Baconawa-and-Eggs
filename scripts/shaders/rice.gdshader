@@ -28,6 +28,7 @@ void fragment() {
 	// Get the current texture color at this fragment
     vec4 spr_color = texture(TEXTURE, UV);
 	
+	//depending on player number, the headband color changes
 	if (playernum == 2) {
 		if (spr_color == head) {
 		COLOR = headB;

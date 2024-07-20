@@ -50,9 +50,10 @@ func _ready() -> void:
 	]
 	#up-0, down-1, left-2, right-3
 	
-	var material = anim.material
-	if material is ShaderMaterial:
-		# Set the shader parameter to the player number
+	
+	var material = anim.material #presumably stores the material in animations node
+	if material is ShaderMaterial: #check
+		# presumably the shader parameter to the player number
 		material.set("shader_parameter/playernum", player_number)
 	else:
 		print("Material is not a ShaderMaterial.")
