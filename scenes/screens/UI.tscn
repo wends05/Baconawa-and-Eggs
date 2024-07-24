@@ -79,9 +79,9 @@ text = "Quit"
 
 [node name="debug stuff" type="Label" parent="."]
 layout_mode = 0
-offset_top = 192.0
+offset_top = 63.0
 offset_right = 128.0
-offset_bottom = 384.0
+offset_bottom = 255.0
 text = "label here"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
