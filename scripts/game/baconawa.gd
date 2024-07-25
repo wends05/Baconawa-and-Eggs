@@ -105,8 +105,6 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func colliding(_body, collider: Area2D, isColliding):
-	move_timer.start(0.1)
-	await move_timer
 	match collider.name:
 		"Top":
 			top_colliding = isColliding
@@ -157,5 +155,5 @@ func _on_main_collider_area_entered(area: Area2D) -> void:
 		if len(buffs) != 2: buffs.append(randi_range(1,3))
 
 # If exited a wall, add the collision mask value again
-func _on_main_collider_body_exited(body: Node2D) -> void:
+func _on_main_collider_body_exited(_body: Node2D) -> void:
 		set_collision_mask_value(2, true)

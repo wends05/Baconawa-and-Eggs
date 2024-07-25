@@ -72,6 +72,7 @@ shape = SubResource("RectangleShape2D_vxypx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_lfo8r")
+autoplay = "default"
 frame_progress = 0.434614
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

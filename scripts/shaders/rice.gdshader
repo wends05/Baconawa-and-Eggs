@@ -24,47 +24,44 @@ void vertex() {
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	
 	// Get the current texture color at this fragment
     vec4 spr_color = texture(TEXTURE, UV);
-	
+
 	//depending on player number, the headband color changes
 	if (playernum == 2) {
 		if (spr_color == head) {
-		COLOR = headB;
+			COLOR = headB;
 		} else {
-		COLOR = spr_color;
+			COLOR = spr_color;
 		}
 		if (spr_color == tail_up) {
-		COLOR = tail_upB;
+			COLOR = tail_upB;
 		} else {
-		COLOR = spr_color;
+			COLOR = spr_color;
 		}
 		if (spr_color == tail_down) {
-		COLOR = tail_downB;
+			COLOR = tail_downB;
 		} else {
-		COLOR = spr_color;
+			COLOR = spr_color;
 		}
 	}
 	else if (playernum == 3) {
 		if (spr_color == head) {
-		COLOR = headY;
+			COLOR = headY;
 		} else {
-		COLOR = spr_color;
+			COLOR = spr_color;
 		}
 		if (spr_color == tail_up) {
-		COLOR = tail_upY;
+			COLOR = tail_upY;
 		} else {
-		COLOR = spr_color;
+			COLOR = spr_color;
 		}
 		if (spr_color == tail_down) {
-		COLOR = tail_downY;
+			COLOR = tail_downY;
 		} else {
-		COLOR = spr_color;
+			COLOR = spr_color;
 		}
 	}
-	
-	
 }
 
 //void light() {

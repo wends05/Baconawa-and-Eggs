@@ -199,7 +199,7 @@ shape = SubResource("RectangleShape2D_osxse")
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_7v3t6")
 sprite_frames = SubResource("SpriteFrames_skxty")
-animation = &"move_side"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Colliders" type="Node2D" parent="."]

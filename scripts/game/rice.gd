@@ -49,15 +49,16 @@ func _ready() -> void:
 		"r%d_right" % player_number,
 	]
 	#up-0, down-1, left-2, right-3
-	
-	
-	var material = anim.material #presumably stores the material in animations node
-	if material is ShaderMaterial: #check
+
+
+	var mat = anim.material
+	#presumably stores the material in animations node
+	if mat is ShaderMaterial: #check
 		# presumably the shader parameter to the player number
-		material.set("shader_parameter/playernum", player_number)
+		mat.set("shader_parameter/playernum", player_number)
 	else:
 		print("Material is not a ShaderMaterial.")
-	
+
 # loop event
 func _physics_process(_delta: float) -> void:
 	# refer to the game.game_ended signal
