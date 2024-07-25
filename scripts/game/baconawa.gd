@@ -6,6 +6,7 @@ extends CharacterBody2D
 class_name Baconawa
 @export var SPEED: int = 100
 @export var game: Game
+@export var body: BaconawaBody
 
 # Reference on children
 @onready var anim = $Animations
@@ -28,6 +29,7 @@ var right_colliding = false
 # checks last input to identify where to go after finishing
 # colliding to a wall
 var last_input = ""
+var turn_position
 
 # Game proper variables
 var moons_collected: int = 0
@@ -103,6 +105,9 @@ func _physics_process(_delta: float) -> void:
 			move()
 
 	move_and_slide()
+	body.positionarr.append(position)
+	if body.positionarr.size() > 10:
+		body.positionarr.pop_front()
 
 func colliding(_body, collider: Area2D, isColliding):
 	match collider.name:

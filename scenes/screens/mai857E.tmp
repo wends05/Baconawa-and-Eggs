@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2tmulxwbqvkh"]
+[gd_scene load_steps=11 format=3 uid="uid://d2tmulxwbqvkh"]
 
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_no8oh"]
 [ext_resource type="PackedScene" uid="uid://bi37f5gm8dmgk" path="res://scenes/characters/baconawa.tscn" id="2_7ra4s"]
@@ -6,12 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cwfpw16sb0fu5" path="res://scenes/screens/UI.tscn" id="4_1ovr0"]
 [ext_resource type="PackedScene" uid="uid://bqs71ck5q0qco" path="res://scenes/characters/baconawa_body.tscn" id="4_v1hcl"]
 [ext_resource type="PackedScene" uid="uid://biurlxqhbna7a" path="res://scenes/collectibles/moon.tscn" id="5_865dh"]
-[ext_resource type="PackedScene" uid="uid://d2e7ooh1ot57g" path="res://scenes/characters/baconawa_body2.tscn" id="5_ufnnw"]
 [ext_resource type="Script" path="res://scripts/game/rice_players.gd" id="6_4ayyw"]
-[ext_resource type="Script" path="res://scripts/game/baconawa_body2.gd" id="6_piw8i"]
-[ext_resource type="PackedScene" uid="uid://c5yab657xgnig" path="res://scenes/characters/baconawa_body3.tscn" id="6_qwrcn"]
 [ext_resource type="PackedScene" uid="uid://cwbbda5vd2ofb" path="res://scenes/characters/rice.tscn" id="7_86cue"]
-[ext_resource type="Script" path="res://scripts/game/baconawa_body3.gd" id="8_4a0km"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgenw"]
 texture = ExtResource("2_83cv7")
@@ -490,23 +486,8 @@ position = Vector2(216, 248)
 game = NodePath("..")
 body = NodePath("../BaconawaBody")
 
-[node name="BaconawaBody" parent="." node_paths=PackedStringArray("head", "next") instance=ExtResource("4_v1hcl")]
+[node name="BaconawaBody" parent="." instance=ExtResource("4_v1hcl")]
 position = Vector2(202, 249)
-head = NodePath("../Baconawa")
-next = NodePath("../BaconawaBody2")
-
-[node name="BaconawaBody2" parent="." node_paths=PackedStringArray("head", "follow", "next") instance=ExtResource("5_ufnnw")]
-position = Vector2(188, 249)
-script = ExtResource("6_piw8i")
-head = NodePath("../Baconawa")
-follow = NodePath("../BaconawaBody")
-next = NodePath("../BaconawaBody3")
-
-[node name="BaconawaBody3" parent="." node_paths=PackedStringArray("head", "follow") instance=ExtResource("6_qwrcn")]
-position = Vector2(174, 249)
-script = ExtResource("8_4a0km")
-head = NodePath("../Baconawa")
-follow = NodePath("../BaconawaBody2")
 
 [node name="UI" parent="." node_paths=PackedStringArray("baconawa", "timer", "body") instance=ExtResource("4_1ovr0")]
 offset_right = 736.0
@@ -545,9 +526,7 @@ baconawa = NodePath("../Baconawa")
 position = Vector2(648, 152)
 
 [node name="Rice2" parent="Rice Players" instance=ExtResource("7_86cue")]
-position = Vector2(552, 88)
-player_number = 2
+position = Vector2(520, 186)
 
 [node name="Rice3" parent="Rice Players" instance=ExtResource("7_86cue")]
 position = Vector2(504, 120)
-player_number = 3
