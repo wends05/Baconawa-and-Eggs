@@ -3,7 +3,7 @@ extends CharacterBody2D
 #variables
 
 class_name Rice
-@export var player_number = 2
+@export var player_number = 1
 @export var SPEED: int = 90
 @export var game: Game
 @onready var anim = $Animations
@@ -32,6 +32,13 @@ var game_finished = false
 #multi controls
 var r_controls = []
 
+#shader colors
+var bandcolors = [
+	[Vector4(0.839, 0.024, 0.024, 1.0), Vector4(0.714, 0.012, 0.071, 1.0), Vector4(0.447,0., 0.114, 1.0)], #red
+	[Vector4(0.067, 0.129, 0.675, 1.0), Vector4(0.047, 0.106, 0.62, 1.0), Vector4(0.114, 0.012, 0.42, 1.0)], #blue
+	[Vector4(0.941, 0.827, 0.149, 1.0), Vector4(0.894, 0.784, 0.129, 1.0), Vector4(0.576, 0.592, 0.114, 1.0)], #yellow
+]
+
 #create evenet
 func _ready() -> void:
 
@@ -49,15 +56,11 @@ func _ready() -> void:
 		"r%d_right" % player_number,
 	]
 	#up-0, down-1, left-2, right-3
-
-
-	var mat = anim.material
-	#presumably stores the material in animations node
-	if mat is ShaderMaterial: #check
-		# presumably the shader parameter to the player number
-		mat.set("shader_parameter/playernum", player_number)
-	else:
-		print("Material is not a ShaderMaterial.")
+	
+	#shader
+	anim.material.set_shader_parameter("headB", bandcolors[player_number-1][0])
+	anim.material.set_shader_parameter("tail_upB", bandcolors[player_number-1][1])
+	anim.material.set_shader_parameter("tail_downB", bandcolors[player_number-1][2])
 
 # loop event
 func _physics_process(_delta: float) -> void:

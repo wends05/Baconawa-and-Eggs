@@ -123,6 +123,7 @@ position = Vector2(648, 152)
 
 [node name="Rice2" parent="Rice Players" instance=ExtResource("7_86cue")]
 position = Vector2(552, 88)
+player_number = 2
 
 [node name="Rice3" parent="Rice Players" instance=ExtResource("7_86cue")]
 position = Vector2(504, 120)

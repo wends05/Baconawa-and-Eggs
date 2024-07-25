@@ -1,22 +1,14 @@
 shader_type canvas_item;
 
-//color is dependent on player number
-uniform int playernum;
-
 //take colors from the default
-uniform vec4 head: source_color = vec4(1.0, 0.0, 0.0, 1.0); // RGBA
-uniform vec4 tail_up: source_color = vec4(1.0, 0.0, 0.0, 1.0); // RGBA
-uniform vec4 tail_down: source_color = vec4(1.0, 0.0, 0.0, 1.0); // RGBA
+uniform vec4 head: source_color = vec4(1.0, 0.0, 0.0, 1.0); 
+uniform vec4 tail_up: source_color = vec4(1.0, 1.0, 0.0, 1.0); 
+uniform vec4 tail_down: source_color = vec4(0.0, 1.0, 0.0, 1.0); 
 
 //blue
-uniform vec4 headB: source_color = vec4(0.0, 2.0, 2.0, 1.0);
-uniform vec4 tail_upB: source_color = vec4(1.0, 0.0, 0.0, 1.0); // RGBA
-uniform vec4 tail_downB: source_color = vec4(1.0, 0.0, 0.0, 1.0); // RGBA
-
-//yellow
-uniform vec4 headY: source_color = vec4(0.0, 2.0, 2.0, 1.0);
-uniform vec4 tail_upY: source_color = vec4(1.0, 0.0, 0.0, 1.0);
-uniform vec4 tail_downY: source_color = vec4(1.0, 0.0, 0.0, 1.0);
+uniform vec4 headB: source_color = vec4(0.8, 2.0, 2.0, 1.0);
+uniform vec4 tail_upB: source_color = vec4(1.0, 0.0, 0.0, 1.0);
+uniform vec4 tail_downB: source_color = vec4(1.0, 0.0, 0.0, 1.0); 
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -28,39 +20,14 @@ void fragment() {
     vec4 spr_color = texture(TEXTURE, UV);
 
 	//depending on player number, the headband color changes
-	if (playernum == 2) {
-		if (spr_color == head) {
-			COLOR = headB;
-		} else {
-			COLOR = spr_color;
-		}
-		if (spr_color == tail_up) {
-			COLOR = tail_upB;
-		} else {
-			COLOR = spr_color;
-		}
-		if (spr_color == tail_down) {
-			COLOR = tail_downB;
-		} else {
-			COLOR = spr_color;
-		}
+	if (spr_color == head) {
+		COLOR = headB;
 	}
-	else if (playernum == 3) {
-		if (spr_color == head) {
-			COLOR = headY;
-		} else {
-			COLOR = spr_color;
-		}
-		if (spr_color == tail_up) {
-			COLOR = tail_upY;
-		} else {
-			COLOR = spr_color;
-		}
-		if (spr_color == tail_down) {
-			COLOR = tail_downY;
-		} else {
-			COLOR = spr_color;
-		}
+	if (spr_color == tail_up) {
+		COLOR = tail_upB;
+	}
+	if (spr_color == tail_down) {
+		COLOR = tail_downB;
 	}
 }
 
