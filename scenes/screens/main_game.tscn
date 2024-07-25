@@ -518,7 +518,7 @@ metadata/_edit_lock_ = true
 [node name="Moons" type="Node2D" parent="."]
 
 [node name="Moon" parent="Moons" instance=ExtResource("5_865dh")]
-position = Vector2(168, 152)
+position = Vector2(201, 139)
 
 [node name="Moon2" parent="Moons" instance=ExtResource("5_865dh")]
 position = Vector2(440, 184)
@@ -545,7 +545,7 @@ baconawa = NodePath("../Baconawa")
 position = Vector2(648, 152)
 
 [node name="Rice2" parent="Rice Players" instance=ExtResource("7_86cue")]
-position = Vector2(552, 88)
+position = Vector2(569, 183)
 player_number = 2
 
 [node name="Rice3" parent="Rice Players" instance=ExtResource("7_86cue")]
