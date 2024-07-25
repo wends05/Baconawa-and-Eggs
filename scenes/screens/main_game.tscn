@@ -519,7 +519,6 @@ baconawa = NodePath("../Baconawa")
 position = Vector2(648, 152)
 
 [node name="Rice2" parent="Rice Players" instance=ExtResource("7_86cue")]
-position = Vector2(520, 186)
 position = Vector2(552, 88)
 player_number = 2
 
