@@ -52,15 +52,19 @@ func move():
 		"up":
 			velocity = Vector2(0, -SPEED)
 			anim.play("move_up")
+			anim.flip_h = false
 		"down":
 			velocity = Vector2(0, SPEED)
 			anim.play("move_down")
+			anim.flip_h = false
 		"left":
 			velocity = Vector2(-SPEED, 0)
-			anim.play("move_left")
+			anim.play("move_side")
+			anim.flip_h = true
 		"right":
 			velocity = Vector2(SPEED, 0)
-			anim.play("move_right")
+			anim.play("move_side")
+			anim.flip_h = false
 
 func _ready() -> void:
 	anim.play("idle")
