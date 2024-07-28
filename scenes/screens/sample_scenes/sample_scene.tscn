@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scripts/game/UI.gd" id="7_h1grr"]
 [ext_resource type="Texture2D" uid="uid://cxswbsf5byuy1" path="res://icon.svg" id="9_cdske"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("baconawa", "timer", "ui")]
+[node name="Game2" type="Node2D" node_paths=PackedStringArray("baconawa", "timer", "ui")]
 script = ExtResource("1_a42or")
 baconawa = NodePath("Baconawa")
 timer = NodePath("Timer")
@@ -51,7 +51,6 @@ position = Vector2(560, 128)
 
 [node name="Baconawa" parent="." node_paths=PackedStringArray("game") instance=ExtResource("5_l56yx")]
 position = Vector2(56, 56)
-collision_mask = 34
 game = NodePath("..")
 
 [node name="Rice Players" type="Node2D" parent="." node_paths=PackedStringArray("baconawa")]
@@ -65,7 +64,6 @@ game = NodePath("../..")
 
 [node name="Rice2" parent="Rice Players" node_paths=PackedStringArray("game") instance=ExtResource("6_db1dq")]
 position = Vector2(504, 184)
-player_number = 2
 game = NodePath("../..")
 
 [node name="Rice3" parent="Rice Players" node_paths=PackedStringArray("game") instance=ExtResource("6_db1dq")]

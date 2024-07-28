@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2e7ooh1ot57g"]
+
+[ext_resource type="Texture2D" uid="uid://b67espc2fi1hf" path="res://assets/Sprout Lands - Sprites - Basic pack (2)/Characters/Basic Charakter Spritesheet.png" id="1_rm5g0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5ife"]
+atlas = ExtResource("1_rm5g0")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nm8w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5ife")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BaconawaBody2" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1nm8w")

@@ -7,6 +7,7 @@ class_name UI
 @export var timer: Timer
 @onready var debugTexts = $"debug stuff"
 @onready var transition = $Transition
+@export var body: BaconawaBody
 # Pause screen functions
 
 func _on_resume_button_up() -> void:
@@ -37,10 +38,13 @@ func _process(_delta: float) -> void:
 	left:%s
 	right:%s
 	last input:%s
+	%s
+	%s
+	buff cd:%s
 
-	%s
-	%s
-	buff cd:%s" % [
+	head velocity:%s
+	body velocity:%s
+	body position:%s" % [
 		baconawa.top_colliding,
 		baconawa.down_colliding,
 		baconawa.left_colliding,
@@ -48,5 +52,8 @@ func _process(_delta: float) -> void:
 		baconawa.last_input,
 		baconawa.buffs,
 		baconawa.SPEED,
-		baconawa.buff_cooldown
+		baconawa.buff_cooldown,
+		baconawa.velocity,
+		body.velocity,
+		body.positionarr[0]
 		]

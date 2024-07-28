@@ -6,6 +6,7 @@ extends CharacterBody2D
 class_name Baconawa
 @export var SPEED: int = 100
 @export var game: Game
+@export var body: BaconawaBody
 
 # Reference on children
 @onready var anim = $Animations
@@ -28,6 +29,7 @@ var right_colliding = false
 # checks last input to identify where to go after finishing
 # colliding to a wall
 var last_input = ""
+var turn_position
 
 # Game proper variables
 var moons_collected: int = 0
@@ -103,6 +105,9 @@ func _physics_process(_delta: float) -> void:
 			move()
 
 	move_and_slide()
+	body.positionarr.append(position)
+	if body.positionarr.size() > 10:
+		body.positionarr.pop_front()
 
 func colliding(_body, collider: Area2D, isColliding):
 	match collider.name:
@@ -155,5 +160,5 @@ func _on_main_collider_area_entered(area: Area2D) -> void:
 		if len(buffs) != 2: buffs.append(randi_range(1,3))
 
 # If exited a wall, add the collision mask value again
-func _on_main_collider_body_exited(_add_constant_central_forcebody: Node2D) -> void:
+func _on_main_collider_body_exited(_body: Node2D) -> void:
 		set_collision_mask_value(2, true)
