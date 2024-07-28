@@ -27,7 +27,7 @@ func change_game_scene(path: String):
 
 func _on_retry_button_up() -> void:
 	print("retrying")
-	change_game_scene("res://scenes/screens/sample_scenes/sample_scene.tscn")
+	change_game_scene("res://scenes/screens/main_game.tscn")
 
 func _on_quit_button_up() -> void:
 	change_game_scene("res://scenes/screens/start.tscn")
