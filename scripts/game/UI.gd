@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 	%s
 	%s
 	buff cd:%s
-	
+
 	head velocity:%s
 	body velocity:%s
 	body position:%s" % [

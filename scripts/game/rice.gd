@@ -56,7 +56,7 @@ func _ready() -> void:
 		"r%d_right" % player_number,
 	]
 	#up-0, down-1, left-2, right-3
-	
+
 	#shader
 	anim.material.set_shader_parameter("headB", bandcolors[player_number-1][0])
 	anim.material.set_shader_parameter("tail_upB", bandcolors[player_number-1][1])

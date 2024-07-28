@@ -1,14 +1,14 @@
 shader_type canvas_item;
 
 //take colors from the default
-uniform vec4 head: source_color = vec4(1.0, 0.0, 0.0, 1.0); 
-uniform vec4 tail_up: source_color = vec4(1.0, 1.0, 0.0, 1.0); 
-uniform vec4 tail_down: source_color = vec4(0.0, 1.0, 0.0, 1.0); 
+uniform vec4 head: source_color = vec4(1.0, 0.0, 0.0, 1.0);
+uniform vec4 tail_up: source_color = vec4(1.0, 1.0, 0.0, 1.0);
+uniform vec4 tail_down: source_color = vec4(0.0, 1.0, 0.0, 1.0);
 
 //blue
 uniform vec4 headB: source_color = vec4(0.8, 2.0, 2.0, 1.0);
 uniform vec4 tail_upB: source_color = vec4(1.0, 0.0, 0.0, 1.0);
-uniform vec4 tail_downB: source_color = vec4(1.0, 0.0, 0.0, 1.0); 
+uniform vec4 tail_downB: source_color = vec4(1.0, 0.0, 0.0, 1.0);
 
 void vertex() {
 	// Called for every vertex the material is visible on.
