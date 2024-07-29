@@ -1,7 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bi37f5gm8dmgk"]
+[gd_scene load_steps=19 format=3 uid="uid://bi37f5gm8dmgk"]
 
 [ext_resource type="Script" path="res://scripts/game/baconawa.gd" id="1_2ge8w"]
 [ext_resource type="Texture2D" uid="uid://dn5eakfwpjrn0" path="res://assets/main_sprites/character/spr_baconawa.png" id="2_ghkiq"]
+[ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_vi28h"]
+[ext_resource type="Script" path="res://scripts/states/idle.gd" id="4_s2sfe"]
+[ext_resource type="Script" path="res://scenes/characters/moving.gd" id="5_kurwn"]
+[ext_resource type="Script" path="res://scripts/states/stunned.gd" id="6_ktbn7"]
+[ext_resource type="Script" path="res://scripts/states/confused.gd" id="7_bul5g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
 size = Vector2(14, 14)
@@ -131,6 +136,22 @@ shape = SubResource("RectangleShape2D_j46u5")
 [node name="MoveTimer" type="Timer" parent="."]
 
 [node name="BuffTimer" type="Timer" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_vi28h")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_s2sfe")
+
+[node name="Moving" type="Node" parent="StateMachine"]
+script = ExtResource("5_kurwn")
+
+[node name="Stunned" type="Node" parent="StateMachine"]
+script = ExtResource("6_ktbn7")
+
+[node name="Confused" type="Node" parent="StateMachine"]
+script = ExtResource("7_bul5g")
 
 [connection signal="area_entered" from="Colliders/Main Collider" to="." method="_on_main_collider_area_entered"]
 [connection signal="body_exited" from="Colliders/Main Collider" to="." method="_on_main_collider_body_exited"]

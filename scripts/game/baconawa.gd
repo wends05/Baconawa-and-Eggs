@@ -19,6 +19,11 @@ class_name Baconawa
 @onready var internal_timer = $InternalTimer
 @onready var move_timer = $MoveTimer
 @onready var buff_timer = $BuffTimer
+@onready var state_machine = $StateMachine
+
+var controls = ["b_up", "b_down", "b_left", "b_right"
+#, "placeholder"
+]
 
 # information used if baconawa can change directions
 var down_colliding = false
@@ -47,25 +52,6 @@ const BUFFS = {
 signal kill_someone
 var moving_through_wall = false
 
-func move():
-	match last_input:
-		"up":
-			velocity = Vector2(0, -SPEED)
-			anim.play("move_up")
-			anim.flip_h = false
-		"down":
-			velocity = Vector2(0, SPEED)
-			anim.play("move_down")
-			anim.flip_h = false
-		"left":
-			velocity = Vector2(-SPEED, 0)
-			anim.play("move_side")
-			anim.flip_h = true
-		"right":
-			velocity = Vector2(SPEED, 0)
-			anim.play("move_side")
-			anim.flip_h = false
-
 func _ready() -> void:
 	anim.play("idle")
 	for collider: Area2D in [top_collider, down_collider, left_collider, right_collider]:
@@ -91,23 +77,6 @@ func _physics_process(_delta: float) -> void:
 	if moving_through_wall:
 		return
 
-	if Input.is_action_pressed("b_down"):
-		last_input = "down"
-		if not down_colliding:
-			move()
-	if Input.is_action_pressed("b_up"):
-		last_input = "up"
-		if not top_colliding:
-			move()
-	if Input.is_action_pressed("b_left"):
-		last_input = "left"
-		if not left_colliding:
-			move()
-	if Input.is_action_pressed("b_right"):
-		last_input = "right"
-		if not right_colliding:
-			move()
-
 	move_and_slide()
 	body.positionarr.append(position)
 	if body.positionarr.size() > 10:
@@ -117,17 +86,24 @@ func colliding(_body, collider: Area2D, isColliding):
 	match collider.name:
 		"Top":
 			top_colliding = isColliding
-			if last_input == "up" and not isColliding:move()
+			if last_input == "up" and not isColliding:
+				#this needs to be moved
+				state_machine.get_node("Moving").move()
 		"Down":
 			down_colliding = isColliding
-			if last_input == "down" and not isColliding: move()
+			if last_input == "down" and not isColliding:
+				#this needs to be moved
+				state_machine.get_node("Moving").move()
 		"Left":
 			left_colliding = isColliding
-			if last_input == "left" and not isColliding: move()
+			if last_input == "left" and not isColliding:
+				#this needs to be moved
+				state_machine.get_node("Moving").move()
 		"Right":
 			right_colliding = isColliding
-			if last_input == "right" and not isColliding: move()
-
+			if last_input == "right" and not isColliding:
+				#this needs to be moved
+				state_machine.get_node("Moving").move()
 
 # checks for buffs if buff_id is not 0
 func buff_handler():
@@ -138,7 +114,8 @@ func buff_handler():
 				SPEED = 150
 				internal_timer.start(3)
 				buffs.pop_front()
-				move()
+				#this needs to be moved
+				state_machine.get_node("Moving").move()
 				await internal_timer.timeout
 				SPEED = 100
 			2: #Kill someone
