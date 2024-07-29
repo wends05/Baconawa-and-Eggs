@@ -1,8 +1,12 @@
 extends Node2D
 
+class_name CharacterSelect
 
+var index = 1
 
-
+var contconfirm = [
+	false, false, false ,false ,false ,false ,false ,false
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
