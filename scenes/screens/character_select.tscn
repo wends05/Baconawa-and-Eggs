@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://tjjqoe1x74ft"]
+
+[ext_resource type="Script" path="res://scripts/character_select.gd" id="1_itj64"]
+
+[node name="CharacterSelect" type="Node2D"]
+script = ExtResource("1_itj64")

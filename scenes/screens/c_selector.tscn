@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6pbrurhpilfh"]
+
+[ext_resource type="Script" path="res://scripts/c_selector.gd" id="1_l0lyp"]
+
+[node name="CSelector" type="Node2D"]
+script = ExtResource("1_l0lyp")
