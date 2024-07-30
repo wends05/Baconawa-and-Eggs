@@ -179,16 +179,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xs22"]
-size = Vector2(14, 5)
+size = Vector2(14, 5.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afpwn"]
-size = Vector2(14, 5)
+size = Vector2(14, 5.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo76l"]
-size = Vector2(5, 14)
+size = Vector2(5.5, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j46u5"]
-size = Vector2(5, 14)
+size = Vector2(5.5, 14)
 
 [node name="Rice" type="CharacterBody2D"]
 collision_layer = 8
@@ -211,7 +211,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Top"]
-position = Vector2(0, -7)
+position = Vector2(0, -7.25)
 shape = SubResource("RectangleShape2D_0xs22")
 
 [node name="Down" type="Area2D" parent="Colliders"]
@@ -219,7 +219,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Colliders/Down"]
-position = Vector2(0, 7)
+position = Vector2(0, 7.25)
 shape = SubResource("RectangleShape2D_afpwn")
 
 [node name="Right" type="Area2D" parent="Colliders"]
@@ -227,7 +227,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Colliders/Right"]
-position = Vector2(7, 0)
+position = Vector2(7.25, 0)
 shape = SubResource("RectangleShape2D_xo76l")
 
 [node name="Left" type="Area2D" parent="Colliders"]
@@ -235,7 +235,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Colliders/Left"]
-position = Vector2(-7, 0)
+position = Vector2(-7.25, 0)
 shape = SubResource("RectangleShape2D_j46u5")
 
 [node name="InternalTimer" type="Timer" parent="."]
