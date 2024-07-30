@@ -1,8 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://cwbbda5vd2ofb"]
+[gd_scene load_steps=35 format=3 uid="uid://cwbbda5vd2ofb"]
 
 [ext_resource type="Script" path="res://scripts/game/rice.gd" id="1_77n87"]
 [ext_resource type="Shader" path="res://scripts/shaders/rice.gdshader" id="2_iclel"]
 [ext_resource type="Texture2D" uid="uid://dp3novit4yoms" path="res://assets/main_sprites/character/spr_rice.png" id="2_mwp1a"]
+[ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="4_i52ab"]
+[ext_resource type="Script" path="res://scripts/states/idle.gd" id="5_xxv7k"]
+[ext_resource type="Script" path="res://scripts/states/moving.gd" id="6_pxlgm"]
+[ext_resource type="Script" path="res://scripts/states/flashing.gd" id="7_u85nl"]
+[ext_resource type="Script" path="res://scripts/states/drumming.gd" id="8_gcsqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
 size = Vector2(14, 14)
@@ -234,3 +239,21 @@ position = Vector2(-7, 0)
 shape = SubResource("RectangleShape2D_j46u5")
 
 [node name="InternalTimer" type="Timer" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_i52ab")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_xxv7k")
+
+[node name="Moving" type="Node" parent="StateMachine"]
+script = ExtResource("6_pxlgm")
+
+[node name="Flashing" type="Node" parent="StateMachine"]
+script = ExtResource("7_u85nl")
+
+[node name="Drumming" type="Node" parent="StateMachine"]
+script = ExtResource("8_gcsqk")
+
+[node name="FlAnchor" type="Node" parent="."]

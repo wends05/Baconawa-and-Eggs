@@ -30,7 +30,7 @@ var last_input = ""
 var game_finished = false
 
 #multi controls
-var r_controls = []
+var controls = []
 
 #shader colors
 var bandcolors = [
@@ -50,11 +50,13 @@ func _ready() -> void:
 	
 	#controls for multiplayer
 	#array contains name for input map depending on player number
-	r_controls = [
+	controls = [
 		"r%d_up" % player_number,
 		"r%d_down" % player_number,
 		"r%d_left" % player_number,
 		"r%d_right" % player_number,
+		#"r%d_flash" % player_number,
+		#"r%d_drum" % player_number,
 	]
 	#up-0, down-1, left-2, right-3
 
@@ -69,30 +71,30 @@ func _physics_process(_delta: float) -> void:
 	if game_finished:
 		return
 
-	if Input.is_action_pressed(r_controls[1]):
-		if not down_colliding:
-			velocity = Vector2(0, SPEED)
-			anim.play("move_down")
-			anim.flip_h = false
-		last_input = "down"
-	if Input.is_action_pressed(r_controls[0]):
-		if not top_colliding:
-			velocity = Vector2(0, -SPEED)
-			anim.play("move_up")
-			anim.flip_h = false
-		last_input = "up"
-	if Input.is_action_pressed(r_controls[2]):
-		if not left_colliding:
-			velocity = Vector2( - SPEED, 0)
-			anim.play("move_side")
-			anim.flip_h = false
-		last_input = "left"
-	if Input.is_action_pressed(r_controls[3]):
-		if not right_colliding:
-			velocity = Vector2(SPEED, 0)
-			anim.play("move_side")
-			anim.flip_h = true
-		last_input = "right"
+	#if Input.is_action_pressed(r_controls[1]):
+		#if not down_colliding:
+			#velocity = Vector2(0, SPEED)
+			#anim.play("move_down")
+			#anim.flip_h = false
+		#last_input = "down"
+	#if Input.is_action_pressed(r_controls[0]):
+		#if not top_colliding:
+			#velocity = Vector2(0, -SPEED)
+			#anim.play("move_up")
+			#anim.flip_h = false
+		#last_input = "up"
+	#if Input.is_action_pressed(r_controls[2]):
+		#if not left_colliding:
+			#velocity = Vector2( - SPEED, 0)
+			#anim.play("move_side")
+			#anim.flip_h = false
+		#last_input = "left"
+	#if Input.is_action_pressed(r_controls[3]):
+		#if not right_colliding:
+			#velocity = Vector2(SPEED, 0)
+			#anim.play("move_side")
+			#anim.flip_h = true
+		#last_input = "right"
 	move_and_slide()
 
 #if colliding with wall

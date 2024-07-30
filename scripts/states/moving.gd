@@ -2,21 +2,23 @@ extends State
 
 @onready var anim = owner.get_node("Animations")
 @onready var SPEED = owner.SPEED
+@onready var controls
 
 func update(_delta: float) -> void:
-	if Input.is_action_pressed("b_down"):
-		owner.last_input = "down"
-		if not owner.down_colliding:
-			move()
-	if Input.is_action_pressed("b_up"):
+	var controls = owner.controls
+	if Input.is_action_pressed(controls[0]):
 		owner.last_input = "up"
 		if not owner.top_colliding:
 			move()
-	if Input.is_action_pressed("b_left"):
+	if Input.is_action_pressed(controls[1]):
+		owner.last_input = "down"
+		if not owner.down_colliding:
+			move()
+	if Input.is_action_pressed(controls[2]):
 		owner.last_input = "left"
 		if not owner.left_colliding:
 			move()
-	if Input.is_action_pressed("b_right"):
+	if Input.is_action_pressed(controls[3]):
 		owner.last_input = "right"
 		if not owner.right_colliding:
 			move()
@@ -34,8 +36,8 @@ func move():
 		"left":
 			owner.velocity = Vector2(-SPEED, 0)
 			anim.play("move_side")
-			anim.flip_h = true
+			anim.flip_h = false
 		"right":
 			owner.velocity = Vector2(SPEED, 0)
 			anim.play("move_side")
-			anim.flip_h = false
+			anim.flip_h = true

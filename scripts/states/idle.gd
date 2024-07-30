@@ -10,10 +10,11 @@ func update(_delta: float) -> void:
 		if Input.is_action_pressed(owner.controls[input]):
 			state_machine.transition_to("Moving")
 			return
-	if owner is Rice:
-		if Input.is_action_pressed(owner.controls[4]):
-			state_machine.transition_to("Flashing")
-			return
-		if Input.is_action_pressed(owner.controls[5]):
-			state_machine.transition_to("Drumming")
-			return
+	# Bottom to be returned once input map is good
+	#if owner is Rice:
+		#if Input.is_action_pressed(owner.controls[4]):
+			#state_machine.transition_to("Flashing")
+			#return
+		#if Input.is_action_pressed(owner.controls[5]):
+			#state_machine.transition_to("Drumming")
+			#return
