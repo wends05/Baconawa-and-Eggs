@@ -48,13 +48,17 @@ func _ready() -> void:
 		collider.connect("body_entered", colliding.bind(collider, true))
 		collider.connect("body_exited", colliding.bind(collider, false))
 	
+	#DEBUG AND TESTING ONLY, DELETE WHEN FINAL
+	var controller_num = player_number + 1
+	
 	#controls for multiplayer
 	#array contains name for input map depending on player number
 	controls = [
-		"r%d_up" % player_number,
-		"r%d_down" % player_number,
-		"r%d_left" % player_number,
-		"r%d_right" % player_number,
+		"up_%d" % controller_num,
+		"down_%d" % controller_num,
+		"left_%d" % controller_num,
+		"right_%d" % controller_num,
+		"action_%d" % controller_num, #change this for testings..cuz items are pickups
 		#"r%d_flash" % player_number,
 		#"r%d_drum" % player_number,
 	]

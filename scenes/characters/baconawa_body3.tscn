@@ -2,15 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://dn5eakfwpjrn0" path="res://assets/main_sprites/character/spr_baconawa.png" id="1_7uvmt"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_05w5t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mvka"]
 atlas = ExtResource("1_7uvmt")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h4pn8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_05w5t")
+"texture": SubResource("AtlasTexture_8mvka")
 }],
 "loop": true,
 "name": &"default",

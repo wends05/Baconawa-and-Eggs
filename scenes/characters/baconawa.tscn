@@ -11,27 +11,27 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
 size = Vector2(14, 14)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rwovl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6h5j"]
 atlas = ExtResource("2_ghkiq")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0wbnx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbu2c"]
 atlas = ExtResource("2_ghkiq")
-region = Rect2(32, 32, 16, 16)
+region = Rect2(0, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ojkfe"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_74exn"]
 atlas = ExtResource("2_ghkiq")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pwwao"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qu4g"]
 atlas = ExtResource("2_ghkiq")
-region = Rect2(32, 16, 16, 16)
+region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_skxty"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rwovl")
+"texture": SubResource("AtlasTexture_f6h5j")
 }],
 "loop": true,
 "name": &"idle",
@@ -39,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0wbnx")
+"texture": SubResource("AtlasTexture_sbu2c")
 }],
 "loop": true,
 "name": &"move_down",
@@ -47,7 +47,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ojkfe")
+"texture": SubResource("AtlasTexture_74exn")
 }],
 "loop": true,
 "name": &"move_side",
@@ -55,7 +55,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pwwao")
+"texture": SubResource("AtlasTexture_5qu4g")
 }],
 "loop": true,
 "name": &"move_up",
@@ -87,7 +87,7 @@ shape = SubResource("RectangleShape2D_osxse")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_skxty")
-animation = &"move_side"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Colliders" type="Node2D" parent="."]

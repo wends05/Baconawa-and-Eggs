@@ -701,19 +701,19 @@ game = NodePath("..")
 body = NodePath("../BaconawaBody")
 
 [node name="BaconawaBody" parent="." node_paths=PackedStringArray("head", "next") instance=ExtResource("4_v1hcl")]
-position = Vector2(202, 249)
+position = Vector2(232, 248)
 head = NodePath("../Baconawa")
 next = NodePath("../BaconawaBody2")
 
 [node name="BaconawaBody2" parent="." node_paths=PackedStringArray("head", "follow", "next") instance=ExtResource("5_ufnnw")]
-position = Vector2(188, 249)
+position = Vector2(248, 248)
 script = ExtResource("6_piw8i")
 head = NodePath("../Baconawa")
 follow = NodePath("../BaconawaBody")
 next = NodePath("../BaconawaBody3")
 
 [node name="BaconawaBody3" parent="." node_paths=PackedStringArray("head", "follow") instance=ExtResource("6_qwrcn")]
-position = Vector2(174, 249)
+position = Vector2(264, 248)
 script = ExtResource("8_4a0km")
 head = NodePath("../Baconawa")
 follow = NodePath("../BaconawaBody2")

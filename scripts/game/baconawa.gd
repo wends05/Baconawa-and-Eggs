@@ -21,7 +21,7 @@ class_name Baconawa
 @onready var buff_timer = $BuffTimer
 @onready var state_machine = $StateMachine
 
-var controls = ["b_up", "b_down", "b_left", "b_right"
+var controls = ["up_1", "down_1", "left_1", "right_1", "action_1"
 #, "placeholder"
 ]
 
@@ -107,7 +107,7 @@ func colliding(_body, collider: Area2D, isColliding):
 
 # checks for buffs if buff_id is not 0
 func buff_handler():
-	if Input.is_action_just_pressed("b_activate") and not buff_cooldown:
+	if Input.is_action_just_pressed(controls[4]) and not buff_cooldown:
 		buff_cooldown = true
 		match buffs[0]:
 			1: #Speed
