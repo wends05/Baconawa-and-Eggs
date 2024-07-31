@@ -30,7 +30,7 @@ var last_input = ""
 var game_finished = false
 
 #multi controls
-var r_controls = []
+var controls = []
 
 #shader colors
 var bandcolors = [
@@ -47,13 +47,20 @@ func _ready() -> void:
 	for collider: Area2D in [top_collider, down_collider, left_collider, right_collider]:
 		collider.connect("body_entered", colliding.bind(collider, true))
 		collider.connect("body_exited", colliding.bind(collider, false))
+	
+	#DEBUG AND TESTING ONLY, DELETE WHEN FINAL
+	var controller_num = player_number + 1
+	
 	#controls for multiplayer
 	#array contains name for input map depending on player number
-	r_controls = [
-		"r%d_up" % player_number,
-		"r%d_down" % player_number,
-		"r%d_left" % player_number,
-		"r%d_right" % player_number,
+	controls = [
+		"up_%d" % controller_num,
+		"down_%d" % controller_num,
+		"left_%d" % controller_num,
+		"right_%d" % controller_num,
+		"action_%d" % controller_num, #change this for testings..cuz items are pickups
+		#"r%d_flash" % player_number,
+		#"r%d_drum" % player_number,
 	]
 	#up-0, down-1, left-2, right-3
 
@@ -68,30 +75,30 @@ func _physics_process(_delta: float) -> void:
 	if game_finished:
 		return
 
-	if Input.is_action_pressed(r_controls[1]):
-		if not down_colliding:
-			velocity = Vector2(0, SPEED)
-			anim.play("move_down")
-			anim.flip_h = false
-		last_input = "down"
-	if Input.is_action_pressed(r_controls[0]):
-		if not top_colliding:
-			velocity = Vector2(0, -SPEED)
-			anim.play("move_up")
-			anim.flip_h = false
-		last_input = "up"
-	if Input.is_action_pressed(r_controls[2]):
-		if not left_colliding:
-			velocity = Vector2( - SPEED, 0)
-			anim.play("move_side")
-			anim.flip_h = false
-		last_input = "left"
-	if Input.is_action_pressed(r_controls[3]):
-		if not right_colliding:
-			velocity = Vector2(SPEED, 0)
-			anim.play("move_side")
-			anim.flip_h = true
-		last_input = "right"
+	#if Input.is_action_pressed(r_controls[1]):
+		#if not down_colliding:
+			#velocity = Vector2(0, SPEED)
+			#anim.play("move_down")
+			#anim.flip_h = false
+		#last_input = "down"
+	#if Input.is_action_pressed(r_controls[0]):
+		#if not top_colliding:
+			#velocity = Vector2(0, -SPEED)
+			#anim.play("move_up")
+			#anim.flip_h = false
+		#last_input = "up"
+	#if Input.is_action_pressed(r_controls[2]):
+		#if not left_colliding:
+			#velocity = Vector2( - SPEED, 0)
+			#anim.play("move_side")
+			#anim.flip_h = false
+		#last_input = "left"
+	#if Input.is_action_pressed(r_controls[3]):
+		#if not right_colliding:
+			#velocity = Vector2(SPEED, 0)
+			#anim.play("move_side")
+			#anim.flip_h = true
+		#last_input = "right"
 	move_and_slide()
 
 #if colliding with wall

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxnsqdubvg38k"]
+
+[ext_resource type="Script" path="res://scripts/game/flashlight.gd" id="1_1dj4k"]
+[ext_resource type="Texture2D" uid="uid://dioq8lkg0rrij" path="res://assets/main_sprites/effects/spr_light.png" id="1_ck0d1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6o80"]
+size = Vector2(77, 26)
+
+[node name="Flashlight" type="Sprite2D"]
+texture = ExtResource("1_ck0d1")
+script = ExtResource("1_1dj4k")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_w6o80")
