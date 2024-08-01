@@ -10,6 +10,7 @@ signal game_ended
 @export var ui : UI
 @onready var transition = ui.transition
 
+
 # since i made a slight delay for the fade in transition
 # can_check_timer will be true after the fade transition
 # can be used in another transition if prefer niyoo
