@@ -4,7 +4,8 @@ extends TextureRect
 
 
 @export var sprites : SpriteFrames
-@export var current_animation = "default"
+@export var default_anim = "default_idle"
+@export var current_animation = default_anim
 @export var frame_index = 0
 @export_range(0.0, INF, 0.001) var speed_scale := 1.0
 @export var auto_play := false
@@ -13,7 +14,6 @@ var refresh_rate = 1.0
 var fps = 30.0
 var frame_delta = 0
 var one_play = false
-var default_anim = "default"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -52,8 +52,7 @@ func play(animation_name :String= current_animation):
 	
 
 #play once then default
-func play_once(animation :String, next_default :String="default"):
-	default_anim = next_default
+func play_once(animation :String):
 	one_play = true
 	play(animation)
 
@@ -69,7 +68,7 @@ func get_next_frame():
 	if frame_index >= frame_count:
 		if one_play:
 			one_play = false
-			play("default")
+			play(default_anim)
 		else:
 			frame_index = 0
 		if not sprites.get_animation_loop(current_animation):
