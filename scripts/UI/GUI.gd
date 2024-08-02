@@ -95,4 +95,4 @@ func icon_states():
 	
 #eating animation
 func eat():
-	b_portrait.play_once("%s_eat" % b_state)
+	b_portrait.play_once("%s_eat" % b_state, "%s_idle" % b_state)

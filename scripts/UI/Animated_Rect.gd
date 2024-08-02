@@ -52,8 +52,9 @@ func play(animation_name :String= current_animation):
 	
 
 #play once then default
-func play_once(animation :String):
+func play_once(animation :String, nextanimation :String):
 	one_play = true
+	default_anim = nextanimation
 	play(animation)
 
 #animdata
