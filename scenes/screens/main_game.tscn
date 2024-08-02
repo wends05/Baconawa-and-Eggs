@@ -1,4 +1,5 @@
 [gd_scene load_steps=16 format=3 uid="uid://d2tmulxwbqvkh"]
+[gd_scene load_steps=16 format=3 uid="uid://d2tmulxwbqvkh"]
 
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_no8oh"]
 [ext_resource type="PackedScene" uid="uid://bi37f5gm8dmgk" path="res://scenes/characters/baconawa.tscn" id="2_7ra4s"]
