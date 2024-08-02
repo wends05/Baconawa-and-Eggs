@@ -720,7 +720,6 @@ head = NodePath("../Baconawa")
 follow = NodePath("../BaconawaBody2")
 
 [node name="UI" parent="." node_paths=PackedStringArray("baconawa", "timer", "body") instance=ExtResource("4_1ovr0")]
-visible = false
 offset_right = 736.0
 baconawa = NodePath("../Baconawa")
 timer = NodePath("../Timer")
@@ -765,5 +764,6 @@ position = Vector2(504, 120)
 player_number = 3
 
 [node name="GUI" parent="." node_paths=PackedStringArray("rice1", "rice3") instance=ExtResource("13_5xqgs")]
+visible = false
 rice1 = NodePath("../Rice Players/Rice2")
 rice3 = NodePath("../Rice Players/Rice3")
