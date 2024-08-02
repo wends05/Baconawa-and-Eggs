@@ -1,11 +1,10 @@
 extends State
 
 @onready var anim = owner.get_node("Animations")
-@onready var SPEED = owner.SPEED
 @onready var controls
 
-func update(_delta: float) -> void:
-	var controls = owner.controls
+func physics_update(_delta: float) -> void:
+	controls = owner.controls
 	if Input.is_action_pressed(controls[0]):
 		owner.last_input = "up"
 		if not owner.top_colliding:
@@ -24,6 +23,7 @@ func update(_delta: float) -> void:
 			move()
 
 func move():
+	var SPEED = owner.SPEED
 	match owner.last_input:
 		"up":
 			owner.velocity = Vector2(0, -SPEED)
