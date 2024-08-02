@@ -1,11 +1,14 @@
 extends State
 
 @onready var internal_timer = owner.get_node("InternalTimer")
-@onready var flashlight = owner.get_node("FlashlightAnchor")
+@onready var flashlight = owner.get_node("FlAnchor")
 
 func enter(_msg := {}) -> void:
+
+	# for type safety lang
+	if not owner is Rice:
+		return
 	var direction = owner.last_input
-	
 	match direction:
 		"up":
 			flashlight.set_rotation_degrees(-90)
@@ -15,7 +18,7 @@ func enter(_msg := {}) -> void:
 			flashlight.set_rotation_degrees(00)
 		"down":
 			flashlight.set_rotation_degrees(90)
-	
+
 	owner.velocity = Vector2(0, 0)
 	owner.last_input = ""
 	var flash_instance = preload("res://scenes/characters/flashlight.tscn").instantiate()

@@ -4,7 +4,7 @@ extends CharacterBody2D
 # be able to reference this in other scripts
 
 class_name Baconawa
-@export var SPEED: int = 100
+@export var SPEED: int = 75
 @export var game: Game
 @export var body: BaconawaBody
 
@@ -51,6 +51,7 @@ const BUFFS = {
 }
 signal kill_someone
 var moving_through_wall = false
+signal moon_collected
 
 func _ready() -> void:
 	anim.play("idle")
@@ -107,17 +108,17 @@ func colliding(_body, collider: Area2D, isColliding):
 
 # checks for buffs if buff_id is not 0
 func buff_handler():
-	if Input.is_action_just_pressed(controls[4]) and not buff_cooldown:
+	if Input.is_action_just_pressed(controls[4]) and not buff_cooldown and not buffs.size() == 0:
 		buff_cooldown = true
 		match buffs[0]:
 			1: #Speed
-				SPEED = 150
+				SPEED = 120
 				internal_timer.start(3)
 				buffs.pop_front()
 				#this needs to be moved
 				state_machine.get_node("Moving").move()
 				await internal_timer.timeout
-				SPEED = 100
+				SPEED = 75
 			2: #Kill someone
 				buffs.pop_front()
 				kill_someone.emit()
@@ -129,6 +130,9 @@ func buff_handler():
 				right_colliding = false
 				set_collision_mask_value(2, false)
 				buffs.pop_front()
+			_:
+				print("No buffs yet")
+				print(buffs[0])
 		buff_timer.start(3)
 		await buff_timer.timeout
 		buff_cooldown = false
@@ -138,6 +142,7 @@ func _on_main_collider_area_entered(area: Area2D) -> void:
 	var node = area.get_parent()
 	if node is Moon and not node.is_collected:
 		moons_collected += 1
+		moon_collected.emit()
 		if len(buffs) != 2: buffs.append(randi_range(1,3))
 
 # If exited a wall, add the collision mask value again

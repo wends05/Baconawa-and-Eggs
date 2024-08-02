@@ -9,11 +9,11 @@ var positionarr = []
 
 func _ready():
 	positionarr.append(head.position)
-	
+
 func position_change():
 	if positionarr[0] == positionarr[1]:
 		positionarr.pop_front()
-	position = positionarr[0]	
+	position = positionarr[0]
 
 func _physics_process(delta) -> void:
 	if head:
@@ -21,7 +21,7 @@ func _physics_process(delta) -> void:
 			velocity = Vector2(0, 0)
 		else:
 			position_change()
-			
+
 		next.positionarr.append(position)
 		if next.positionarr.size() > 10:
 			next.positionarr.pop_front()

@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 class_name Rice
 @export var player_number = 1
-@export var SPEED: int = 90
+@export var SPEED: int = 70
 @export var game: Game
 @onready var anim = $Animations
 
@@ -47,10 +47,10 @@ func _ready() -> void:
 	for collider: Area2D in [top_collider, down_collider, left_collider, right_collider]:
 		collider.connect("body_entered", colliding.bind(collider, true))
 		collider.connect("body_exited", colliding.bind(collider, false))
-	
+
 	#DEBUG AND TESTING ONLY, DELETE WHEN FINAL
 	var controller_num = player_number + 1
-	
+
 	#controls for multiplayer
 	#array contains name for input map depending on player number
 	controls = [
