@@ -764,4 +764,6 @@ player_number = 2
 position = Vector2(504, 120)
 player_number = 3
 
-[node name="GUI" parent="." instance=ExtResource("13_5xqgs")]
+[node name="GUI" parent="." node_paths=PackedStringArray("rice1", "rice3") instance=ExtResource("13_5xqgs")]
+rice1 = NodePath("../Rice Players/Rice2")
+rice3 = NodePath("../Rice Players/Rice3")

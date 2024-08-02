@@ -1,12 +1,59 @@
-[gd_scene load_steps=47 format=3 uid="uid://bq3ski4oyihxf"]
+[gd_scene load_steps=55 format=3 uid="uid://bq3ski4oyihxf"]
 
 [ext_resource type="Script" path="res://scripts/UI/GUI.gd" id="1_sinjn"]
+[ext_resource type="Texture2D" uid="uid://b10dvwobpbbew" path="res://assets/main_sprites/item/spr_lantern.png" id="2_18pf3"]
 [ext_resource type="Texture2D" uid="uid://dxmvgg6cy0xo" path="res://assets/main_sprites/ui/spr_baconawa_portrait.png" id="2_bpquh"]
 [ext_resource type="Script" path="res://scripts/UI/Animated_Rect.gd" id="2_jbus7"]
+[ext_resource type="Texture2D" uid="uid://pg742dbuisur" path="res://assets/main_sprites/ui/spr_riceportraits.png" id="3_vqebh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0s6k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_akc2e"]
+atlas = ExtResource("3_vqebh")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7j2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akc2e")
+}],
+"loop": true,
+"name": &"default_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66qtj"]
+atlas = ExtResource("3_vqebh")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glqf2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66qtj")
+}],
+"loop": true,
+"name": &"default_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulw0y"]
+atlas = ExtResource("3_vqebh")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wx43o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulw0y")
+}],
+"loop": true,
+"name": &"default_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieduj"]
 atlas = ExtResource("2_bpquh")
-region = Rect2(64, 0, 64, 64)
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekp47"]
 atlas = ExtResource("2_bpquh")
@@ -88,9 +135,9 @@ region = Rect2(256, 0, 64, 64)
 atlas = ExtResource("2_bpquh")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ieduj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0s6k"]
 atlas = ExtResource("2_bpquh")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x2l6d"]
 atlas = ExtResource("2_bpquh")
@@ -365,75 +412,113 @@ anchors_preset = 0
 offset_left = 367.0
 offset_top = 13.0
 offset_right = 729.0
-offset_bottom = 89.0
+offset_bottom = 77.0
 
 [node name="Rice1" type="Panel" parent="Rice"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 6.0
-offset_right = 63.0
-offset_bottom = 61.0
+offset_right = 56.0
+offset_bottom = 54.0
 
 [node name="Item" type="Panel" parent="Rice/Rice1"]
 layout_mode = 0
-offset_left = 62.0
-offset_top = 20.0
-offset_right = 97.0
-offset_bottom = 55.0
+offset_left = 55.0
+offset_top = 17.0
+offset_right = 87.0
+offset_bottom = 49.0
 
 [node name="TextureRect" type="TextureRect" parent="Rice/Rice1/Item"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_18pf3")
 
 [node name="Ctrl" type="TextureRect" parent="Rice/Rice1"]
 layout_mode = 0
-offset_left = 70.0
-offset_top = 3.0
-offset_right = 86.0
-offset_bottom = 17.0
+offset_left = 62.0
+offset_right = 78.0
+offset_bottom = 14.0
+
+[node name="Portrait" type="TextureRect" parent="Rice/Rice1"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+texture = SubResource("AtlasTexture_akc2e")
+script = ExtResource("2_jbus7")
+sprites = SubResource("SpriteFrames_g7j2r")
+current_animation = "default_idle"
+auto_play = true
 
 [node name="Rice2" type="Panel" parent="Rice"]
-layout_mode = 0
-offset_left = 136.0
+offset_left = 116.0
 offset_top = 6.0
-offset_right = 191.0
-offset_bottom = 61.0
+offset_right = 164.0
+offset_bottom = 54.0
 
 [node name="Item" type="Panel" parent="Rice/Rice2"]
 layout_mode = 0
-offset_left = 62.0
-offset_top = 20.0
-offset_right = 97.0
-offset_bottom = 55.0
+offset_left = 55.0
+offset_top = 17.0
+offset_right = 87.0
+offset_bottom = 49.0
+
+[node name="TextureRect" type="TextureRect" parent="Rice/Rice2/Item"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_18pf3")
 
 [node name="Ctrl" type="TextureRect" parent="Rice/Rice2"]
 layout_mode = 0
-offset_left = 70.0
-offset_top = 3.0
-offset_right = 86.0
-offset_bottom = 17.0
+offset_left = 62.0
+offset_right = 78.0
+offset_bottom = 14.0
+
+[node name="Portrait" type="TextureRect" parent="Rice/Rice2"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+texture = SubResource("AtlasTexture_66qtj")
+script = ExtResource("2_jbus7")
+sprites = SubResource("SpriteFrames_glqf2")
+current_animation = "default_idle"
+auto_play = true
 
 [node name="Rice3" type="Panel" parent="Rice"]
-layout_mode = 0
-offset_left = 264.0
+offset_left = 223.0
 offset_top = 6.0
-offset_right = 319.0
-offset_bottom = 61.0
+offset_right = 271.0
+offset_bottom = 54.0
 
 [node name="Item" type="Panel" parent="Rice/Rice3"]
 layout_mode = 0
-offset_left = 62.0
-offset_top = 20.0
-offset_right = 97.0
-offset_bottom = 55.0
+offset_left = 55.0
+offset_top = 17.0
+offset_right = 87.0
+offset_bottom = 49.0
+
+[node name="TextureRect" type="TextureRect" parent="Rice/Rice3/Item"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_18pf3")
 
 [node name="Ctrl" type="TextureRect" parent="Rice/Rice3"]
 layout_mode = 0
-offset_left = 70.0
-offset_top = 3.0
-offset_right = 86.0
-offset_bottom = 17.0
+offset_left = 62.0
+offset_right = 78.0
+offset_bottom = 14.0
+
+[node name="Portrait" type="TextureRect" parent="Rice/Rice3"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+texture = SubResource("AtlasTexture_ulw0y")
+script = ExtResource("2_jbus7")
+sprites = SubResource("SpriteFrames_wx43o")
+current_animation = "default_idle"
+auto_play = true
 
 [node name="Baconawa" type="Panel" parent="."]
 layout_mode = 0
@@ -448,14 +533,14 @@ offset_left = 3.0
 offset_top = 4.0
 offset_right = 67.0
 offset_bottom = 68.0
-texture = SubResource("AtlasTexture_m0s6k")
+texture = SubResource("AtlasTexture_ieduj")
 stretch_mode = 1
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_ossm4")
 default_anim = "default"
 current_animation = "default_idle"
-frame_index = 1
 auto_play = true
+playing = true
 
 [node name="Buff" type="Panel" parent="Baconawa"]
 layout_mode = 0

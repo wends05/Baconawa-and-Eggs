@@ -1,7 +1,8 @@
 extends Control
 
-var state = "default"
-@onready var portrait = $Baconawa/Portrait
+#baconawa deets
+var b_state = "default"
+@onready var b_portrait = $Baconawa/Portrait
 @onready var baconawa_buff = $Baconawa/Buff/Buff_Icon
 @onready var baconawa_nextbuff = $Baconawa/Buff_n/TextureRect
 var buff_icons = [
@@ -12,11 +13,27 @@ var buff_icons = [
 ]
 
 
+#rice deets
+@export var rice1 : Rice
+@export var rice2 : Rice
+@export var rice3 : Rice
+@onready var r_portrait = [
+	$Rice/Rice1/Portrait,
+	$Rice/Rice2/Portrait,
+	$Rice/Rice3/Portrait
+]
+@onready var rice_item = [
+	$Rice/Rice1/Item/TextureRect,
+	$Rice/Rice2/Item/TextureRect,
+	$Rice/Rice3/Item/TextureRect
+]
+
+
+
 func _ready():
 	pass
 	#%Baconawa.eat.connect(eat)
 	
-
 
 func _process(delta):
 	
@@ -28,7 +45,6 @@ func _process(delta):
 	
 	if Input.is_action_pressed("action_2"):
 		eat()
-
 
 
 
@@ -74,9 +90,9 @@ func nextbuff_identify ():
 
 #invincible
 func icon_states():
-	portrait.current_animation = "%s_idle" % state
-	portrait.default_anim = "%s_idle" % state
+	b_portrait.current_animation = "%s_idle" % b_state
+	b_portrait.default_anim = "%s_idle" % b_state
 	
 #eating animation
 func eat():
-	portrait.play_once("%s_eat" % state)
+	b_portrait.play_once("%s_eat" % b_state)
