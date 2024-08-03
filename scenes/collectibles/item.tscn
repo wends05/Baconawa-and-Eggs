@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://cvbyjobvpam5v"]
+[gd_scene load_steps=4 format=3 uid="uid://cvbyjobvpam5v"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[ext_resource type="Texture2D" uid="uid://trdwbhn8oc30" path="res://assets/main_sprites/item/spr_drum.png" id="1_bv578"]
+[ext_resource type="Script" path="res://scripts/game/collectibles/item.gd" id="2_l87bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8s34"]
+size = Vector2(16, 16)
+
+[node name="Drum" type="Sprite2D"]
+texture = ExtResource("1_bv578")
+script = ExtResource("2_l87bn")
+item_name = null
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_k8s34")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

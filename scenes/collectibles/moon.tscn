@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://biurlxqhbna7a"]
 
 [ext_resource type="Texture2D" uid="uid://cgfhy1pnovoh3" path="res://assets/main_sprites/item/spr_egg.png" id="2_6y22a"]
-[ext_resource type="Script" path="res://scripts/game/moon.gd" id="2_sxuni"]
+[ext_resource type="Script" path="res://scripts/game/collectibles/moon.gd" id="2_sxuni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxypx"]
 size = Vector2(96, 96)
