@@ -88,7 +88,7 @@ autoplay = "idle"
 
 [node name="Collector" type="Area2D" parent="Colliders"]
 collision_layer = 0
-collision_mask = 16
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Collector"]
 shape = SubResource("RectangleShape2D_eni0p")
