@@ -145,10 +145,10 @@ position = Vector2(-9, 0)
 shape = SubResource("RectangleShape2D_qv72o")
 
 [node name="InternalTimer" type="Timer" parent="."]
-
-[node name="MoveTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="BuffTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_vi28h")

@@ -108,12 +108,12 @@ func colliding(_body, collider: Area2D, isColliding):
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(controls[4]):
+	if event.is_action_pressed(controls[4]) and item:
 		item_cooldown = true
 		match item.item_name:
 			"Drum":
 				state_machine.get_node("Drumming").enter()
-			"Flashlight":
+			"Lantern":
 				state_machine.get_node("Flashing").enter()
 		await internal_timer.timeout
 		item_cooldown = false

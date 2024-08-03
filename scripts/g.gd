@@ -6,8 +6,8 @@ var time = 0
 var moons = 0
 var baconawa_win = null
 
-func display_time(time: int):
-	var minutes = floori(time / 60)
+func display_time(time_left: int):
+	var minutes = floori(time_left / 60)
 	var seconds = time % 60
 	return "%s min %s sec" % [minutes,seconds]
 

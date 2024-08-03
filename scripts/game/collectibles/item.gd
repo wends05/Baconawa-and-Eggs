@@ -3,7 +3,7 @@ extends Sprite2D
 class_name Item
 
 var is_collected = false
-@export var item_name = "Drum"
+@export var item_name: String
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
