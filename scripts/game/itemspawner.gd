@@ -5,7 +5,6 @@ var lantern = preload("res://scenes/collectibles/lantern.tscn")
 var current = 0
 var spawners: Array[Node2D]
 
-@export var Rice_Players: Array[Rice]
 @onready var cd = $Cooldown
 
 
