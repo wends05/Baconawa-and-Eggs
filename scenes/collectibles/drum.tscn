@@ -9,7 +9,7 @@ size = Vector2(16, 16)
 [node name="Drum" type="Sprite2D"]
 texture = ExtResource("1_bv578")
 script = ExtResource("2_l87bn")
-item_name = null
+item_name = "Drum"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 64

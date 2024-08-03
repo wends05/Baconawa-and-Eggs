@@ -9,15 +9,15 @@ class_name BaconawaBody
 var positionarr = []
 
 func _ready():
-	
+
 	%Baconawa.fst.connect(clr_speed)
 	#%Baconawa.gld.connect(clr_gold)
 	%Baconawa.ghst.connect(clr_ghost)
 	%Baconawa.nrml.connect(clr_normal)
 	positionarr.append(head.position)
 	clr_normal()
-	
-	
+
+
 
 func position_change():
 	if positionarr[0] == positionarr[1]:
@@ -36,7 +36,7 @@ func _physics_process(_delta) -> void:
 			next.positionarr.pop_front()
 	else:
 		print("KYS")
-		
+
 
 func clr_normal():
 	anim.material.set_shader_parameter("red1B", head.bacon_color[0][0])

@@ -9,7 +9,7 @@ class_name BaconawaBodyTres
 var positionarr = []
 
 func _ready():
-	
+
 	%Baconawa.fst.connect(clr_speed)
 	#%Baconawa.gld.connect(clr_gold)
 	%Baconawa.ghst.connect(clr_ghost)
@@ -30,7 +30,7 @@ func _physics_process(_delta) -> void:
 			position_change()
 	else:
 		print("KYS")
-		
+
 
 func clr_normal():
 	anim.material.set_shader_parameter("red1B", head.bacon_color[0][0])

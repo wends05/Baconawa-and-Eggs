@@ -10,7 +10,7 @@ class_name BaconawaBodyDos
 var positionarr = []
 
 func _ready():
-	
+
 	%Baconawa.fst.connect(clr_speed)
 	#%Baconawa.gld.connect(clr_gold)
 	%Baconawa.ghst.connect(clr_ghost)

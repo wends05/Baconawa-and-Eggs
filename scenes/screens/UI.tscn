@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwfpw16sb0fu5"]
+[gd_scene load_steps=4 format=3 uid="uid://cwfpw16sb0fu5"]
 
 [ext_resource type="Script" path="res://scripts/game/UI.gd" id="1_r8c80"]
 [ext_resource type="Texture2D" uid="uid://cxswbsf5byuy1" path="res://icon.svg" id="3_p6nkt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t7fj5"]
+font_size = 10
 
 [node name="UI" type="Control"]
 process_mode = 3
@@ -83,6 +86,7 @@ offset_top = 63.0
 offset_right = 128.0
 offset_bottom = 255.0
 text = "label here"
+label_settings = SubResource("LabelSettings_t7fj5")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

@@ -29,4 +29,3 @@ func add_moon():
 
 func reset_timer():
 	cd.start(randi_range(10,15))
-	print(cd.time_left)

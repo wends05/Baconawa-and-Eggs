@@ -41,7 +41,7 @@ func _ready():
 	%Baconawa.bff_act.connect(buff_icon_remove)
 	
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 
