@@ -58,7 +58,8 @@ func play_once(animation :String, nextanimation :String):
 	play(animation)
 
 #animdata
-func get_animation_data(animation):
+func get_animation_data(_animation):
+	## remove underscore it will gonna use animation param
 	fps = sprites.get_animation_speed(current_animation)
 	refresh_rate = sprites.get_frame_duration(current_animation, frame_index)
 	
