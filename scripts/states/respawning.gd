@@ -8,7 +8,7 @@ func enter(_msg = {}):
 	owner.last_input = ""
 	owner.visible = false
 	owner.anim.play("idle")
-	owner.global_position = owner.spawn_point
+	owner.global_position = owner.spawn_position
 	internal_timer.start(3)
 	await internal_timer.timeout
 	owner.visible = true

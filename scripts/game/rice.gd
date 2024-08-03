@@ -63,8 +63,6 @@ func _ready() -> void:
 		"left_%d" % controller_num,
 		"right_%d" % controller_num,
 		"action_%d" % controller_num, #change this for testings..cuz items are pickups
-		#"r%d_flash" % player_number,
-		#"r%d_drum" % player_number,
 	]
 	#up-0, down-1, left-2, right-3
 
@@ -120,16 +118,14 @@ func _input(event: InputEvent) -> void:
 		await internal_timer.timeout
 		item_cooldown = false
 
-# Used by the Rice Players nga Node2Ds
-func respawn():
-	visible = false
-	internal_timer.start(2)
-	await internal_timer.timeout
-	self.position = spawn_position
-	visible = true
-
 func _on_collector_area_entered(area: Area2D) -> void:
-	var node = area.get_parent()
+	#var node = area.get_parent()
+	var node = area.owner
 	if node is Item:
 		if node.item_name == "Drum":
 			item = node
+
+func _on_baconawa_area_entered(area: Area2D) -> void:
+	var node = area.owner
+	if node is Baconawa:
+		state_machine.transition_to("Respawning")

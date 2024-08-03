@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cwbbda5vd2ofb"]
+[gd_scene load_steps=37 format=3 uid="uid://cwbbda5vd2ofb"]
 
 [ext_resource type="Script" path="res://scripts/game/rice.gd" id="1_77n87"]
 [ext_resource type="Shader" path="res://scripts/shaders/rice.gdshader" id="2_iclel"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/states/moving.gd" id="6_pxlgm"]
 [ext_resource type="Script" path="res://scripts/states/flashing.gd" id="7_u85nl"]
 [ext_resource type="Script" path="res://scripts/states/drumming.gd" id="8_gcsqk"]
+[ext_resource type="Script" path="res://scripts/states/respawning.gd" id="9_u4rm5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
 size = Vector2(14, 14)
@@ -178,6 +179,9 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp6ti"]
+size = Vector2(6, 14)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xs22"]
 size = Vector2(14, 5.5)
 
@@ -201,10 +205,18 @@ shape = SubResource("RectangleShape2D_osxse")
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_7v3t6")
 sprite_frames = SubResource("SpriteFrames_skxty")
-animation = &"move_down"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.337223
 
 [node name="Colliders" type="Node2D" parent="."]
+
+[node name="Baconawa" type="Area2D" parent="Colliders"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Baconawa"]
+shape = SubResource("RectangleShape2D_dp6ti")
 
 [node name="Top" type="Area2D" parent="Colliders"]
 collision_layer = 4
@@ -261,6 +273,10 @@ script = ExtResource("7_u85nl")
 [node name="Drumming" type="Node" parent="StateMachine"]
 script = ExtResource("8_gcsqk")
 
+[node name="Respawning" type="Node" parent="StateMachine"]
+script = ExtResource("9_u4rm5")
+
 [node name="FlAnchor" type="Node" parent="."]
 
+[connection signal="area_entered" from="Colliders/Baconawa" to="." method="_on_baconawa_area_entered"]
 [connection signal="area_entered" from="Colliders/Collector" to="." method="_on_collector_area_entered"]
