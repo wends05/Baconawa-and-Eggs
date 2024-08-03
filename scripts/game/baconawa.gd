@@ -17,7 +17,6 @@ class_name Baconawa
 @onready var right_collider = $Colliders/Right
 
 @onready var internal_timer = $InternalTimer
-@onready var move_timer = $MoveTimer
 @onready var buff_timer = $BuffTimer
 @onready var state_machine = $StateMachine
 
@@ -34,7 +33,6 @@ var right_colliding = false
 # checks last input to identify where to go after finishing
 # colliding to a wall
 var last_input = ""
-var turn_position
 
 # Game proper variables
 var moons_collected: int = 0
@@ -51,6 +49,7 @@ const BUFFS = {
 }
 signal kill_someone
 var moving_through_wall = false
+var moved_through_first_wall = false
 signal moon_collected
 
 signal eat
@@ -62,7 +61,7 @@ signal bff
 signal bff_act
 
 var bacon_color = [
-	
+
 	[	#normal
 		Vector4(0.486,0.137,0.102,1.0),
 		Vector4(0.588,0.235,0.196, 1.0),
@@ -87,7 +86,7 @@ var bacon_color = [
 	],
 ]
 func _ready() -> void:
-	
+
 	clr_normal()
 	anim.play("idle")
 	for collider: Area2D in [top_collider, down_collider, left_collider, right_collider]:
@@ -107,9 +106,6 @@ func _physics_process(_delta: float) -> void:
 	if game_finished:
 		return
 
-	# stops getting movement inputs from the player while on a wall
-	if moving_through_wall:
-		return
 
 	move_and_slide()
 	body.positionarr.append(position)
@@ -117,6 +113,8 @@ func _physics_process(_delta: float) -> void:
 		body.positionarr.pop_front()
 
 func colliding(_body, collider: Area2D, isColliding):
+	if moving_through_wall:
+		return
 	match collider.name:
 		"Top":
 			top_colliding = isColliding
@@ -170,6 +168,8 @@ func _input(event: InputEvent) -> void:
 				right_colliding = false
 				set_collision_mask_value(2, false)
 				buffs.pop_front()
+				moving_through_wall = true
+				moved_through_first_wall = false
 			_:
 				print("No buffs yet")
 				print(buffs[0])
@@ -186,15 +186,20 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		moon_collected.emit()
 		eat.emit()
 		if len(buffs) != 2:
-			buffs.append(randi_range(1,3))
+			buffs.append(3)
 			bff.emit()
 
 # If exited a wall, add the collision mask value again
 func _on_collector_body_exited(_body: Node2D) -> void:
-	set_collision_mask_value(2, true)
+	if moved_through_first_wall:
+		return
+	moved_through_first_wall = true
+	internal_timer.start(3)
+	await internal_timer.timeout
+	moving_through_wall = false
 	nrml.emit()
 	clr_normal()
-	
+	set_collision_mask_value(2, true)
 
 
 func clr_normal():
@@ -218,3 +223,5 @@ func clr_ghost():
 	anim.material.set_shader_parameter("fat2B", bacon_color[2][4])
 	anim.material.set_shader_parameter("eye1B", bacon_color[2][5])
 	anim.material.set_shader_parameter("eye2B", bacon_color[2][6])
+
+
