@@ -18,6 +18,9 @@ class_name Rice
 # will be used for delays
 @onready var internal_timer = $InternalTimer
 
+@onready var spawn_position = global_position
+@onready var state_machine = $StateMachine
+
 #collider check
 var down_colliding = false
 var top_colliding = false
@@ -39,9 +42,10 @@ var bandcolors = [
 	[Vector4(0.941, 0.827, 0.149, 1.0), Vector4(0.894, 0.784, 0.129, 1.0), Vector4(0.576, 0.592, 0.114, 1.0)], #yellow
 ]
 
-#create evenet
-func _ready() -> void:
+var item : Item = null
+var item_cooldown = false
 
+func _ready() -> void:
 	#colliders
 	anim.play("idle")
 	for collider: Area2D in [top_collider, down_collider, left_collider, right_collider]:
@@ -74,31 +78,6 @@ func _physics_process(_delta: float) -> void:
 	# refer to the game.game_ended signal
 	if game_finished:
 		return
-
-	#if Input.is_action_pressed(r_controls[1]):
-		#if not down_colliding:
-			#velocity = Vector2(0, SPEED)
-			#anim.play("move_down")
-			#anim.flip_h = false
-		#last_input = "down"
-	#if Input.is_action_pressed(r_controls[0]):
-		#if not top_colliding:
-			#velocity = Vector2(0, -SPEED)
-			#anim.play("move_up")
-			#anim.flip_h = false
-		#last_input = "up"
-	#if Input.is_action_pressed(r_controls[2]):
-		#if not left_colliding:
-			#velocity = Vector2( - SPEED, 0)
-			#anim.play("move_side")
-			#anim.flip_h = false
-		#last_input = "left"
-	#if Input.is_action_pressed(r_controls[3]):
-		#if not right_colliding:
-			#velocity = Vector2(SPEED, 0)
-			#anim.play("move_side")
-			#anim.flip_h = true
-		#last_input = "right"
 	move_and_slide()
 
 #if colliding with wall
@@ -129,9 +108,28 @@ func colliding(_body, collider: Area2D, isColliding):
 				anim.play("move_side")
 				anim.flip_h = false
 
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(controls[4]):
+		item_cooldown = true
+		match item.item_name:
+			"Drum":
+				state_machine.get_node("Drumming").enter()
+			"Flashlight":
+				state_machine.get_node("Flashing").enter()
+		await internal_timer.timeout
+		item_cooldown = false
+
 # Used by the Rice Players nga Node2Ds
 func respawn():
 	visible = false
 	internal_timer.start(2)
 	await internal_timer.timeout
+	self.position = spawn_position
 	visible = true
+
+func _on_collector_area_entered(area: Area2D) -> void:
+	var node = area.get_parent()
+	if node is Item:
+		if node.item_name == "Drum":
+			item = node

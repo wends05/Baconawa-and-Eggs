@@ -72,8 +72,6 @@ func _physics_process(_delta: float) -> void:
 	if game_finished:
 		return
 
-	buff_handler()
-
 	# stops getting movement inputs from the player while on a wall
 	if moving_through_wall:
 		return
@@ -107,8 +105,8 @@ func colliding(_body, collider: Area2D, isColliding):
 				state_machine.get_node("Moving").move()
 
 # checks for buffs if buff_id is not 0
-func buff_handler():
-	if Input.is_action_just_pressed(controls[4]) and not buff_cooldown and not buffs.size() == 0:
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(controls[4]) and not buff_cooldown and not buffs.size() == 0:
 		buff_cooldown = true
 		match buffs[0]:
 			1: #Speed
@@ -137,8 +135,9 @@ func buff_handler():
 		await buff_timer.timeout
 		buff_cooldown = false
 
+
 # Moon collector function
-func _on_main_collider_area_entered(area: Area2D) -> void:
+func _on_collector_area_entered(area: Area2D) -> void:
 	var node = area.get_parent()
 	if node is Moon and not node.is_collected:
 		moons_collected += 1
@@ -146,5 +145,5 @@ func _on_main_collider_area_entered(area: Area2D) -> void:
 		if len(buffs) != 2: buffs.append(randi_range(1,3))
 
 # If exited a wall, add the collision mask value again
-func _on_main_collider_body_exited(_body: Node2D) -> void:
-		set_collision_mask_value(2, true)
+func _on_collector_body_exited(_body: Node2D) -> void:
+	set_collision_mask_value(2, true)

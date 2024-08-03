@@ -86,11 +86,11 @@ autoplay = "idle"
 
 [node name="Colliders" type="Node2D" parent="."]
 
-[node name="Main Collider" type="Area2D" parent="Colliders"]
+[node name="Collector" type="Area2D" parent="Colliders"]
 collision_layer = 0
 collision_mask = 18
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Main Collider"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Collector"]
 shape = SubResource("RectangleShape2D_eni0p")
 
 [node name="Top" type="Area2D" parent="Colliders"]
@@ -147,5 +147,5 @@ script = ExtResource("6_ktbn7")
 [node name="Confused" type="Node" parent="StateMachine"]
 script = ExtResource("7_bul5g")
 
-[connection signal="area_entered" from="Colliders/Main Collider" to="." method="_on_main_collider_area_entered"]
-[connection signal="body_exited" from="Colliders/Main Collider" to="." method="_on_main_collider_body_exited"]
+[connection signal="area_entered" from="Colliders/Collector" to="." method="_on_collector_area_entered"]
+[connection signal="body_exited" from="Colliders/Collector" to="." method="_on_collector_body_exited"]

@@ -15,7 +15,7 @@ func position_change():
 		positionarr.pop_front()
 	position = positionarr[0]
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	if head:
 		if head.velocity == Vector2(0, 0):
 			velocity = Vector2(0, 0)

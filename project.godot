@@ -246,6 +246,7 @@ right_8={
 2d_physics/layer_4="Rice"
 2d_physics/layer_5="Moon"
 2d_physics/layer_6="World Edges"
+2d_physics/layer_7="Item"
 
 [rendering]
 
