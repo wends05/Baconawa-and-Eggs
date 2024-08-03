@@ -8,6 +8,6 @@ func enter(_msg = {}):
 	state_machine.transition_to("Idle")
 	owner.get_node("InternalTimer").start(3)
 	await owner.get_node("InternalTimer").timeout
-	owner.controls = ["b_up", "b_down", "b_left", "b_right"
+	owner.controls = ["up_1", "down_1", "left_1", "right_1", "action_1"
 	#, "placeholder"
 	]

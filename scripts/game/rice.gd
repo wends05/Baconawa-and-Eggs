@@ -106,24 +106,11 @@ func colliding(_body, collider: Area2D, isColliding):
 				anim.play("move_side")
 				anim.flip_h = false
 
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(controls[4]) and item:
-		item_cooldown = true
-		match item.item_name:
-			"Drum":
-				state_machine.get_node("Drumming").enter()
-			"Lantern":
-				state_machine.get_node("Flashing").enter()
-		await internal_timer.timeout
-		item_cooldown = false
-
 func _on_collector_area_entered(area: Area2D) -> void:
 	#var node = area.get_parent()
 	var node = area.owner
 	if node is Item:
-		if node.item_name == "Drum":
-			item = node
+		item = node
 
 func _on_baconawa_area_entered(area: Area2D) -> void:
 	var node = area.owner

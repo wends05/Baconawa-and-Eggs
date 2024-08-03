@@ -251,6 +251,8 @@ position = Vector2(-7.25, 0)
 shape = SubResource("RectangleShape2D_j46u5")
 
 [node name="Collector" type="Area2D" parent="Colliders"]
+collision_layer = 0
+collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Collector"]
 shape = SubResource("RectangleShape2D_osxse")
@@ -276,7 +278,7 @@ script = ExtResource("8_gcsqk")
 [node name="Respawning" type="Node" parent="StateMachine"]
 script = ExtResource("9_u4rm5")
 
-[node name="FlAnchor" type="Node" parent="."]
+[node name="FlAnchor" type="Node2D" parent="."]
 
 [connection signal="area_entered" from="Colliders/Baconawa" to="." method="_on_baconawa_area_entered"]
 [connection signal="area_entered" from="Colliders/Collector" to="." method="_on_collector_area_entered"]

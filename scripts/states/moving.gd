@@ -21,6 +21,17 @@ func physics_update(_delta: float) -> void:
 		owner.last_input = "right"
 		if not owner.right_colliding:
 			move()
+	if Input.is_action_pressed(controls[4]):
+		if owner is Rice:
+			if owner.item != null and not owner.item_cooldown:
+				match owner.item.item_name:
+					"Drum":
+						state_machine.transition_to("Drumming")
+					#"Lantern":
+					"Flashlight":
+						state_machine.transition_to("Flashing")
+		if owner is Baconawa:
+			pass
 
 func move():
 	var SPEED = owner.SPEED
