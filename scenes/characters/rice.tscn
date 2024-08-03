@@ -238,6 +238,11 @@ collision_mask = 2
 position = Vector2(-7.25, 0)
 shape = SubResource("RectangleShape2D_j46u5")
 
+[node name="Collector" type="Area2D" parent="Colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Collector"]
+shape = SubResource("RectangleShape2D_osxse")
+
 [node name="InternalTimer" type="Timer" parent="."]
 
 [node name="StateMachine" type="Node" parent="."]
@@ -257,3 +262,5 @@ script = ExtResource("7_u85nl")
 script = ExtResource("8_gcsqk")
 
 [node name="FlAnchor" type="Node" parent="."]
+
+[connection signal="area_entered" from="Colliders/Collector" to="." method="_on_collector_area_entered"]
