@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2tmulxwbqvkh"]
+[gd_scene load_steps=17 format=3 uid="uid://d2tmulxwbqvkh"]
 
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_no8oh"]
 [ext_resource type="PackedScene" uid="uid://bi37f5gm8dmgk" path="res://scenes/characters/baconawa.tscn" id="2_7ra4s"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cwbbda5vd2ofb" path="res://scenes/characters/rice.tscn" id="7_86cue"]
 [ext_resource type="Script" path="res://scripts/game/baconawa_body3.gd" id="8_4a0km"]
 [ext_resource type="Script" path="res://scripts/game/moonhandler.gd" id="10_slq7m"]
+[ext_resource type="PackedScene" uid="uid://bq3ski4oyihxf" path="res://scenes/screens/GUI.tscn" id="14_5f1l6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgenw"]
 texture = ExtResource("2_83cv7")
@@ -723,6 +724,7 @@ head = NodePath("../Baconawa")
 follow = NodePath("../BaconawaBody2")
 
 [node name="UI" parent="." node_paths=PackedStringArray("baconawa", "timer", "body") instance=ExtResource("4_1ovr0")]
+visible = false
 offset_right = 736.0
 baconawa = NodePath("../Baconawa")
 timer = NodePath("../Timer")
@@ -774,3 +776,5 @@ position = Vector2(504, 120)
 player_number = 3
 
 [node name="Items" type="Node2D" parent="."]
+
+[node name="GUI" parent="." instance=ExtResource("14_5f1l6")]

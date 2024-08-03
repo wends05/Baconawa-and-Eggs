@@ -53,6 +53,14 @@ signal kill_someone
 var moving_through_wall = false
 signal moon_collected
 
+signal eat
+signal nrml
+signal ghst
+signal fst
+signal gld
+signal bff
+signal bff_act
+
 func _ready() -> void:
 	anim.play("idle")
 	for collider: Area2D in [top_collider, down_collider, left_collider, right_collider]:
@@ -108,20 +116,24 @@ func colliding(_body, collider: Area2D, isColliding):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(controls[4]) and not buff_cooldown and not buffs.size() == 0:
 		buff_cooldown = true
+		bff_act.emit()
 		match buffs[0]:
 			1: #Speed
+				fst.emit()
 				SPEED = 120
 				internal_timer.start(3)
 				buffs.pop_front()
 				#this needs to be moved
 				state_machine.get_node("Moving").move()
 				await internal_timer.timeout
+				nrml.emit()
 				SPEED = 75
 			2: #Kill someone
 				buffs.pop_front()
 				kill_someone.emit()
 			3: #Move to a wall
 				print("Collision mask 2 set to false")
+				ghst.emit()
 				top_colliding = false
 				down_colliding = false
 				left_colliding = false
@@ -142,8 +154,12 @@ func _on_collector_area_entered(area: Area2D) -> void:
 	if node is Moon and not node.is_collected:
 		moons_collected += 1
 		moon_collected.emit()
-		if len(buffs) != 2: buffs.append(randi_range(1,3))
+		eat.emit()
+		if len(buffs) != 2:
+			buffs.append(randi_range(1,3))
+			bff.emit()
 
 # If exited a wall, add the collision mask value again
 func _on_collector_body_exited(_body: Node2D) -> void:
 	set_collision_mask_value(2, true)
+	nrml.emit()
