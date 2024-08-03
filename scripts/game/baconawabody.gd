@@ -4,11 +4,20 @@ class_name BaconawaBody
 @export var SPEED: int = 100
 @export var head: Baconawa
 @export var next: BaconawaBodyDos
+@onready var anim = $AnimatedSprite2D
 
 var positionarr = []
 
 func _ready():
+	
+	%Baconawa.fst.connect(clr_speed)
+	#%Baconawa.gld.connect(clr_gold)
+	%Baconawa.ghst.connect(clr_ghost)
+	%Baconawa.nrml.connect(clr_normal)
 	positionarr.append(head.position)
+	clr_normal()
+	
+	
 
 func position_change():
 	if positionarr[0] == positionarr[1]:
@@ -27,3 +36,26 @@ func _physics_process(_delta) -> void:
 			next.positionarr.pop_front()
 	else:
 		print("KYS")
+		
+
+func clr_normal():
+	anim.material.set_shader_parameter("red1B", head.bacon_color[0][0])
+	anim.material.set_shader_parameter("red2B", head.bacon_color[0][1])
+	anim.material.set_shader_parameter("red3B", head.bacon_color[0][2])
+	anim.material.set_shader_parameter("fat1B", head.bacon_color[0][3])
+	anim.material.set_shader_parameter("fat2B", head.bacon_color[0][4])
+	anim.material.set_shader_parameter("eye1B", head.bacon_color[0][5])
+	anim.material.set_shader_parameter("eye2B", head.bacon_color[0][6])
+
+func clr_speed():
+	anim.material.set_shader_parameter("fat1B", head.bacon_color[1][0])
+	anim.material.set_shader_parameter("fat2B", head.bacon_color[1][1])
+
+func clr_ghost():
+	anim.material.set_shader_parameter("red1B", head.bacon_color[2][0])
+	anim.material.set_shader_parameter("red2B", head.bacon_color[2][1])
+	anim.material.set_shader_parameter("red3B", head.bacon_color[2][2])
+	anim.material.set_shader_parameter("fat1B", head.bacon_color[2][3])
+	anim.material.set_shader_parameter("fat2B", head.bacon_color[2][4])
+	anim.material.set_shader_parameter("eye1B", head.bacon_color[2][5])
+	anim.material.set_shader_parameter("eye2B", head.bacon_color[2][6])

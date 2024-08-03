@@ -61,7 +61,34 @@ signal gld
 signal bff
 signal bff_act
 
+var bacon_color = [
+	
+	[	#normal
+		Vector4(0.486,0.137,0.102,1.0),
+		Vector4(0.588,0.235,0.196, 1.0),
+		Vector4(0.396,0.157,0.157, 1.0),
+		Vector4(0.827,0.631,0.463, 1.0),
+		Vector4(0.835,0.514,0.286, 1.0),
+		Vector4(0.914,0.718,0.549, 1.0),
+		Vector4(0.294,0.106,0.075, 1.0)
+	],
+	[	#speed
+		Vector4(0.514,0.961,0.906,1.0),
+		Vector4(0.102,0.886,0.886, 1.0),
+	],
+	[	#ghost
+		Vector4(0.486,0.137,0.102,0.3),
+		Vector4(0.588,0.235,0.196, 0.3),
+		Vector4(0.396,0.157,0.157, 0.3),
+		Vector4(0.827,0.631,0.463, 0.3),
+		Vector4(0.835,0.514,0.286, 0.3),
+		Vector4(0.914,0.718,0.549, 0.3),
+		Vector4(0.294,0.106,0.075, 0.3)
+	],
+]
 func _ready() -> void:
+	
+	clr_normal()
 	anim.play("idle")
 	for collider: Area2D in [top_collider, down_collider, left_collider, right_collider]:
 		collider.connect("body_entered", colliding.bind(collider, true))
@@ -119,6 +146,7 @@ func _input(event: InputEvent) -> void:
 		bff_act.emit()
 		match buffs[0]:
 			1: #Speed
+				clr_speed()
 				fst.emit()
 				SPEED = 120
 				internal_timer.start(3)
@@ -126,6 +154,7 @@ func _input(event: InputEvent) -> void:
 				#this needs to be moved
 				state_machine.get_node("Moving").move()
 				await internal_timer.timeout
+				clr_normal()
 				nrml.emit()
 				SPEED = 75
 			2: #Kill someone
@@ -134,6 +163,7 @@ func _input(event: InputEvent) -> void:
 			3: #Move to a wall
 				print("Collision mask 2 set to false")
 				ghst.emit()
+				clr_ghost()
 				top_colliding = false
 				down_colliding = false
 				left_colliding = false
@@ -163,3 +193,28 @@ func _on_collector_area_entered(area: Area2D) -> void:
 func _on_collector_body_exited(_body: Node2D) -> void:
 	set_collision_mask_value(2, true)
 	nrml.emit()
+	clr_normal()
+	
+
+
+func clr_normal():
+	anim.material.set_shader_parameter("red1B", bacon_color[0][0])
+	anim.material.set_shader_parameter("red2B", bacon_color[0][1])
+	anim.material.set_shader_parameter("red3B", bacon_color[0][2])
+	anim.material.set_shader_parameter("fat1B", bacon_color[0][3])
+	anim.material.set_shader_parameter("fat2B", bacon_color[0][4])
+	anim.material.set_shader_parameter("eye1B", bacon_color[0][5])
+	anim.material.set_shader_parameter("eye2B", bacon_color[0][6])
+
+func clr_speed():
+	anim.material.set_shader_parameter("fat1B", bacon_color[1][0])
+	anim.material.set_shader_parameter("fat2B", bacon_color[1][1])
+
+func clr_ghost():
+	anim.material.set_shader_parameter("red1B", bacon_color[2][0])
+	anim.material.set_shader_parameter("red2B", bacon_color[2][1])
+	anim.material.set_shader_parameter("red3B", bacon_color[2][2])
+	anim.material.set_shader_parameter("fat1B", bacon_color[2][3])
+	anim.material.set_shader_parameter("fat2B", bacon_color[2][4])
+	anim.material.set_shader_parameter("eye1B", bacon_color[2][5])
+	anim.material.set_shader_parameter("eye2B", bacon_color[2][6])

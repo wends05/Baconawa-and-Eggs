@@ -1,7 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqs71ck5q0qco"]
+[gd_scene load_steps=7 format=3 uid="uid://bqs71ck5q0qco"]
 
 [ext_resource type="Script" path="res://scripts/game/baconawabody.gd" id="1_dpi8b"]
+[ext_resource type="Shader" path="res://scripts/shaders/baconawa.gdshader" id="2_7bo8v"]
 [ext_resource type="Texture2D" uid="uid://dn5eakfwpjrn0" path="res://assets/main_sprites/character/spr_baconawa.png" id="2_ol0kd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0jhgj"]
+shader = ExtResource("2_7bo8v")
+shader_parameter/red1 = Color(1, 0, 0, 1)
+shader_parameter/red2 = Color(1, 1, 0, 1)
+shader_parameter/red3 = Color(0, 1, 0, 1)
+shader_parameter/fat1 = Color(0, 1, 1, 1)
+shader_parameter/fat2 = Color(0, 0, 1, 1)
+shader_parameter/eye1 = Color(1, 0, 1, 1)
+shader_parameter/eye2 = Color(0, 0, 0, 1)
+shader_parameter/red1B = Color(1, 0, 0, 1)
+shader_parameter/red2B = Color(1, 1, 0, 1)
+shader_parameter/red3B = Color(0, 1, 0, 1)
+shader_parameter/fat1B = Color(1, 0, 0, 1)
+shader_parameter/fat2B = Color(1, 1, 0, 1)
+shader_parameter/eye1B = Color(0, 1, 0, 1)
+shader_parameter/eye2B = Color(0, 1, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nc8x0"]
 atlas = ExtResource("2_ol0kd")
@@ -22,4 +40,5 @@ animations = [{
 script = ExtResource("1_dpi8b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_0jhgj")
 sprite_frames = SubResource("SpriteFrames_jin2j")

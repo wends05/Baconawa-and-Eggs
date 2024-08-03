@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bi37f5gm8dmgk"]
+[gd_scene load_steps=19 format=3 uid="uid://bi37f5gm8dmgk"]
 
 [ext_resource type="Script" path="res://scripts/game/baconawa.gd" id="1_2ge8w"]
 [ext_resource type="Texture2D" uid="uid://dn5eakfwpjrn0" path="res://assets/main_sprites/character/spr_baconawa.png" id="2_ghkiq"]
+[ext_resource type="Shader" path="res://scripts/shaders/baconawa.gdshader" id="2_udt14"]
 [ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_vi28h"]
 [ext_resource type="Script" path="res://scripts/states/idle.gd" id="4_s2sfe"]
 [ext_resource type="Script" path="res://scripts/states/moving.gd" id="5_kurwn"]
@@ -10,6 +11,23 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
 size = Vector2(14, 14)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_go01w"]
+shader = ExtResource("2_udt14")
+shader_parameter/red1 = Color(1, 0, 0, 1)
+shader_parameter/red2 = Color(1, 1, 0, 1)
+shader_parameter/red3 = Color(0, 1, 0, 1)
+shader_parameter/fat1 = Color(0, 1, 1, 1)
+shader_parameter/fat2 = Color(0, 0, 1, 1)
+shader_parameter/eye1 = Color(1, 0, 1, 1)
+shader_parameter/eye2 = Color(0, 0, 0, 1)
+shader_parameter/red1B = Color(1, 0, 0, 1)
+shader_parameter/red2B = Color(1, 1, 0, 1)
+shader_parameter/red3B = Color(0, 1, 0, 1)
+shader_parameter/fat1B = Color(1, 0, 0, 1)
+shader_parameter/fat2B = Color(1, 1, 0, 1)
+shader_parameter/eye1B = Color(0, 1, 0, 1)
+shader_parameter/eye2B = Color(0, 1, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6h5j"]
 atlas = ExtResource("2_ghkiq")
@@ -80,6 +98,7 @@ script = ExtResource("1_2ge8w")
 shape = SubResource("RectangleShape2D_osxse")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_go01w")
 sprite_frames = SubResource("SpriteFrames_skxty")
 animation = &"idle"
 autoplay = "idle"

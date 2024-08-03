@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://scripts/UI/Animated_Rect.gd" id="2_jbus7"]
 [ext_resource type="Texture2D" uid="uid://dwybmhf5yalfk" path="res://assets/main_sprites/ui/spr_riceportrait.png" id="3_exapj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aod03"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cy8o"]
 atlas = ExtResource("3_exapj")
-region = Rect2(192, 0, 48, 48)
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0f8w"]
 atlas = ExtResource("3_exapj")
@@ -66,9 +66,9 @@ region = Rect2(96, 0, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7cy8o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aod03"]
 atlas = ExtResource("3_exapj")
-region = Rect2(240, 0, 48, 48)
+region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8id00"]
 atlas = ExtResource("3_exapj")
@@ -211,9 +211,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m62gh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgxqv"]
 atlas = ExtResource("3_exapj")
-region = Rect2(192, 144, 48, 48)
+region = Rect2(240, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjtgc"]
 atlas = ExtResource("3_exapj")
@@ -271,9 +271,9 @@ region = Rect2(96, 144, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(144, 144, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bgxqv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m62gh"]
 atlas = ExtResource("3_exapj")
-region = Rect2(240, 144, 48, 48)
+region = Rect2(192, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ss6qn"]
 atlas = ExtResource("3_exapj")
@@ -416,9 +416,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nttkm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dh5p"]
 atlas = ExtResource("3_exapj")
-region = Rect2(192, 288, 48, 48)
+region = Rect2(240, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gewfg"]
 atlas = ExtResource("3_exapj")
@@ -476,9 +476,9 @@ region = Rect2(96, 288, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(144, 288, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8dh5p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nttkm"]
 atlas = ExtResource("3_exapj")
-region = Rect2(240, 288, 48, 48)
+region = Rect2(192, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h84j"]
 atlas = ExtResource("3_exapj")
@@ -1014,11 +1014,11 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_aod03")
+texture = SubResource("AtlasTexture_7cy8o")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_k3fo8")
 current_animation = "default_idle"
-frame_index = 4
+frame_index = 5
 auto_play = true
 playing = true
 
@@ -1052,11 +1052,11 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_m62gh")
+texture = SubResource("AtlasTexture_bgxqv")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_glqf2")
 current_animation = "default_idle"
-frame_index = 4
+frame_index = 5
 auto_play = true
 playing = true
 
@@ -1090,11 +1090,11 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_nttkm")
+texture = SubResource("AtlasTexture_8dh5p")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_fqdhb")
 current_animation = "default_idle"
-frame_index = 4
+frame_index = 5
 auto_play = true
 playing = true
 
