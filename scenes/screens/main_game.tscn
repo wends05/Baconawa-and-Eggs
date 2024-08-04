@@ -756,6 +756,27 @@ position = Vector2(504, 280)
 [node name="Moon7" parent="Moons" instance=ExtResource("5_865dh")]
 position = Vector2(592, 392)
 
+[node name="Moon8" parent="Moons" instance=ExtResource("5_865dh")]
+position = Vector2(352, 104)
+
+[node name="Moon9" parent="Moons" instance=ExtResource("5_865dh")]
+position = Vector2(176, 104)
+
+[node name="Moon10" parent="Moons" instance=ExtResource("5_865dh")]
+position = Vector2(104, 136)
+
+[node name="Moon11" parent="Moons" instance=ExtResource("5_865dh")]
+position = Vector2(264, 216)
+
+[node name="Moon12" parent="Moons" instance=ExtResource("5_865dh")]
+position = Vector2(208, 280)
+
+[node name="Moon13" parent="Moons" instance=ExtResource("5_865dh")]
+position = Vector2(160, 312)
+
+[node name="Moon14" parent="Moons" instance=ExtResource("5_865dh")]
+position = Vector2(264, 344)
+
 [node name="Cooldown" type="Timer" parent="Moons"]
 
 [node name="Rice Players" type="Node2D" parent="." node_paths=PackedStringArray("baconawa")]
@@ -795,6 +816,24 @@ position = Vector2(536, 312)
 
 [node name="Spawn6" type="Node2D" parent="Items"]
 position = Vector2(552, 392)
+
+[node name="Spawn7" type="Node2D" parent="Items"]
+position = Vector2(224, 104)
+
+[node name="Spawn8" type="Node2D" parent="Items"]
+position = Vector2(232, 184)
+
+[node name="Spawn9" type="Node2D" parent="Items"]
+position = Vector2(112, 216)
+
+[node name="Spawn10" type="Node2D" parent="Items"]
+position = Vector2(168, 248)
+
+[node name="Spawn11" type="Node2D" parent="Items"]
+position = Vector2(120, 376)
+
+[node name="Spawn12" type="Node2D" parent="Items"]
+position = Vector2(312, 392)
 
 [node name="Cooldown" type="Timer" parent="Items"]
 
