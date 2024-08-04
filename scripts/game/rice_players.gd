@@ -10,8 +10,8 @@ func _ready() -> void:
 
 func kill_someone():
 	var get_rice = get_children().filter(func(child): return child if child is Rice else null)
-	var chosen = get_rice.pick_random()
+	var chosen : Rice = get_rice.pick_random()
 	if chosen is Rice:
-		chosen.respawn()
+		chosen.state_machine.transition_to("Respawning")
 
 
