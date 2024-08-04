@@ -186,7 +186,7 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		moon_collected.emit()
 		eat.emit()
 		if len(buffs) != 2:
-			buffs.append(3)
+			buffs.append(randi_range(1,3))
 			bff.emit()
 
 # If exited a wall, add the collision mask value again

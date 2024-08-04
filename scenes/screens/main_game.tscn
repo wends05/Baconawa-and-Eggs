@@ -775,9 +775,8 @@ player_number = 2
 position = Vector2(504, 120)
 player_number = 3
 
-[node name="Items" type="Node2D" parent="." node_paths=PackedStringArray("Rice_Players")]
+[node name="Items" type="Node2D" parent="."]
 script = ExtResource("14_til08")
-Rice_Players = [NodePath("../Rice Players/Rice"), NodePath("../Rice Players/Rice2"), NodePath("../Rice Players/Rice3")]
 
 [node name="Spawn" type="Node2D" parent="Items"]
 position = Vector2(456, 104)

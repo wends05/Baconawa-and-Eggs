@@ -1,10 +1,109 @@
-[gd_scene load_steps=4 format=3 uid="uid://f8fn50ido6hf"]
+[gd_scene load_steps=18 format=3 uid="uid://f8fn50ido6hf"]
 
 [ext_resource type="Texture2D" uid="uid://dobbw17tgj7sf" path="res://assets/main_sprites/effects/spr_drumwave.png" id="1_k7a41"]
 [ext_resource type="Script" path="res://scripts/game/drums.gd" id="2_wfm73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0577"]
 size = Vector2(74, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xptwm"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl2ol"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7jjs"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0kw5"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdabs"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w6tr"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fue7y"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o6ur"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q383"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(640, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkvwy"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(720, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfuej"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(800, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrobt"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(880, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y2yp"]
+atlas = ExtResource("1_k7a41")
+region = Rect2(960, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jj1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xptwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl2ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7jjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0kw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdabs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w6tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fue7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o6ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q383")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkvwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfuej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrobt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y2yp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="Drums" type="Sprite2D"]
 texture = ExtResource("1_k7a41")
@@ -16,5 +115,10 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_p0577")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8jj1p")
+autoplay = "default"
+frame_progress = 0.450506
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
