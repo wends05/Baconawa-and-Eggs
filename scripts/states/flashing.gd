@@ -9,7 +9,7 @@ func enter(_msg := {}) -> void:
 	if not owner is Rice:
 		return
 	owner.anim.play("idle")
-	var direction = owner.last_input
+	var direction = owner.direction
 	match direction:
 		"up":
 			flashlight.set_rotation_degrees(-90)

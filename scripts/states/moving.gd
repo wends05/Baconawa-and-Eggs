@@ -39,16 +39,20 @@ func move():
 		"up":
 			owner.velocity = Vector2(0, -SPEED)
 			anim.play("move_up")
+			owner.direction = "up"
 			anim.flip_h = false
 		"down":
 			owner.velocity = Vector2(0, SPEED)
 			anim.play("move_down")
+			owner.direction = "down"
 			anim.flip_h = false
 		"left":
 			owner.velocity = Vector2(-SPEED, 0)
 			anim.play("move_side")
+			owner.direction = "left"
 			anim.flip_h = false
 		"right":
 			owner.velocity = Vector2(SPEED, 0)
 			anim.play("move_side")
+			owner.direction = "right"
 			anim.flip_h = true

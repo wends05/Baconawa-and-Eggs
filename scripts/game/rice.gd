@@ -28,6 +28,7 @@ var left_colliding = false
 var right_colliding = false
 
 var last_input = ""
+var direction = "left"
 
 #from bakunawa : var moons_collected : int = 0
 var game_finished = false

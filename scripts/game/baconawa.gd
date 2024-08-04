@@ -34,6 +34,7 @@ var right_colliding = false
 # checks last input to identify where to go after finishing
 # colliding to a wall
 var last_input = ""
+var direction = "left"
 
 # Game proper variables
 var moons_collected: int = 0
