@@ -18,7 +18,6 @@ class_name Baconawa
 
 @onready var internal_timer = $InternalTimer
 @onready var buff_timer = $BuffTimer
-@onready var invincibility_timer = $"Invincibility Timer"
 
 @onready var state_machine : StateMachine = $StateMachine
 
@@ -178,8 +177,8 @@ func _input(event: InputEvent) -> void:
 			4:
 				print("Immune to stun and confucius")
 				invincible = true
-				invincibility_timer.start(3)
-				await invincibility_timer.timeout
+				internal_timer.start(3)
+				await internal_timer.timeout
 				invincible = false
 				print("Unimmune")
 				buffs.pop_front()
