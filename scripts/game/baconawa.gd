@@ -88,6 +88,15 @@ var bacon_color = [
 		Vector4(0.914,0.718,0.549, 0.3),
 		Vector4(0.294,0.106,0.075, 0.3)
 	],
+	[	#gold
+		Vector4(0.796,0.537,0.318,1.0),
+		Vector4(0.871,0.631,0.396, 1.0),
+		Vector4(0.631,0.369,0.176, 1.0),
+		Vector4(0.976,0.824,0.557, 1.0),
+		Vector4(0.525,0.357,0.196, 1.0),
+		Vector4(0.992,0.902,0.737, 1.0),
+		Vector4(1.0,1.0,1.0, 1.0)
+	],
 ]
 func _ready() -> void:
 
@@ -177,9 +186,13 @@ func _input(event: InputEvent) -> void:
 			4:
 				print("Immune to stun and confucius")
 				invincible = true
+				gld.emit()
+				clr_gold()
 				internal_timer.start(3)
 				await internal_timer.timeout
 				invincible = false
+				nrml.emit()
+				clr_normal()
 				print("Unimmune")
 				buffs.pop_front()
 			_:
@@ -199,7 +212,7 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		moon_collected.emit()
 		eat.emit()
 		if len(buffs) != 2:
-			buffs.append(4)
+			buffs.append(buff_percent())
 			bff.emit()
 
 # If exited a wall, add the collision mask value again
@@ -213,7 +226,13 @@ func _on_collector_body_exited(_body: Node2D) -> void:
 	nrml.emit()
 	clr_normal()
 	set_collision_mask_value(2, true)
+	
 
+#percentage/chance editor for buffs
+func buff_percent():
+	#speed = gold > ghost > instakill
+	var chances = [1,1,1,4,4,4,3,3,2]
+	return chances[randi() % chances.size()]
 
 func clr_normal():
 	anim.material.set_shader_parameter("red1B", bacon_color[0][0])
@@ -227,6 +246,8 @@ func clr_normal():
 func clr_speed():
 	anim.material.set_shader_parameter("fat1B", bacon_color[1][0])
 	anim.material.set_shader_parameter("fat2B", bacon_color[1][1])
+	anim.material.set_shader_parameter("eye1B", bacon_color[1][0])
+	anim.material.set_shader_parameter("eye2B", bacon_color[1][1])
 
 func clr_ghost():
 	anim.material.set_shader_parameter("red1B", bacon_color[2][0])
@@ -236,5 +257,14 @@ func clr_ghost():
 	anim.material.set_shader_parameter("fat2B", bacon_color[2][4])
 	anim.material.set_shader_parameter("eye1B", bacon_color[2][5])
 	anim.material.set_shader_parameter("eye2B", bacon_color[2][6])
+
+func clr_gold():
+	anim.material.set_shader_parameter("red1B", bacon_color[3][0])
+	anim.material.set_shader_parameter("red2B", bacon_color[3][1])
+	anim.material.set_shader_parameter("red3B", bacon_color[3][2])
+	anim.material.set_shader_parameter("fat1B", bacon_color[3][3])
+	anim.material.set_shader_parameter("fat2B", bacon_color[3][4])
+	anim.material.set_shader_parameter("eye1B", bacon_color[3][5])
+	anim.material.set_shader_parameter("eye2B", bacon_color[3][6])
 
 

@@ -112,7 +112,7 @@ func ghost_icon():
 
 #invincible
 func gold_icon():
-	b_state = "ghost"
+	b_state = "gold"
 	icon_states()
 
 func icon_states():

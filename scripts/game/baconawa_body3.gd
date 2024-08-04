@@ -11,7 +11,7 @@ var positionarr = []
 func _ready():
 
 	%Baconawa.fst.connect(clr_speed)
-	#%Baconawa.gld.connect(clr_gold)
+	%Baconawa.gld.connect(clr_gold)
 	%Baconawa.ghst.connect(clr_ghost)
 	%Baconawa.nrml.connect(clr_normal)
 	clr_normal()
@@ -38,8 +38,6 @@ func clr_normal():
 	anim.material.set_shader_parameter("red3B", head.bacon_color[0][2])
 	anim.material.set_shader_parameter("fat1B", head.bacon_color[0][3])
 	anim.material.set_shader_parameter("fat2B", head.bacon_color[0][4])
-	anim.material.set_shader_parameter("eye1B", head.bacon_color[0][5])
-	anim.material.set_shader_parameter("eye2B", head.bacon_color[0][6])
 
 func clr_speed():
 	anim.material.set_shader_parameter("fat1B", head.bacon_color[1][0])
@@ -51,5 +49,10 @@ func clr_ghost():
 	anim.material.set_shader_parameter("red3B", head.bacon_color[2][2])
 	anim.material.set_shader_parameter("fat1B", head.bacon_color[2][3])
 	anim.material.set_shader_parameter("fat2B", head.bacon_color[2][4])
-	anim.material.set_shader_parameter("eye1B", head.bacon_color[2][5])
-	anim.material.set_shader_parameter("eye2B", head.bacon_color[2][6])
+
+func clr_gold():
+	anim.material.set_shader_parameter("red1B", head.bacon_color[3][0])
+	anim.material.set_shader_parameter("red2B", head.bacon_color[3][1])
+	anim.material.set_shader_parameter("red3B", head.bacon_color[3][2])
+	anim.material.set_shader_parameter("fat1B", head.bacon_color[3][3])
+	anim.material.set_shader_parameter("fat2B", head.bacon_color[3][4])
