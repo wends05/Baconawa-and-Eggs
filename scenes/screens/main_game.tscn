@@ -786,14 +786,14 @@ baconawa = NodePath("../Baconawa")
 [node name="Timer" type="Timer" parent="Rice Players"]
 
 [node name="Rice" parent="Rice Players" instance=ExtResource("7_86cue")]
-position = Vector2(648, 152)
+position = Vector2(408, 248)
 
 [node name="Rice2" parent="Rice Players" instance=ExtResource("7_86cue")]
-position = Vector2(616, 120)
+position = Vector2(384, 248)
 player_number = 2
 
 [node name="Rice3" parent="Rice Players" instance=ExtResource("7_86cue")]
-position = Vector2(504, 120)
+position = Vector2(360, 248)
 player_number = 3
 
 [node name="Items" type="Node2D" parent="."]

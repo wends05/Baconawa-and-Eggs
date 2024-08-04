@@ -3,9 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dobbw17tgj7sf" path="res://assets/main_sprites/effects/spr_drumwave.png" id="1_k7a41"]
 [ext_resource type="Script" path="res://scripts/game/drums.gd" id="2_wfm73"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0577"]
-size = Vector2(74, 74)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xptwm"]
 atlas = ExtResource("1_k7a41")
 region = Rect2(0, 0, 80, 80)
@@ -105,8 +102,14 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Drums" type="Sprite2D"]
-texture = ExtResource("1_k7a41")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0577"]
+size = Vector2(74, 74)
+
+[node name="Drums" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8jj1p")
+autoplay = "default"
+frame = 7
+frame_progress = 0.429223
 script = ExtResource("2_wfm73")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -115,11 +118,3 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_p0577")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_8jj1p")
-autoplay = "default"
-frame_progress = 0.450506
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

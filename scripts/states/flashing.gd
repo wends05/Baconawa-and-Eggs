@@ -8,6 +8,7 @@ func enter(_msg := {}) -> void:
 	# for type safety lang
 	if not owner is Rice:
 		return
+	owner.anim.play("idle")
 	var direction = owner.last_input
 	match direction:
 		"up":
