@@ -12,7 +12,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		is_collected = true
 
 		var tween = create_tween()
-		tween.parallel().tween_property(self, "scale", Vector2(0.5, 0.5), 0.5)
 		tween.parallel().tween_property(self, "position:y", -20, 1).as_relative()
 		tween.tween_property(self, "modulate:a", 0, 1)
 		await tween.finished
