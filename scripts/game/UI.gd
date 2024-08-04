@@ -48,6 +48,8 @@ func _process(_delta: float) -> void:
 
 	moving_throughwall:%s
 	i_t:%s
+	buff_t:%s
+	ฟbaconawa state:%s
 	" % [
 		baconawa.top_colliding,
 		baconawa.down_colliding,
@@ -61,5 +63,7 @@ func _process(_delta: float) -> void:
 		body.velocity,
 		body.positionarr[0],
 		baconawa.moving_through_wall,
-		baconawa.internal_timer.time_left
+		baconawa.internal_timer.time_left,
+		baconawa.buff_timer.time_left,
+		baconawa.state_machine.state.name
 		]
