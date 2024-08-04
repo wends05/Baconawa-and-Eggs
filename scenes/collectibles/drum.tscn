@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8s34"]
 size = Vector2(16, 16)
 
-[node name="Drum" type="Sprite2D"]
+[node name="Drum Pickup" type="Sprite2D"]
 texture = ExtResource("1_bv578")
 script = ExtResource("2_l87bn")
 item_name = "Drum"

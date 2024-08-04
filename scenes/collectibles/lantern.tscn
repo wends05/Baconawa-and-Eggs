@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8s34"]
 size = Vector2(16, 16)
 
-[node name="Lantern" type="Sprite2D"]
+[node name="Lantern Pickup" type="Sprite2D"]
 texture = ExtResource("1_wrplr")
 script = ExtResource("2_q0hh7")
 item_name = "Flashlight"
