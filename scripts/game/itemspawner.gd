@@ -14,7 +14,7 @@ func _ready() -> void:
 		if child is Node2D:
 			spawners.append(child)
 			child.child_exiting_tree.connect(add_item.unbind(1))
-
+	spawners.shuffle()
 	while G.baconawa_win == null:
 		add_item()
 		reset_timer()
