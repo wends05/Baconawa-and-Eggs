@@ -52,6 +52,9 @@ const BUFFS = {
 signal kill_someone
 var moving_through_wall = false
 var moved_through_first_wall = false
+var invincible = false
+
+var debuffed = false
 signal moon_collected
 
 signal eat
@@ -115,7 +118,7 @@ func _physics_process(_delta: float) -> void:
 		body.positionarr.pop_front()
 
 func colliding(_body, collider: Area2D, isColliding):
-	if moving_through_wall:
+	if moving_through_wall or debuffed:
 		return
 	match collider.name:
 		"Top":
@@ -172,11 +175,20 @@ func _input(event: InputEvent) -> void:
 				buffs.pop_front()
 				moving_through_wall = true
 				moved_through_first_wall = false
+			4:
+				print("Immune to stun and confucius")
+				invincible = true
+				invincibility_timer.start(3)
+				await invincibility_timer.timeout
+				invincible = false
+				print("Unimmune")
+				buffs.pop_front()
 			_:
 				print("No buffs yet")
 				print(buffs[0])
 		buff_timer.start(3)
 		await buff_timer.timeout
+		invincible = false
 		buff_cooldown = false
 
 
@@ -188,7 +200,7 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		moon_collected.emit()
 		eat.emit()
 		if len(buffs) != 2:
-			buffs.append(randi_range(1,3))
+			buffs.append(4)
 			bff.emit()
 
 # If exited a wall, add the collision mask value again
