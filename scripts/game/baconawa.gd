@@ -18,7 +18,9 @@ class_name Baconawa
 
 @onready var internal_timer = $InternalTimer
 @onready var buff_timer = $BuffTimer
-@onready var state_machine = $StateMachine
+@onready var invincibility_timer = $"Invincibility Timer"
+
+@onready var state_machine : StateMachine = $StateMachine
 
 var controls = ["up_1", "down_1", "left_1", "right_1", "action_1"
 #, "placeholder"

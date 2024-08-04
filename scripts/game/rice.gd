@@ -19,7 +19,7 @@ class_name Rice
 @onready var internal_timer = $InternalTimer
 
 @onready var spawn_position = global_position
-@onready var state_machine = $StateMachine
+@onready var state_machine : StateMachine = $StateMachine
 
 #collider check
 var down_colliding = false
