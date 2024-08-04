@@ -9,7 +9,7 @@ var buff_icons = [
 	"res://assets/main_sprites/ui/spr_speed.png",
 	"res://assets/main_sprites/ui/spr_instakill.png",
 	"res://assets/main_sprites/ui/spr_ghost.png",
-	"res://assets/main_sprites/ui/spr_invincible.png"
+	"res://assets/main_sprites/ui/spr_shield.png"
 ]
 
 
@@ -39,7 +39,7 @@ func _ready():
 	%Baconawa.nrml.connect(normal_icon)
 	%Baconawa.bff.connect(buff_identify)
 	%Baconawa.bff_act.connect(buff_icon_remove)
-	
+
 
 func _process(_delta):
 	pass
@@ -60,8 +60,8 @@ func buff_identify ():
 					baconawa_buff.texture = load(buff_icons[3])
 				_:
 					baconawa_buff.texture = null
-					
-					
+
+
 	if %Baconawa.moons_collected >= 2 and %Baconawa.buffs.size() > 1:
 			match %Baconawa.buffs[1]:
 				1: #Speed
@@ -79,14 +79,14 @@ func buff_identify ():
 
 func buff_icon_remove():
 	var current_t = baconawa_nextbuff.texture
-	
+
 	if %Baconawa.buffs.size() == 1:
 		baconawa_buff.texture = null
 	elif %Baconawa.buffs.size() == 2:
 		baconawa_nextbuff.texture = null
 		baconawa_buff.texture = current_t
-		
-	
+
+
 
 #stunned1
 
@@ -118,7 +118,7 @@ func gold_icon():
 func icon_states():
 	b_portrait.current_animation = "%s_idle" % b_state
 	b_portrait.default_anim = "%s_idle" % b_state
-	
+
 #eating animation
 func eat():
 	b_portrait.play_once("%s_eat" % b_state, "%s_idle" % b_state)
