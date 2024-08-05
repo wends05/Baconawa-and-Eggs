@@ -24,6 +24,7 @@ func physics_update(_delta: float) -> void:
 	if Input.is_action_pressed(controls[4]):
 		if owner is Rice:
 			if owner.item != null and not owner.item_cooldown:
+				owner.use.emit()
 				match owner.item.item_name:
 					"Drum":
 						state_machine.transition_to("Drumming")

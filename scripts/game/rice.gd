@@ -39,13 +39,15 @@ var controls = []
 #shader colors
 var bandcolors = [
 	[Vector4(0.839, 0.024, 0.024, 1.0), Vector4(0.714, 0.012, 0.071, 1.0), Vector4(0.447,0., 0.114, 1.0)], #red
-	[Vector4(0.067, 0.129, 0.675, 1.0), Vector4(0.047, 0.106, 0.62, 1.0), Vector4(0.114, 0.012, 0.42, 1.0)], #blue
-	[Vector4(0.941, 0.827, 0.149, 1.0), Vector4(0.894, 0.784, 0.129, 1.0), Vector4(0.576, 0.592, 0.114, 1.0)], #yellow
+	[Vector4(0.216,0.275,0.78, 1.0), Vector4(0.188,0.196,0.733, 1.0), Vector4(0.235,0.11,0.553, 1.0)], #blue
+	[Vector4(1.0,0.737,0.251, 1.0), Vector4(0.965,0.816,0.239, 1.0), Vector4(0.78,0.737,0.192, 1.0)], #yellow
 ]
 
 #ui
 signal die
 signal alive
+signal pickup
+signal use
 
 var item : Item = null
 var item_cooldown = false
@@ -57,8 +59,6 @@ func _ready() -> void:
 		collider.connect("body_entered", colliding.bind(collider, true))
 		collider.connect("body_exited", colliding.bind(collider, false))
 
-	#DEBUG AND TESTING ONLY, DELETE WHEN FINAL
-	var controller_num = player_number + 1
 
 	#controls for multiplayer
 	#controls are taken from Controlcontainer.gd
@@ -109,6 +109,7 @@ func _on_collector_area_entered(area: Area2D) -> void:
 	var node = area.owner
 	if node is Item:
 		item = node
+		pickup.emit()
 
 func _on_baconawa_area_entered(area: Area2D) -> void:
 	var node = area.owner

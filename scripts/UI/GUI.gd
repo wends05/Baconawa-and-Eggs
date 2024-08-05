@@ -27,7 +27,10 @@ var buff_icons = [
 	$Rice/Rice2/Item/TextureRect,
 	$Rice/Rice3/Item/TextureRect
 ]
-
+var item_icons = [
+	"res://assets/main_sprites/item/spr_lantern.png",
+	"res://assets/main_sprites/item/spr_drum.png"
+]
 
 
 func _ready():
@@ -45,6 +48,12 @@ func _ready():
 	rice1.die.connect(rice1_die)
 	rice2.die.connect(rice2_die)
 	rice3.die.connect(rice3_die)
+	rice1.pickup.connect(r1_item_identify)
+	rice2.pickup.connect(r2_item_identify)
+	rice3.pickup.connect(r3_item_identify)
+	rice1.use.connect(r1_item_use)
+	rice2.use.connect(r2_item_use)
+	rice3.use.connect(r3_item_use)
 
 
 func _process(_delta):
@@ -146,3 +155,42 @@ func rice2_die():
 	r_portrait[1].play_once("default_die", "default_dead")
 func rice3_die():
 	r_portrait[2].play_once("default_die", "default_dead")
+	
+
+func r1_item_identify ():
+	if rice1.item != null:
+		match rice1.item.item_name:
+					"Drum":
+						rice_item[0].texture = load(item_icons[1])
+					#"Lantern":
+					"Flashlight":
+						rice_item[0].texture = load(item_icons[0])
+					"Barrier":
+						rice_item[0].texture = null
+func r2_item_identify ():
+	if rice2.item != null:
+		match rice2.item.item_name:
+					"Drum":
+						rice_item[1].texture = load(item_icons[1])
+					#"Lantern":
+					"Flashlight":
+						rice_item[1].texture = load(item_icons[0])
+					"Barrier":
+						rice_item[1].texture = null
+func r3_item_identify ():
+	if rice3.item != null:
+		match rice3.item.item_name:
+					"Drum":
+						rice_item[2].texture = load(item_icons[1])
+					#"Lantern":
+					"Flashlight":
+						rice_item[2].texture = load(item_icons[0])
+					"Barrier":
+						rice_item[2].texture = null
+
+func r1_item_use ():
+	rice_item[0].texture = null
+func r2_item_use ():
+	rice_item[1].texture = null
+func r3_item_use ():
+	rice_item[2].texture = null
