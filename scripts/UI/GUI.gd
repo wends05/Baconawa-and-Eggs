@@ -31,7 +31,6 @@ var buff_icons = [
 
 
 func _ready():
-	pass
 	%Baconawa.eat.connect(eat)
 	%Baconawa.fst.connect(speed_icon)
 	%Baconawa.gld.connect(gold_icon)
@@ -39,6 +38,13 @@ func _ready():
 	%Baconawa.nrml.connect(normal_icon)
 	%Baconawa.bff.connect(buff_identify)
 	%Baconawa.bff_act.connect(buff_icon_remove)
+	
+	rice1.alive.connect(rice1_respawn)
+	rice2.alive.connect(rice2_respawn)
+	rice3.alive.connect(rice3_respawn)
+	rice1.die.connect(rice1_die)
+	rice2.die.connect(rice2_die)
+	rice3.die.connect(rice3_die)
 
 
 func _process(_delta):
@@ -96,10 +102,6 @@ func normal_icon():
 	b_state = "default"
 	icon_states()
 
-#stunned1
-
-#stunned2
-
 #fast
 func speed_icon():
 	b_state = "speed"
@@ -122,3 +124,25 @@ func icon_states():
 #eating animation
 func eat():
 	b_portrait.play_once("%s_eat" % b_state, "%s_idle" % b_state)
+	
+
+
+
+
+
+
+#rice respawn
+func rice1_respawn():
+	r_portrait[0].play_once("default_revive", "default_idle")
+func rice2_respawn():
+	r_portrait[1].play_once("default_revive", "default_idle")
+func rice3_respawn():
+	r_portrait[2].play_once("default_revive", "default_idle")
+
+#rice items
+func rice1_die():
+	r_portrait[0].play_once("default_die", "default_dead")
+func rice2_die():
+	r_portrait[1].play_once("default_die", "default_dead")
+func rice3_die():
+	r_portrait[2].play_once("default_die", "default_dead")

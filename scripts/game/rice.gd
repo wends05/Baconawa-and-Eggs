@@ -43,6 +43,10 @@ var bandcolors = [
 	[Vector4(0.941, 0.827, 0.149, 1.0), Vector4(0.894, 0.784, 0.129, 1.0), Vector4(0.576, 0.592, 0.114, 1.0)], #yellow
 ]
 
+#ui
+signal die
+signal alive
+
 var item : Item = null
 var item_cooldown = false
 
@@ -57,15 +61,8 @@ func _ready() -> void:
 	var controller_num = player_number + 1
 
 	#controls for multiplayer
-	#array contains name for input map depending on player number
-	controls = [
-		"up_%d" % controller_num,
-		"down_%d" % controller_num,
-		"left_%d" % controller_num,
-		"right_%d" % controller_num,
-		"action_%d" % controller_num, #change this for testings..cuz items are pickups
-	]
-	#up-0, down-1, left-2, right-3
+	#controls are taken from Controlcontainer.gd
+	controls = Controlcontainer.control_contain[player_number]
 
 	#shader
 	anim.material.set_shader_parameter("headB", bandcolors[player_number-1][0])
