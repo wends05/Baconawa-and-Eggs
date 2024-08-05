@@ -2,6 +2,7 @@ extends Node2D
 
 var drum = preload("res://scenes/collectibles/drum.tscn")
 var lantern = preload("res://scenes/collectibles/lantern.tscn")
+var barrier = preload("res://scenes/collectibles/barrier.tscn")
 var current = 0
 var spawners: Array[Node2D]
 
@@ -21,7 +22,11 @@ func _ready() -> void:
 		await cd.timeout
 
 func getRandom() -> PackedScene:
-	return [drum, lantern].pick_random()
+	return [
+		drum, 
+		lantern, 
+		barrier
+		].pick_random()
 
 func add_item():
 	var spawned = 0

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://beu0cmqv78nca"]
+
+[ext_resource type="Texture2D" uid="uid://bli5l5s86mrrm" path="res://assets/main_sprites/tiles/tilemap.png" id="1_2n4bi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8s34"]
+size = Vector2(16, 16)
+
+[node name="Wall" type="Sprite2D"]
+texture = ExtResource("1_2n4bi")
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_k8s34")

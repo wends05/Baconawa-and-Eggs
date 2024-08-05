@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://gmoos60wg7jd"]
+
+[ext_resource type="Texture2D" uid="uid://bli5l5s86mrrm" path="res://assets/main_sprites/tiles/tilemap.png" id="1_l7afm"]
+[ext_resource type="Script" path="res://scripts/game/collectibles/item.gd" id="2_8um72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8s34"]
+size = Vector2(16, 16)
+
+[node name="Barrier Pickup" type="Sprite2D"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_l7afm")
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)
+script = ExtResource("2_8um72")
+item_name = "Barrier"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_k8s34")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

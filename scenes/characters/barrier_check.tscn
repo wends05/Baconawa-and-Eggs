@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcfdq0ycnoko5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g5fv"]
+size = Vector2(15.9999, 16)
+
+[node name="BarrierCheck" type="Sprite2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_7g5fv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+offset_left = -7.99982
+offset_top = -7.75
+offset_right = 8.00018
+offset_bottom = 8.25
+color = Color(0, 0.6, 0.701961, 0.419608)
