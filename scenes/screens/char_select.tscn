@@ -1,0 +1,162 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdlmmxes3skc1"]
+
+[ext_resource type="Script" path="res://scripts/char_select.gd" id="1_d2647"]
+[ext_resource type="Texture2D" uid="uid://cvr2al4s8go6c" path="res://assets/main_sprites/char_select/spr_baconselect.png" id="2_mp4tq"]
+[ext_resource type="Texture2D" uid="uid://cwic4d7tnlyjy" path="res://assets/main_sprites/char_select/spr_riceselect1.png" id="3_87lm2"]
+[ext_resource type="Texture2D" uid="uid://bwpmkwk6x0bhc" path="res://assets/main_sprites/char_select/spr_riceselect2.png" id="4_hu0cc"]
+[ext_resource type="Texture2D" uid="uid://dm3ldu0dxrcfl" path="res://assets/main_sprites/char_select/spr_riceselect3.png" id="5_i6pdy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uqxwp"]
+font_size = 11
+shadow_size = 0
+
+[node name="CharSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d2647")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 680.0
+offset_top = 24.0
+offset_right = 727.0
+offset_bottom = 55.0
+text = "PLAY"
+
+[node name="Bacon_char" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 8.0
+offset_right = 579.0
+offset_bottom = 236.0
+texture = ExtResource("2_mp4tq")
+
+[node name="ctrl" type="TextureRect" parent="Bacon_char"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 88.0
+offset_right = 272.0
+offset_bottom = 144.0
+
+[node name="Panel" type="Panel" parent="Bacon_char"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 88.0
+offset_right = 272.0
+offset_bottom = 144.0
+
+[node name="Label" type="Label" parent="Bacon_char/Panel"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 43.0
+text = "PRESS ACTION
+TO SELECT"
+label_settings = SubResource("LabelSettings_uqxwp")
+horizontal_alignment = 1
+
+[node name="R1_char" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.568627)
+layout_mode = 0
+offset_left = 40.0
+offset_top = 256.0
+offset_right = 258.0
+offset_bottom = 417.0
+texture = ExtResource("3_87lm2")
+
+[node name="ctrl" type="TextureRect" parent="R1_char"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 64.0
+offset_right = 186.0
+offset_bottom = 116.0
+
+[node name="Panel" type="Panel" parent="R1_char"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 64.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="Label" type="Label" parent="R1_char/Panel"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 43.0
+text = "PRESS ACTION
+TO SELECT"
+label_settings = SubResource("LabelSettings_uqxwp")
+horizontal_alignment = 1
+
+[node name="R2_char" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.568627)
+layout_mode = 0
+offset_left = 280.0
+offset_top = 256.0
+offset_right = 498.0
+offset_bottom = 417.0
+texture = ExtResource("4_hu0cc")
+
+[node name="ctrl" type="TextureRect" parent="R2_char"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 64.0
+offset_right = 186.0
+offset_bottom = 116.0
+
+[node name="Panel" type="Panel" parent="R2_char"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 64.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="Label" type="Label" parent="R2_char/Panel"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 43.0
+text = "PRESS ACTION
+TO SELECT"
+label_settings = SubResource("LabelSettings_uqxwp")
+horizontal_alignment = 1
+
+[node name="R3_char" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.568627)
+layout_mode = 0
+offset_left = 512.0
+offset_top = 256.0
+offset_right = 730.0
+offset_bottom = 417.0
+texture = ExtResource("5_i6pdy")
+
+[node name="ctrl" type="TextureRect" parent="R3_char"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 64.0
+offset_right = 186.0
+offset_bottom = 116.0
+
+[node name="Panel" type="Panel" parent="R3_char"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 64.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="Label" type="Label" parent="R3_char/Panel"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 43.0
+text = "PRESS ACTION
+TO SELECT"
+label_settings = SubResource("LabelSettings_uqxwp")
+horizontal_alignment = 1
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

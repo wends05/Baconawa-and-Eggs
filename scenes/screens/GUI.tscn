@@ -1018,7 +1018,6 @@ texture = SubResource("AtlasTexture_aod03")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_k3fo8")
 current_animation = "default_idle"
-frame_index = 4
 auto_play = true
 playing = true
 
@@ -1056,7 +1055,6 @@ texture = SubResource("AtlasTexture_m62gh")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_glqf2")
 current_animation = "default_idle"
-frame_index = 4
 auto_play = true
 playing = true
 
@@ -1094,7 +1092,6 @@ texture = SubResource("AtlasTexture_nttkm")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_fqdhb")
 current_animation = "default_idle"
-frame_index = 4
 auto_play = true
 playing = true
 
@@ -1117,7 +1114,6 @@ script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_ossm4")
 default_anim = "default"
 current_animation = "default_idle"
-frame_index = 1
 auto_play = true
 playing = true
 
