@@ -6,7 +6,6 @@ extends CharacterBody2D
 class_name Baconawa
 @export var SPEED: int = 75
 @export var game: Game
-@export var body: BaconawaBody
 
 # Reference on children
 @onready var anim = $Animations
@@ -120,11 +119,7 @@ func _physics_process(_delta: float) -> void:
 	if game_finished:
 		return
 
-
 	move_and_slide()
-	body.positionarr.append(position)
-	if body.positionarr.size() > 10:
-		body.positionarr.pop_front()
 
 func colliding(_body, collider: Area2D, isColliding):
 	if moving_through_wall or debuffed:

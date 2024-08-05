@@ -3,39 +3,26 @@ extends CharacterBody2D
 class_name BaconawaBody
 @export var SPEED: int = 100
 @export var head: Baconawa
-@export var next: BaconawaBodyDos
 @onready var anim = $AnimatedSprite2D
 
 var positionarr = []
 
 func _ready():
-
-	%Baconawa.fst.connect(clr_speed)
-	%Baconawa.gld.connect(clr_gold)
-	%Baconawa.ghst.connect(clr_ghost)
-	%Baconawa.nrml.connect(clr_normal)
-	positionarr.append(head.position)
-	clr_normal()
-
-
-
-func position_change():
-	if positionarr[0] == positionarr[1]:
-		positionarr.pop_front()
-	position = positionarr[0]
-
+	pass
+	#%Baconawa.fst.connect(clr_speed)
+	#%Baconawa.gld.connect(clr_gold)
+	#%Baconawa.ghst.connect(clr_ghost)
+	#%Baconawa.nrml.connect(clr_normal)
+	#positionarr.append(head.position)
+	#clr_normal()
+	
 func _physics_process(_delta) -> void:
-	if head:
 		if head.velocity == Vector2(0, 0):
 			velocity = Vector2(0, 0)
 		else:
-			position_change()
-
-		next.positionarr.append(position)
-		if next.positionarr.size() > 10:
-			next.positionarr.pop_front()
-	else:
-		print("KYS")
+			if positionarr[0] == positionarr[1]:
+				positionarr.pop_front()
+			position = positionarr[0]
 
 
 func clr_normal():
