@@ -210,6 +210,7 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		if len(buffs) != 2:
 			buffs.append(buff_percent())
 			bff.emit()
+		
 
 # If exited a wall, add the collision mask value again
 func _on_collector_body_exited(_body: Node2D) -> void:
@@ -262,5 +263,3 @@ func clr_gold():
 	anim.material.set_shader_parameter("fat2B", bacon_color[3][4])
 	anim.material.set_shader_parameter("eye1B", bacon_color[3][5])
 	anim.material.set_shader_parameter("eye2B", bacon_color[3][6])
-
-

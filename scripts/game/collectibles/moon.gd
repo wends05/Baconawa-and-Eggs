@@ -2,6 +2,8 @@ extends Sprite2D
 
 class_name Moon
 
+@onready var body_node = preload("res://scenes/characters/baconawa_body.tscn")
+
 # created this in case we use an animation
 # and to make sure if the moon is collected already
 # and if ever the animation makes the moon move, and
@@ -25,3 +27,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		await tween.finished
 		get_parent().remove_child(self)
 
+func addbody():
+	print("test")
+	var new_body = BaconawaBody.new()
+	add_child(new_body)
+	new_body.position = position
+	new_body.velocity = Vector2(0, 0)

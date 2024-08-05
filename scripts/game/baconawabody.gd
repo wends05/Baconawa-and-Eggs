@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 class_name BaconawaBody
 @export var SPEED: int = 100
-@export var head: Baconawa
+@export var head: PackedScene
 @onready var anim = $AnimatedSprite2D
 
-var positionarr = []
+var positionarr : Array = []
+var test = "test"
 
 func _ready():
 	pass
@@ -17,12 +18,10 @@ func _ready():
 	#clr_normal()
 	
 func _physics_process(_delta) -> void:
-		if head.velocity == Vector2(0, 0):
-			velocity = Vector2(0, 0)
-		else:
-			if positionarr[0] == positionarr[1]:
-				positionarr.pop_front()
-			position = positionarr[0]
+	if positionarr.size() > 1:
+		if positionarr[0] == positionarr[1]:
+			positionarr.pop_front()
+		position = positionarr[0]
 
 
 func clr_normal():
