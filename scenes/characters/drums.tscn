@@ -108,8 +108,7 @@ size = Vector2(74, 74)
 [node name="Drums" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_8jj1p")
 autoplay = "default"
-frame = 7
-frame_progress = 0.429223
+frame_progress = 0.350854
 script = ExtResource("2_wfm73")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -118,3 +117,6 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_p0577")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

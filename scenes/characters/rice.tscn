@@ -208,7 +208,7 @@ material = SubResource("ShaderMaterial_7v3t6")
 sprite_frames = SubResource("SpriteFrames_skxty")
 animation = &"move_side"
 autoplay = "idle"
-frame_progress = 0.746943
+frame_progress = 0.748441
 
 [node name="Colliders" type="Node2D" parent="."]
 
