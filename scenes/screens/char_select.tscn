@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1h1yyypl0v5a"]
+[gd_scene load_steps=7 format=3 uid="uid://bdlmmxes3skc1"]
 
 [ext_resource type="Script" path="res://scripts/char_select.gd" id="1_d2647"]
 [ext_resource type="Texture2D" uid="uid://cvr2al4s8go6c" path="res://assets/main_sprites/char_select/spr_baconselect.png" id="2_mp4tq"]
@@ -70,12 +70,14 @@ offset_bottom = 417.0
 texture = ExtResource("3_87lm2")
 
 [node name="ctrl" type="TextureRect" parent="R1_char"]
+layout_mode = 0
 offset_left = 104.0
 offset_top = 64.0
 offset_right = 186.0
 offset_bottom = 116.0
 
 [node name="Panel" type="Panel" parent="R1_char"]
+layout_mode = 0
 offset_left = 104.0
 offset_top = 64.0
 offset_right = 184.0
@@ -101,12 +103,14 @@ offset_bottom = 417.0
 texture = ExtResource("4_hu0cc")
 
 [node name="ctrl" type="TextureRect" parent="R2_char"]
+layout_mode = 0
 offset_left = 104.0
 offset_top = 64.0
 offset_right = 186.0
 offset_bottom = 116.0
 
 [node name="Panel" type="Panel" parent="R2_char"]
+layout_mode = 0
 offset_left = 104.0
 offset_top = 64.0
 offset_right = 184.0
@@ -132,12 +136,14 @@ offset_bottom = 417.0
 texture = ExtResource("5_i6pdy")
 
 [node name="ctrl" type="TextureRect" parent="R3_char"]
+layout_mode = 0
 offset_left = 104.0
 offset_top = 64.0
 offset_right = 186.0
 offset_bottom = 116.0
 
 [node name="Panel" type="Panel" parent="R3_char"]
+layout_mode = 0
 offset_left = 104.0
 offset_top = 64.0
 offset_right = 184.0
@@ -152,3 +158,5 @@ text = "PRESS ACTION
 TO SELECT"
 label_settings = SubResource("LabelSettings_uqxwp")
 horizontal_alignment = 1
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

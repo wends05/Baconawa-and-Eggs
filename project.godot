@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Baconawa"
-run/main_scene="res://scenes/screens/char_select.tscn"
+run/main_scene="res://scenes/screens/start.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 G="*res://scripts/g.gd"
+Controlcontainer="*res://scripts/controlcontainer.gd"
 
 [display]
 

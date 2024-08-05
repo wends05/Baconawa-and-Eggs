@@ -80,3 +80,7 @@ func back_select():
 	contnum.pop_back()
 	index -= 1
 	
+
+func _on_button_button_up() -> void:
+	Controlcontainer.control_contain = stored_controls
+	get_tree().change_scene_to_file("res://scenes/screens/main_game.tscn")
