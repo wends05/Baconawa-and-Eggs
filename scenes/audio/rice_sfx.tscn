@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk7ldj2ukae37"]
+
+[ext_resource type="AudioStream" uid="uid://bf0roq132ugqd" path="res://assets/sfx/sfx_flashlight.wav" id="1_l3x8v"]
+[ext_resource type="AudioStream" uid="uid://cx4vhw87lga6t" path="res://assets/sfx/sfx_bamboo.wav" id="2_3st4k"]
+[ext_resource type="AudioStream" uid="uid://c67nnyetcypmn" path="res://assets/sfx/sfx_eatrice.wav" id="3_lfyjf"]
+[ext_resource type="AudioStream" uid="uid://tsqd062mxmjn" path="res://assets/sfx/sfx_ricevive.wav" id="4_gt3tt"]
+
+[node name="rice_sfx" type="Node"]
+
+[node name="drums" type="AudioStreamPlayer2D" parent="."]
+
+[node name="flashlight" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_l3x8v")
+
+[node name="bamboo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3st4k")
+
+[node name="die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lfyjf")
+volume_db = 2.627
+pitch_scale = 0.89
+
+[node name="live" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gt3tt")
+pitch_scale = 1.11

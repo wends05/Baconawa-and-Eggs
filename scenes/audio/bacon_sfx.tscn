@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://cceg6b2hp6l64"]
+
+[ext_resource type="AudioStream" uid="uid://3pjon7yxgtav" path="res://assets/sfx/sfx_eggpower.wav" id="1_hicv4"]
+[ext_resource type="AudioStream" uid="uid://bwfld5v575pc0" path="res://assets/sfx/sfx_gold.wav" id="2_yscbs"]
+[ext_resource type="AudioStream" uid="uid://dtn3mk0hrl4c5" path="res://assets/sfx/sfx_DragonSpeed.wav" id="3_7olcc"]
+[ext_resource type="AudioStream" uid="uid://db16ti4ka5632" path="res://assets/sfx/sfx_dragonghost.wav" id="4_macal"]
+[ext_resource type="AudioStream" uid="uid://bc5jq7o3xq0gc" path="res://assets/sfx/sfx_dragonhit.wav" id="5_6d6pw"]
+[ext_resource type="AudioStream" uid="uid://ctfbu0w02qjsm" path="res://assets/sfx/sfx_confused.wav" id="6_p8l75"]
+[ext_resource type="AudioStream" uid="uid://dmew3sj33c0kq" path="res://assets/sfx/sfx_instakill.wav" id="7_00nrj"]
+
+[node name="Bacon_sfx" type="Node"]
+
+[node name="eat_egg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_hicv4")
+volume_db = -7.186
+
+[node name="gold" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yscbs")
+volume_db = -5.616
+pitch_scale = 0.83
+
+[node name="fast" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7olcc")
+volume_db = -6.531
+pitch_scale = 1.23
+
+[node name="ghost" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_macal")
+volume_db = -5.527
+pitch_scale = 0.92
+
+[node name="stunned" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6d6pw")
+volume_db = -7.601
+pitch_scale = 1.07
+
+[node name="confused" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p8l75")
+volume_db = -3.045
+
+[node name="instakill" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_00nrj")
+volume_db = -2.512
