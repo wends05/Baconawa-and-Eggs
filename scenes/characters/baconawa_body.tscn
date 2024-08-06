@@ -57,7 +57,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_0qlcl")
 }],
 "loop": true,
-"name": &"body_down",
+"name": "body_down",
 "speed": 1.0
 }, {
 "frames": [{
@@ -65,7 +65,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_tiyj7")
 }],
 "loop": true,
-"name": &"body_side",
+"name": "body_side",
 "speed": 1.0
 }, {
 "frames": [{
@@ -73,7 +73,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_32r3m")
 }],
 "loop": true,
-"name": &"body_up",
+"name": "body_up",
 "speed": 1.0
 }, {
 "frames": [{
@@ -81,7 +81,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_eur3r")
 }],
 "loop": true,
-"name": &"default",
+"name": "default",
 "speed": 1.0
 }, {
 "frames": [{
@@ -89,7 +89,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_lvkv0")
 }],
 "loop": true,
-"name": &"tail_down",
+"name": "tail_down",
 "speed": 1.0
 }, {
 "frames": [{
@@ -97,7 +97,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7i2in")
 }],
 "loop": true,
-"name": &"tail_side",
+"name": "tail_side",
 "speed": 1.0
 }, {
 "frames": [{
@@ -105,7 +105,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7ltnc")
 }],
 "loop": true,
-"name": &"tail_up",
+"name": "tail_up",
 "speed": 1.0
 }]
 
