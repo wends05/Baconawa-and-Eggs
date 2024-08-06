@@ -23,9 +23,7 @@ class_name Baconawa
 @onready var body_node = preload("res://scenes/characters/baconawa_body.tscn")
 var child_count = 0
 
-var controls = ["up_1", "down_1", "left_1", "right_1", "action_1"
-#, "placeholder"
-]
+var controls = Controlcontainer.control_contain[0]
 
 # information used if baconawa can change directions
 var down_colliding = false

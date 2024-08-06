@@ -34,7 +34,7 @@ var direction = "left"
 var game_finished = false
 
 #multi controls
-var controls = []
+var controls = Controlcontainer.control_contain[player_number]
 
 #shader colors
 var bandcolors = [

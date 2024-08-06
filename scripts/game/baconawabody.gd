@@ -14,7 +14,7 @@ func _ready():
 	#%Baconawa.ghst.connect(clr_ghost)
 	#%Baconawa.nrml.connect(clr_normal)
 	#positionarr.append(head.position)
-	#clr_normal()
+	clr_normal()
 	
 func _physics_process(_delta) -> void:
 	pass
@@ -25,26 +25,26 @@ func _physics_process(_delta) -> void:
 
 
 func clr_normal():
-	anim.material.set_shader_parameter("red1B", head.bacon_color[0][0])
-	anim.material.set_shader_parameter("red2B", head.bacon_color[0][1])
-	anim.material.set_shader_parameter("red3B", head.bacon_color[0][2])
-	anim.material.set_shader_parameter("fat1B", head.bacon_color[0][3])
-	anim.material.set_shader_parameter("fat2B", head.bacon_color[0][4])
+	anim.material.set_shader_parameter("red1B", Controlcontainer.bacon_color[0][0])
+	anim.material.set_shader_parameter("red2B", Controlcontainer.bacon_color[0][1])
+	anim.material.set_shader_parameter("red3B", Controlcontainer.bacon_color[0][2])
+	anim.material.set_shader_parameter("fat1B", Controlcontainer.bacon_color[0][3])
+	anim.material.set_shader_parameter("fat2B", Controlcontainer.bacon_color[0][4])
 
 func clr_speed():
-	anim.material.set_shader_parameter("fat1B", head.bacon_color[1][0])
-	anim.material.set_shader_parameter("fat2B", head.bacon_color[1][1])
+	anim.material.set_shader_parameter("fat1B", Controlcontainer.bacon_color[1][0])
+	anim.material.set_shader_parameter("fat2B", Controlcontainer.bacon_color[1][1])
 
 func clr_ghost():
-	anim.material.set_shader_parameter("red1B", head.bacon_color[2][0])
-	anim.material.set_shader_parameter("red2B", head.bacon_color[2][1])
-	anim.material.set_shader_parameter("red3B", head.bacon_color[2][2])
-	anim.material.set_shader_parameter("fat1B", head.bacon_color[2][3])
-	anim.material.set_shader_parameter("fat2B", head.bacon_color[2][4])
+	anim.material.set_shader_parameter("red1B", Controlcontainer.bacon_color[2][0])
+	anim.material.set_shader_parameter("red2B", Controlcontainer.bacon_color[2][1])
+	anim.material.set_shader_parameter("red3B", Controlcontainer.bacon_color[2][2])
+	anim.material.set_shader_parameter("fat1B", Controlcontainer.bacon_color[2][3])
+	anim.material.set_shader_parameter("fat2B", Controlcontainer.bacon_color[2][4])
 
 func clr_gold():
-	anim.material.set_shader_parameter("red1B", head.bacon_color[3][0])
-	anim.material.set_shader_parameter("red2B", head.bacon_color[3][1])
-	anim.material.set_shader_parameter("red3B", head.bacon_color[3][2])
-	anim.material.set_shader_parameter("fat1B", head.bacon_color[3][3])
-	anim.material.set_shader_parameter("fat2B", head.bacon_color[3][4])
+	anim.material.set_shader_parameter("red1B", Controlcontainer.bacon_color[3][0])
+	anim.material.set_shader_parameter("red2B", Controlcontainer.bacon_color[3][1])
+	anim.material.set_shader_parameter("red3B", Controlcontainer.bacon_color[3][2])
+	anim.material.set_shader_parameter("fat1B", Controlcontainer.bacon_color[3][3])
+	anim.material.set_shader_parameter("fat2B", Controlcontainer.bacon_color[3][4])
