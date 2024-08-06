@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bi37f5gm8dmgk"]
+[gd_scene load_steps=20 format=3 uid="uid://bi37f5gm8dmgk"]
 
 [ext_resource type="Script" path="res://scripts/game/baconawa.gd" id="1_2ge8w"]
 [ext_resource type="Texture2D" uid="uid://dn5eakfwpjrn0" path="res://assets/main_sprites/character/spr_baconawa.png" id="2_ghkiq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/states/moving.gd" id="5_kurwn"]
 [ext_resource type="Script" path="res://scripts/states/stunned.gd" id="6_ktbn7"]
 [ext_resource type="Script" path="res://scripts/states/confused.gd" id="7_bul5g"]
+[ext_resource type="PackedScene" uid="uid://cceg6b2hp6l64" path="res://scenes/audio/bacon_sfx.tscn" id="9_ne2nk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
 size = Vector2(14, 14)
@@ -165,6 +166,8 @@ script = ExtResource("6_ktbn7")
 
 [node name="Confused" type="Node" parent="StateMachine"]
 script = ExtResource("7_bul5g")
+
+[node name="Bacon_sfx" parent="." instance=ExtResource("9_ne2nk")]
 
 [connection signal="area_entered" from="Colliders/Collector" to="." method="_on_collector_area_entered"]
 [connection signal="body_exited" from="Colliders/Collector" to="." method="_on_collector_body_exited"]

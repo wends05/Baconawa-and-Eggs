@@ -6,6 +6,8 @@ func enter(_msg = {}):
 		return
 
 	var internal_timer = owner.get_node("InternalTimer")
+	owner.sfx.stunned.play()
+	owner.stn.emit()
 	owner.velocity = Vector2(0, 0)
 	owner.anim.play("idle")
 	owner.clr_normal()

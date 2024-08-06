@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cceg6b2hp6l64"]
+[gd_scene load_steps=9 format=3 uid="uid://cceg6b2hp6l64"]
 
 [ext_resource type="AudioStream" uid="uid://3pjon7yxgtav" path="res://assets/sfx/sfx_eggpower.wav" id="1_hicv4"]
+[ext_resource type="Script" path="res://scripts/audio/bacon_sfx.gd" id="1_pvxvo"]
 [ext_resource type="AudioStream" uid="uid://bwfld5v575pc0" path="res://assets/sfx/sfx_gold.wav" id="2_yscbs"]
 [ext_resource type="AudioStream" uid="uid://dtn3mk0hrl4c5" path="res://assets/sfx/sfx_DragonSpeed.wav" id="3_7olcc"]
 [ext_resource type="AudioStream" uid="uid://db16ti4ka5632" path="res://assets/sfx/sfx_dragonghost.wav" id="4_macal"]
@@ -9,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dmew3sj33c0kq" path="res://assets/sfx/sfx_instakill.wav" id="7_00nrj"]
 
 [node name="Bacon_sfx" type="Node"]
+script = ExtResource("1_pvxvo")
 
 [node name="eat_egg" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_hicv4")

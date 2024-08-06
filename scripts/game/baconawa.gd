@@ -9,6 +9,7 @@ class_name Baconawa
 
 # Reference on children
 @onready var anim = $Animations
+@onready var sfx = $Bacon_sfx
 
 @onready var top_collider = $Colliders/Top
 @onready var down_collider = $Colliders/Down
@@ -62,43 +63,12 @@ signal nrml
 signal ghst
 signal fst
 signal gld
+signal stn
+signal cnfsd
 signal bff
 signal bff_act
 
-var bacon_color = [
-
-	[	#normal
-		Vector4(0.486,0.137,0.102,1.0),
-		Vector4(0.588,0.235,0.196, 1.0),
-		Vector4(0.396,0.157,0.157, 1.0),
-		Vector4(0.827,0.631,0.463, 1.0),
-		Vector4(0.835,0.514,0.286, 1.0),
-		Vector4(0.914,0.718,0.549, 1.0),
-		Vector4(0.294,0.106,0.075, 1.0)
-	],
-	[	#speed
-		Vector4(0.514,0.961,0.906,1.0),
-		Vector4(0.102,0.886,0.886, 1.0),
-	],
-	[	#ghost
-		Vector4(0.486,0.137,0.102,0.3),
-		Vector4(0.588,0.235,0.196, 0.3),
-		Vector4(0.396,0.157,0.157, 0.3),
-		Vector4(0.827,0.631,0.463, 0.3),
-		Vector4(0.835,0.514,0.286, 0.3),
-		Vector4(0.914,0.718,0.549, 0.3),
-		Vector4(0.294,0.106,0.075, 0.3)
-	],
-	[	#gold
-		Vector4(0.796,0.537,0.318,1.0),
-		Vector4(0.871,0.631,0.396, 1.0),
-		Vector4(0.631,0.369,0.176, 1.0),
-		Vector4(0.976,0.824,0.557, 1.0),
-		Vector4(0.525,0.357,0.196, 1.0),
-		Vector4(0.992,0.902,0.737, 1.0),
-		Vector4(1.0,1.0,1.0, 1.0)
-	],
-]
+var bacon_color = Controlcontainer.bacon_color
 func _ready() -> void:
 
 	clr_normal()
@@ -121,8 +91,8 @@ func _physics_process(_delta: float) -> void:
 		return
 
 	move_and_slide()
-	if get_child_count() > 6:
-		var child = get_child(6)
+	if get_child_count() > 7:
+		var child = get_child(7)
 		child.velocity = Vector2(200,0)
 		print(child.velocity)
 
@@ -158,6 +128,7 @@ func _input(event: InputEvent) -> void:
 		bff_act.emit()
 		match buffs[0]:
 			1: #Speed
+				sfx.fast.play()
 				clr_speed()
 				fst.emit()
 				SPEED = 120
@@ -170,10 +141,12 @@ func _input(event: InputEvent) -> void:
 				nrml.emit()
 				SPEED = 75
 			2: #Kill someone
+				sfx.instakill.play()
 				buffs.pop_front()
 				kill_someone.emit()
 			3: #Move to a wall
 				print("Collision mask 2 set to false")
+				sfx.ghost.play()
 				ghst.emit()
 				clr_ghost()
 				top_colliding = false
@@ -186,6 +159,7 @@ func _input(event: InputEvent) -> void:
 				moved_through_first_wall = false
 			4:
 				print("Immune to stun and confucius")
+				sfx.gold.play()
 				invincible = true
 				gld.emit()
 				clr_gold()
@@ -209,6 +183,7 @@ func _input(event: InputEvent) -> void:
 func _on_collector_area_entered(area: Area2D) -> void:
 	var node = area.get_parent()
 	if node is Moon and not node.is_collected:
+		sfx.eat_egg.play()
 		moons_collected += 1
 		moon_collected.emit()
 		eat.emit()
@@ -235,7 +210,7 @@ func _on_collector_body_exited(_body: Node2D) -> void:
 #percentage/chance editor for buffs
 func buff_percent():
 	#speed = gold > ghost > instakill
-	var chances = [1,1,1,4,4,4,3,3,2]
+	var chances = [1,1,2,3,4,4]
 	return chances[randi() % chances.size()]
 
 func clr_normal():

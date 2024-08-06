@@ -46,7 +46,8 @@ func _ready():
 	%Baconawa.nrml.connect(normal_icon)
 	%Baconawa.bff.connect(buff_identify)
 	%Baconawa.bff_act.connect(buff_icon_remove)
-	#%Baconawa.stn.connect(buff_icon_remove)
+	%Baconawa.stn.connect(stun_burn)
+	%Baconawa.cnfsd.connect(stun_bird)
 	
 	rice1.alive.connect(rice1_respawn)
 	rice2.alive.connect(rice2_respawn)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgu55qr31sxdg"]
+[gd_scene load_steps=14 format=3 uid="uid://dgu55qr31sxdg"]
 
 [ext_resource type="Script" path="res://scripts/game/baconawabody.gd" id="1_dpi8b"]
 [ext_resource type="PackedScene" uid="uid://bi37f5gm8dmgk" path="res://scenes/characters/baconawa.tscn" id="2_34rim"]
@@ -22,19 +22,91 @@ shader_parameter/fat2B = Color(1, 1, 0, 1)
 shader_parameter/eye1B = Color(0, 1, 0, 1)
 shader_parameter/eye2B = Color(0, 1, 0, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qlcl"]
+atlas = ExtResource("2_ol0kd")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiyj7"]
+atlas = ExtResource("2_ol0kd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32r3m"]
+atlas = ExtResource("2_ol0kd")
+region = Rect2(16, 16, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_eur3r"]
 atlas = ExtResource("2_ol0kd")
 region = Rect2(24, 0, 24, 12)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvkv0"]
+atlas = ExtResource("2_ol0kd")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i2in"]
+atlas = ExtResource("2_ol0kd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ltnc"]
+atlas = ExtResource("2_ol0kd")
+region = Rect2(32, 16, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_f0dxc"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qlcl")
+}],
+"loop": true,
+"name": &"body_down",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tiyj7")
+}],
+"loop": true,
+"name": &"body_side",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32r3m")
+}],
+"loop": true,
+"name": &"body_up",
+"speed": 1.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eur3r")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvkv0")
+}],
+"loop": true,
+"name": &"tail_down",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i2in")
+}],
+"loop": true,
+"name": &"tail_side",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ltnc")
+}],
+"loop": true,
+"name": &"tail_up",
+"speed": 1.0
 }]
 
 [node name="BaconawaBody" type="CharacterBody2D"]
