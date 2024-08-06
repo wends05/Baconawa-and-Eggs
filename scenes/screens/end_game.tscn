@@ -69,5 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/Retry" to="." method="_on_retry_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_button_up"]

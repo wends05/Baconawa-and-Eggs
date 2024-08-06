@@ -114,4 +114,6 @@ func _on_collector_area_entered(area: Area2D) -> void:
 func _on_baconawa_area_entered(area: Area2D) -> void:
 	var node = area.owner
 	if node is Baconawa:
+		sfx.stream = load("res://assets/sfx/sfx_eatrice.wav")
+		sfx.play()
 		state_machine.transition_to("Respawning")
