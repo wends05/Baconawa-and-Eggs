@@ -86,5 +86,6 @@ func back_select():
 
 func _on_button_button_up() -> void:
 	sfx.play()
+	await sfx.finished
 	Controlcontainer.control_contain = stored_controls
 	get_tree().change_scene_to_file("res://scenes/screens/main_game.tscn")
