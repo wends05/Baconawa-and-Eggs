@@ -6,7 +6,6 @@ class_name BaconawaBody
 @onready var anim = $AnimatedSprite2D
 
 var positionarr : Array = []
-var test = "test"
 
 func _ready():
 	pass
@@ -18,10 +17,11 @@ func _ready():
 	#clr_normal()
 	
 func _physics_process(_delta) -> void:
-	if positionarr.size() > 1:
-		if positionarr[0] == positionarr[1]:
-			positionarr.pop_front()
-		position = positionarr[0]
+	pass
+	#if positionarr.size() > 1:
+		#if positionarr[0] == positionarr[1]:
+			#positionarr.pop_front()
+		#position = positionarr[0]
 
 
 func clr_normal():
