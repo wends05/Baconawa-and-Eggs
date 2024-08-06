@@ -75,7 +75,7 @@ func back_select():
 	sfx.play()
 	if index == 3:
 		play_button.hide()
-	characters[index].modulate = Color(1, 1, 1, 0.5)
+	characters[index].modulate = Color(0.5, 0.5, 0.5, 0.5)
 	character_ctrls[index].texture = null
 	labels[index].show()
 	stored_controls.pop_back()

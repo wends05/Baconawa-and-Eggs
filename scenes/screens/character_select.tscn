@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://tjjqoe1x74ft"]
+[gd_scene load_steps=7 format=3 uid="uid://tjjqoe1x74ft"]
 
 [ext_resource type="Script" path="res://scripts/character_select.gd" id="1_itj64"]
+[ext_resource type="Texture2D" uid="uid://cdo4mt0tf728o" path="res://assets/main_sprites/char_select/spr_charselect.png" id="2_jp6fp"]
+[ext_resource type="Texture2D" uid="uid://biccdxs38y338" path="res://assets/main_sprites/char_select/spr_cloud1.png" id="3_x1pr8"]
+[ext_resource type="Texture2D" uid="uid://p5fwbnie4uqq" path="res://assets/main_sprites/char_select/spr_cloud2.png" id="4_qyo8p"]
+[ext_resource type="Texture2D" uid="uid://yvv460tmelvd" path="res://assets/main_sprites/char_select/spr_cloud3.png" id="5_h15vm"]
+[ext_resource type="PackedScene" uid="uid://bdlmmxes3skc1" path="res://scenes/screens/char_select.tscn" id="6_be5e6"]
 
 [node name="CharacterSelect" type="Node2D"]
 script = ExtResource("1_itj64")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(417, 211)
+texture = ExtResource("2_jp6fp")
+
+[node name="Cloud1" type="Sprite2D" parent="bg"]
+modulate = Color(1, 1, 1, 0.568627)
+position = Vector2(-407, -191)
+texture = ExtResource("3_x1pr8")
+
+[node name="Cloud2" type="Sprite2D" parent="bg"]
+modulate = Color(1, 1, 1, 0.513726)
+position = Vector2(386, -106)
+texture = ExtResource("4_qyo8p")
+
+[node name="Cloud3" type="Sprite2D" parent="bg"]
+modulate = Color(1, 1, 1, 0.709804)
+position = Vector2(-338, 115)
+texture = ExtResource("5_h15vm")
+
+[node name="CharSelect" parent="." instance=ExtResource("6_be5e6")]

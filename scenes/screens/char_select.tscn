@@ -62,7 +62,7 @@ label_settings = SubResource("LabelSettings_uqxwp")
 horizontal_alignment = 1
 
 [node name="R1_char" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.568627)
+modulate = Color(0.501961, 0.501961, 0.501961, 0.501961)
 layout_mode = 0
 offset_left = 40.0
 offset_top = 256.0
@@ -95,7 +95,7 @@ label_settings = SubResource("LabelSettings_uqxwp")
 horizontal_alignment = 1
 
 [node name="R2_char" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.568627)
+modulate = Color(0.501961, 0.501961, 0.501961, 0.501961)
 layout_mode = 0
 offset_left = 280.0
 offset_top = 256.0
@@ -128,7 +128,7 @@ label_settings = SubResource("LabelSettings_uqxwp")
 horizontal_alignment = 1
 
 [node name="R3_char" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.568627)
+modulate = Color(0.501961, 0.501961, 0.501961, 0.501961)
 layout_mode = 0
 offset_left = 512.0
 offset_top = 256.0
