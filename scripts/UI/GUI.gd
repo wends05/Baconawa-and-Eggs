@@ -2,9 +2,11 @@ extends Control
 
 #baconawa deets
 var b_state = "default"
+@onready var cooldownbar = $Baconawa/Buff/ProgressBar
 @onready var b_portrait = $Baconawa/Portrait
 @onready var baconawa_buff = $Baconawa/Buff/Buff_Icon
 @onready var baconawa_nextbuff = $Baconawa/Buff_n/TextureRect
+@onready var cdcover = $Baconawa/Buff/cd_block
 var buff_icons = [
 	"res://assets/main_sprites/ui/spr_speed.png",
 	"res://assets/main_sprites/ui/spr_instakill.png",
@@ -12,6 +14,9 @@ var buff_icons = [
 	"res://assets/main_sprites/ui/spr_shield.png"
 ]
 
+var prog_val = 0
+var is_cd = false
+var cd_speed = 1 #/deduct that percent of overall
 
 #rice deets
 @export var rice1 : Rice
@@ -41,6 +46,7 @@ func _ready():
 	%Baconawa.nrml.connect(normal_icon)
 	%Baconawa.bff.connect(buff_identify)
 	%Baconawa.bff_act.connect(buff_icon_remove)
+	#%Baconawa.stn.connect(buff_icon_remove)
 	
 	rice1.alive.connect(rice1_respawn)
 	rice2.alive.connect(rice2_respawn)
@@ -55,11 +61,13 @@ func _ready():
 	rice2.use.connect(r2_item_use)
 	rice3.use.connect(r3_item_use)
 
-
 func _process(_delta):
-	pass
-
-
+	cooldownbar.value = prog_val
+	if is_cd:
+		prog_val -= cd_speed
+		if prog_val <= 0:
+			cdcover.hide()
+			is_cd = false
 
 #power up icon
 func buff_identify ():
@@ -97,16 +105,27 @@ func buff_icon_remove():
 
 	if %Baconawa.buffs.size() == 1:
 		baconawa_buff.texture = null
+		run_cd()
+		
 	elif %Baconawa.buffs.size() == 2:
 		baconawa_nextbuff.texture = null
 		baconawa_buff.texture = current_t
+		run_cd()
 
-
+func run_cd():
+	cdcover.show()
+	is_cd = true
+	prog_val = 360
 
 #stunned1
+func stun_burn():
+	b_portrait.play("burn_stunned")
 
 #stunned2
+func stun_bird():
+	b_portrait.play("bird_stunned")
 
+#normal
 func normal_icon():
 	b_state = "default"
 	icon_states()
