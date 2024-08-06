@@ -6,7 +6,6 @@ extends CharacterBody2D
 class_name Baconawa
 @export var SPEED: int = 75
 @export var game: Game
-@export var body: BaconawaBody
 
 # Reference on children
 @onready var anim = $Animations
@@ -20,6 +19,9 @@ class_name Baconawa
 @onready var buff_timer = $BuffTimer
 
 @onready var state_machine : StateMachine = $StateMachine
+
+@onready var body_node = preload("res://scenes/characters/baconawa_body.tscn")
+var child_count = 0
 
 var controls = ["up_1", "down_1", "left_1", "right_1", "action_1"
 #, "placeholder"
@@ -120,11 +122,11 @@ func _physics_process(_delta: float) -> void:
 	if game_finished:
 		return
 
-
 	move_and_slide()
-	body.positionarr.append(position)
-	if body.positionarr.size() > 10:
-		body.positionarr.pop_front()
+	if get_child_count() > 6:
+		var child = get_child(6)
+		child.velocity = Vector2(200,0)
+		print(child.velocity)
 
 func colliding(_body, collider: Area2D, isColliding):
 	if moving_through_wall or debuffed:
@@ -215,6 +217,9 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		if len(buffs) != 2:
 			buffs.append(buff_percent())
 			bff.emit()
+		
+		addbody()
+		
 
 # If exited a wall, add the collision mask value again
 func _on_collector_body_exited(_body: Node2D) -> void:
@@ -268,4 +273,11 @@ func clr_gold():
 	anim.material.set_shader_parameter("eye1B", bacon_color[3][5])
 	anim.material.set_shader_parameter("eye2B", bacon_color[3][6])
 
-
+func addbody():
+	print("test")
+	var new_body = body_node.instantiate()
+	new_body.velocity = velocity
+	
+	add_child(new_body)
+	print(new_body.velocity)
+	child_count += 1

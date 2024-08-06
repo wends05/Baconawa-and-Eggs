@@ -24,4 +24,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		tween.tween_property(self, "modulate:a", 0, 1)
 		await tween.finished
 		get_parent().remove_child(self)
-

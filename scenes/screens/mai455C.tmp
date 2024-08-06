@@ -698,6 +698,7 @@ unique_name_in_owner = true
 position = Vector2(216, 248)
 slide_on_ceiling = false
 floor_constant_speed = true
+SPEED = null
 game = NodePath("..")
 
 [node name="UI" parent="." node_paths=PackedStringArray("baconawa", "timer") instance=ExtResource("4_1ovr0")]
@@ -812,7 +813,4 @@ position = Vector2(312, 392)
 
 [node name="Cooldown" type="Timer" parent="Items"]
 
-[node name="GUI" parent="." node_paths=PackedStringArray("rice1", "rice2", "rice3") instance=ExtResource("14_5f1l6")]
-rice1 = NodePath("../Rice Players/Rice")
-rice2 = NodePath("../Rice Players/Rice2")
-rice3 = NodePath("../Rice Players/Rice3")
+[node name="GUI" parent="." instance=ExtResource("14_5f1l6")]
