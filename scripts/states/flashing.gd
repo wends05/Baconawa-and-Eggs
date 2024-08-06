@@ -24,6 +24,8 @@ func enter(_msg := {}) -> void:
 	owner.velocity = Vector2(0, 0)
 	owner.last_input = ""
 	var flash_instance = preload("res://scenes/characters/flashlight.tscn").instantiate()
+	owner.sfx.stream = load("res://assets/sfx/sfx_flashlight.wav")
+	owner.sfx.play()
 	flashlight.add_child(flash_instance)
 	internal_timer.start(3)
 	await internal_timer.timeout

@@ -287,5 +287,7 @@ script = ExtResource("10_3k58j")
 [node name="WallAnchor" type="Node2D" parent="."]
 position = Vector2(10, 0)
 
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="area_entered" from="Colliders/Baconawa" to="." method="_on_baconawa_area_entered"]
 [connection signal="area_entered" from="Colliders/Collector" to="." method="_on_collector_area_entered"]

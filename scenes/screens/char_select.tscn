@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdlmmxes3skc1"]
+[gd_scene load_steps=8 format=3 uid="uid://bdlmmxes3skc1"]
 
 [ext_resource type="Script" path="res://scripts/char_select.gd" id="1_d2647"]
 [ext_resource type="Texture2D" uid="uid://cvr2al4s8go6c" path="res://assets/main_sprites/char_select/spr_baconselect.png" id="2_mp4tq"]
 [ext_resource type="Texture2D" uid="uid://cwic4d7tnlyjy" path="res://assets/main_sprites/char_select/spr_riceselect1.png" id="3_87lm2"]
 [ext_resource type="Texture2D" uid="uid://bwpmkwk6x0bhc" path="res://assets/main_sprites/char_select/spr_riceselect2.png" id="4_hu0cc"]
 [ext_resource type="Texture2D" uid="uid://dm3ldu0dxrcfl" path="res://assets/main_sprites/char_select/spr_riceselect3.png" id="5_i6pdy"]
+[ext_resource type="AudioStream" uid="uid://bewh20em4j8e4" path="res://assets/sfx/sfx_slct.wav" id="6_bgl4n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uqxwp"]
 font_size = 11
@@ -158,5 +159,8 @@ text = "PRESS ACTION
 TO SELECT"
 label_settings = SubResource("LabelSettings_uqxwp")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_bgl4n")
 
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

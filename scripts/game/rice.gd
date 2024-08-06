@@ -7,7 +7,7 @@ class_name Rice
 @export var SPEED: int = 70
 @export var game: Game
 @onready var anim = $Animations
-
+@onready var sfx = $sfx
 
 #collider checks
 @onready var top_collider = $Colliders/Top

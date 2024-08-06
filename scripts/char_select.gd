@@ -1,7 +1,8 @@
 extends Control
 
-var index = 0
+@onready var sfx = $AudioStreamPlayer
 
+var index = 0
 @onready var characters = [
 	$Bacon_char,
 	$R1_char,
@@ -56,6 +57,7 @@ func _process(delta):
 func toggleselect():
 	for i in range(8):
 		if Input.is_action_pressed("action_" + str(i + 1)) and contconfirm[i] == false: 
+			sfx.play()
 			contnum.append(i)
 			contconfirm[i] = true
 			stored_controls.append(control_list[i])
@@ -70,6 +72,7 @@ func toggleselect():
 
 
 func back_select():
+	sfx.play()
 	if index == 3:
 		play_button.hide()
 	characters[index].modulate = Color(1, 1, 1, 0.5)
@@ -82,5 +85,6 @@ func back_select():
 	
 
 func _on_button_button_up() -> void:
+	sfx.play()
 	Controlcontainer.control_contain = stored_controls
 	get_tree().change_scene_to_file("res://scenes/screens/main_game.tscn")
