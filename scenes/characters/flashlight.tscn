@@ -33,7 +33,7 @@ position = Vector2(43, 0)
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_l5ida")
 autoplay = "default"
-frame_progress = 0.926807
+frame_progress = 0.244915
 script = ExtResource("1_1dj4k")
 
 [node name="Area2D" type="Area2D" parent="."]
