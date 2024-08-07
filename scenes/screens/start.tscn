@@ -25,20 +25,33 @@ offset_top = -33.0
 offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.945098, 0.909804, 1)
+theme_override_colors/font_pressed_color = Color(0.984314, 0.796078, 0.309804, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.945098, 0.576471, 1)
 text = "Play"
+flat = true
 
 [node name="Instructions" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.945098, 0.909804, 1)
+theme_override_colors/font_pressed_color = Color(0.984314, 0.796078, 0.309804, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.945098, 0.576471, 1)
 text = "Credits
 "
+flat = true
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.945098, 0.909804, 1)
+theme_override_colors/font_pressed_color = Color(0.984314, 0.796078, 0.309804, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.945098, 0.576471, 1)
 text = "Quit
 "
+flat = true
 
 [node name="BG_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_16y3b")
@@ -46,7 +59,7 @@ volume_db = -5.024
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_jsd8n")
-volume_db = -5.0
+volume_db = -7.0
 
 [connection signal="button_up" from="VBoxContainer/Play" to="." method="_on_play_button_up"]
 [connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]

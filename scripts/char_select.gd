@@ -55,7 +55,7 @@ func _process(delta):
 		if index != 0:
 			back_select()
 		else:
-			get_tree().change_scene_to_file("res://scenes/screens/start.tscn")
+			get_tree().change_scene_to_file("res://scenes/screens/main _menu.tscn")
 	
 func toggleselect():
 	for i in range(8):

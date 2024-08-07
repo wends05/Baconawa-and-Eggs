@@ -21,8 +21,5 @@ func _on_instructions_button_up() -> void:
 func _on_quit_button_up():
 	get_tree().quit()
 
-
-
-
 func _on_play_mouse_entered():
 	sfx.play()

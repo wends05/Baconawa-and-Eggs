@@ -30,6 +30,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Baconawa"
 
+[gui]
+
+theme/custom_font="res://resources/PressStart2P.ttf"
+
 [input]
 
 esc={
