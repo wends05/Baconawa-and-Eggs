@@ -32,8 +32,7 @@ func physics_update(_delta: float) -> void:
 	if Input.is_action_just_pressed(controls[4]):
 		barrier_check_instance.queue_free()
 		state_machine.transition_to("Idle")
-		owner.sfx.stream = load("res://assets/sfx/sfx_bamboo.wav")
-		owner.sfx.play()
+		owner.sfx.bamboo.play()
 		var barrier_instance = preload("res://scenes/characters/wall.tscn").instantiate()
 		owner.owner.add_child(barrier_instance)
 		barrier_instance.global_position = barrier_check_instance.global_position

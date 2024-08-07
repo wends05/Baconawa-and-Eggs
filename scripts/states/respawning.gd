@@ -13,7 +13,6 @@ func enter(_msg = {}):
 	internal_timer.start(3)
 	await internal_timer.timeout
 	owner.alive.emit()
-	owner.sfx.stream = load("res://assets/sfx/sfx_ricevive.wav")
-	owner.sfx.play()
+	owner.sfx.live.play()
 	owner.visible = true
 	state_machine.transition_to("Idle")

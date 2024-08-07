@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cwbbda5vd2ofb"]
+[gd_scene load_steps=39 format=3 uid="uid://cwbbda5vd2ofb"]
 
 [ext_resource type="Script" path="res://scripts/game/rice.gd" id="1_77n87"]
 [ext_resource type="Shader" path="res://scripts/shaders/rice.gdshader" id="2_iclel"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/states/drumming.gd" id="8_gcsqk"]
 [ext_resource type="Script" path="res://scripts/states/respawning.gd" id="9_u4rm5"]
 [ext_resource type="Script" path="res://scripts/states/barrier_checking.gd" id="10_3k58j"]
+[ext_resource type="PackedScene" uid="uid://dk7ldj2ukae37" path="res://scenes/audio/rice_sfx.tscn" id="11_4b10a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
 size = Vector2(14, 14)
@@ -287,7 +288,7 @@ script = ExtResource("10_3k58j")
 [node name="WallAnchor" type="Node2D" parent="."]
 position = Vector2(10, 0)
 
-[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+[node name="rice_sfx" parent="." instance=ExtResource("11_4b10a")]
 
 [connection signal="area_entered" from="Colliders/Baconawa" to="." method="_on_baconawa_area_entered"]
 [connection signal="area_entered" from="Colliders/Collector" to="." method="_on_collector_area_entered"]

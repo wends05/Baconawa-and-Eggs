@@ -7,7 +7,7 @@ class_name Rice
 @export var SPEED: int = 70
 @export var game: Game
 @onready var anim = $Animations
-@onready var sfx = $sfx
+@onready var sfx = $rice_sfx
 
 #collider checks
 @onready var top_collider = $Colliders/Top
@@ -114,6 +114,5 @@ func _on_collector_area_entered(area: Area2D) -> void:
 func _on_baconawa_area_entered(area: Area2D) -> void:
 	var node = area.owner
 	if node is Baconawa:
-		sfx.stream = load("res://assets/sfx/sfx_eatrice.wav")
-		sfx.play()
+		sfx.die.play()
 		state_machine.transition_to("Respawning")

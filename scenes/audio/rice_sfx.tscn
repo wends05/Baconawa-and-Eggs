@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk7ldj2ukae37"]
+[gd_scene load_steps=6 format=3 uid="uid://dk7ldj2ukae37"]
 
+[ext_resource type="Script" path="res://scenes/audio/rice_sfx.gd" id="1_clcqu"]
 [ext_resource type="AudioStream" uid="uid://bf0roq132ugqd" path="res://assets/sfx/sfx_flashlight.wav" id="1_l3x8v"]
 [ext_resource type="AudioStream" uid="uid://cx4vhw87lga6t" path="res://assets/sfx/sfx_bamboo.wav" id="2_3st4k"]
 [ext_resource type="AudioStream" uid="uid://c67nnyetcypmn" path="res://assets/sfx/sfx_eatrice.wav" id="3_lfyjf"]
 [ext_resource type="AudioStream" uid="uid://tsqd062mxmjn" path="res://assets/sfx/sfx_ricevive.wav" id="4_gt3tt"]
 
 [node name="rice_sfx" type="Node"]
+script = ExtResource("1_clcqu")
 
 [node name="drums" type="AudioStreamPlayer2D" parent="."]
 
