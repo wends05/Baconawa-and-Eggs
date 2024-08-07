@@ -50,9 +50,12 @@ func _process(delta):
 	if index != 4:
 		toggleselect()
 		
-	if index != 0:
-		if Input.is_action_just_released("esc"):
+	
+	if Input.is_action_just_released("esc"):
+		if index != 1:
 			back_select()
+		else:
+			get_tree().change_scene_to_file("res://scenes/screens/start.tscn")
 	
 func toggleselect():
 	for i in range(8):
@@ -75,7 +78,7 @@ func back_select():
 	sfx.play()
 	if index == 3:
 		play_button.hide()
-	characters[index].modulate = Color(0.5, 0.5, 0.5, 0.5)
+	characters[index].modulate = Color(0.5, 0.5, 0.5, 1.0)
 	character_ctrls[index].texture = null
 	labels[index].show()
 	stored_controls.pop_back()
