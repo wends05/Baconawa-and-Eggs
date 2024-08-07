@@ -17,3 +17,12 @@ func _on_instructions_button_up() -> void:
 	bgmsc.stop()
 	get_tree().change_scene_to_file("res://scenes/screens/instructions.tscn")
 
+
+func _on_quit_button_up():
+	get_tree().quit()
+
+
+
+
+func _on_play_mouse_entered():
+	sfx.play()

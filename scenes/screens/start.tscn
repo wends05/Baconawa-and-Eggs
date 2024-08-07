@@ -32,7 +32,13 @@ text = "Play"
 
 [node name="Instructions" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Instructions"
+text = "Credits
+"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
 
 [node name="BG_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_16y3b")
@@ -40,6 +46,11 @@ volume_db = -5.024
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_jsd8n")
+volume_db = -5.0
 
 [connection signal="button_up" from="VBoxContainer/Play" to="." method="_on_play_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="button_up" from="VBoxContainer/Instructions" to="." method="_on_instructions_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/Instructions" to="." method="_on_play_mouse_entered"]
+[connection signal="button_up" from="VBoxContainer/Quit" to="." method="_on_quit_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_play_mouse_entered"]
