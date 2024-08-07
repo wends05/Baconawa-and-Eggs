@@ -1,4 +1,4 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 class_name Flashlight
 
@@ -18,4 +18,3 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Baconawa:
 		if not body.invincible:
 			body.state_machine.transition_to("Stunned")
-

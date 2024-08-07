@@ -8,7 +8,16 @@ func enter(_msg = {}):
 	owner.item_cooldown = true
 	owner.velocity = Vector2(0, 0)
 	owner.last_input = ""
-	owner.anim.play("idle")
+	owner.anim.frame = 0
+	match owner.direction:
+		"up":
+			owner.anim.play("move_up", 0)
+		"down":
+			owner.anim.play("move_down", 0)
+		"left":
+			owner.anim.play("idle")
+		"right":
+			owner.anim.play("idle")
 	var drum_instance = preload("res://scenes/characters/drums.tscn").instantiate()
 	owner.add_child(drum_instance)
 	internal_timer.start(3)

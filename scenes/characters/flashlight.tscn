@@ -1,11 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxnsqdubvg38k"]
+[gd_scene load_steps=7 format=3 uid="uid://cxnsqdubvg38k"]
 
 [ext_resource type="Script" path="res://scripts/game/flashlight.gd" id="1_1dj4k"]
-[ext_resource type="Texture2D" uid="uid://dioq8lkg0rrij" path="res://assets/main_sprites/effects/spr_light.png" id="1_ck0d1"]
 [ext_resource type="Texture2D" uid="uid://d05l4xn7akfn3" path="res://assets/main_sprites/effects/spr_lanternray.png" id="3_p5mgk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6o80"]
-size = Vector2(77, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75kax"]
 atlas = ExtResource("3_p5mgk")
@@ -29,24 +25,25 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Flashlight" type="Sprite2D"]
-position = Vector2(42, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6o80"]
+size = Vector2(86, 16)
+
+[node name="Flashlight" type="AnimatedSprite2D"]
+position = Vector2(43, 0)
 rotation = 3.14159
-texture = ExtResource("1_ck0d1")
+sprite_frames = SubResource("SpriteFrames_l5ida")
+autoplay = "default"
+frame_progress = 0.926807
 script = ExtResource("1_1dj4k")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 0.000106478)
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2.5, 0)
+position = Vector2(-5, -0.000133538)
 shape = SubResource("RectangleShape2D_w6o80")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_l5ida")
-autoplay = "default"
-frame_progress = 0.707867
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
