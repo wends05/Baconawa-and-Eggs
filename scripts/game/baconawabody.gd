@@ -15,7 +15,7 @@ func _ready():
 	#%Baconawa.nrml.connect(clr_normal)
 	#positionarr.append(head.position)
 	clr_normal()
-	
+
 func _physics_process(_delta) -> void:
 	pass
 	#if positionarr.size() > 1:
