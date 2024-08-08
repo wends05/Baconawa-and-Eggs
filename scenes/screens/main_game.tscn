@@ -677,6 +677,7 @@ timer = NodePath("Timer")
 ui = NodePath("UI")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_opmms")
