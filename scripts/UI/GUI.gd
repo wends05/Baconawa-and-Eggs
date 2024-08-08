@@ -67,7 +67,7 @@ func _process(_delta):
 	if is_cd:
 		prog_val -= cd_speed
 		if prog_val <= 0:
-			cdcover.hide()
+			cooldownbar.hide()
 			is_cd = false
 
 #power up icon
@@ -114,7 +114,7 @@ func buff_icon_remove():
 		run_cd()
 
 func run_cd():
-	cdcover.show()
+	cooldownbar.show()
 	is_cd = true
 	prog_val = 360
 
