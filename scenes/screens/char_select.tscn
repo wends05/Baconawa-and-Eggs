@@ -114,6 +114,7 @@ offset_right = 180.0
 offset_bottom = 116.0
 
 [node name="Panel" type="Panel" parent="R2_char"]
+layout_mode = 0
 offset_left = 80.0
 offset_top = 72.0
 offset_right = 200.0
@@ -147,6 +148,7 @@ offset_right = 180.0
 offset_bottom = 116.0
 
 [node name="Panel" type="Panel" parent="R3_char"]
+layout_mode = 0
 offset_left = 80.0
 offset_top = 72.0
 offset_right = 200.0
