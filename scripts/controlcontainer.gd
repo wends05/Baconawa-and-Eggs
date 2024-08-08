@@ -1,5 +1,7 @@
 extends Node
 
+#@onready var bacon: Baconawa
+
 var control_contain =[
 	["up_1", "down_1", "left_1", "right_1", "action_1"],
 	["up_2", "down_2", "left_2", "right_2", "action_2"],
@@ -41,3 +43,26 @@ var bacon_color = [
 		Vector4(1.0,1.0,1.0, 1.0)
 	],
 ]
+
+#signal nrml
+#signal ghst
+#signal fst
+#signal gld
+#
+#func _ready():
+	#bacon.fst.connect(fst_sig)
+	#bacon.gld.connect(gld_sig)
+	#bacon.ghst.connect(ghst_sig)
+	#bacon.nrml.connect(nrml_sig)
+	#
+#func nrml_sig():
+	#nrml.emit()
+	#
+#func ghst_sig():
+	#ghst.emit()
+	#
+#func fst_sig():
+	#fst.emit()
+	#
+#func gld_sig():
+	#gld.emit()

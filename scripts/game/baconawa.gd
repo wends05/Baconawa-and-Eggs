@@ -22,7 +22,7 @@ class_name Baconawa
 @onready var state_machine : StateMachine = $StateMachine
 
 @onready var body_node = preload("res://scenes/characters/baconawa_body.tscn")
-var child_count = 0
+var position_array = []
 
 var controls = Controlcontainer.control_contain[0]
 
@@ -91,10 +91,9 @@ func _physics_process(_delta: float) -> void:
 		return
 
 	move_and_slide()
-	if get_child_count() > 7:
-		var child = get_child(7)
-		child.velocity = Vector2(200,0)
-		print(child.velocity)
+	position_array.append(position)
+	if position_array.size() > 100:
+		position_array.pop_front()
 
 func colliding(_body, collider: Area2D, isColliding):
 	if moving_through_wall or debuffed:
@@ -247,10 +246,6 @@ func clr_gold():
 	anim.material.set_shader_parameter("eye2B", bacon_color[3][6])
 
 func addbody():
-	print("test")
 	var new_body = body_node.instantiate()
-	new_body.velocity = velocity
-
 	add_child(new_body)
-	print(new_body.velocity)
-	child_count += 1
+	move_child(new_body, -1)
