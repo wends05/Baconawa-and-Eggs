@@ -59,3 +59,11 @@ func _process(_delta: float) -> void:
 		baconawa.buff_timer.time_left,
 		baconawa.state_machine.state.name
 		]
+
+
+func _on_b_win_button_up() -> void:
+	baconawa.moons_collected = 7
+
+
+func _on_r_win_button_up() -> void:
+	timer.stop()
