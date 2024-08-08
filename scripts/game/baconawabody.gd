@@ -6,11 +6,12 @@ class_name BaconawaBody
 @onready var anim = $AnimatedSprite2D
 
 func _ready():
-	Controlcontainer.fst.connect(clr_speed)
-	Controlcontainer.gld.connect(clr_gold)
-	Controlcontainer.ghst.connect(clr_ghost)
-	Controlcontainer.nrml.connect(clr_normal)
-	clr_normal()
+	pass
+	#Controlcontainer.fst.connect(clr_speed)
+	#Controlcontainer.gld.connect(clr_gold)
+	#Controlcontainer.ghst.connect(clr_ghost)
+	#Controlcontainer.nrml.connect(clr_normal)
+	#clr_normal()
 
 func _physics_process(_delta) -> void:
 	var head_parent = get_parent()
