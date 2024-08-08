@@ -23,8 +23,8 @@ func _ready() -> void:
 
 func getRandom() -> PackedScene:
 	return [
-		drum, 
-		lantern, 
+		drum,
+		lantern,
 		barrier
 		].pick_random()
 

@@ -33,19 +33,9 @@ func _process(_delta: float) -> void:
 		game_finished = true
 		timer.paused = true
 		transition.visible = true
+		G.set_results.emit(timer.time_left, baconawa.moons_collected)
 		var tween = create_tween()
 		tween.tween_property(transition, "color", Color(0, 1), 1).set_ease(Tween.EASE_IN_OUT).set_delay(1)
 		await tween.finished
-		G.set_results.emit(timer.time_left, baconawa.moons_collected)
 		print("game finished")
 		get_tree().change_scene_to_file("res://scenes/screens/end_game.tscn")
-
-
-
-# debug code
-
-func _on_button_button_up() -> void:
-	baconawa.moons_collected = 7
-
-func _on_button_2_button_up() -> void:
-	timer.stop()

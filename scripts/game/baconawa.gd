@@ -190,9 +190,9 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		if len(buffs) != 2:
 			buffs.append(buff_percent())
 			bff.emit()
-		
+
 		addbody()
-		
+
 
 # If exited a wall, add the collision mask value again
 func _on_collector_body_exited(_body: Node2D) -> void:
@@ -205,7 +205,7 @@ func _on_collector_body_exited(_body: Node2D) -> void:
 	nrml.emit()
 	clr_normal()
 	set_collision_mask_value(2, true)
-	
+
 
 #percentage/chance editor for buffs
 func buff_percent():
@@ -250,7 +250,7 @@ func addbody():
 	print("test")
 	var new_body = body_node.instantiate()
 	new_body.velocity = velocity
-	
+
 	add_child(new_body)
 	print(new_body.velocity)
 	child_count += 1

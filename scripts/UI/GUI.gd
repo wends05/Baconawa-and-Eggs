@@ -48,7 +48,7 @@ func _ready():
 	%Baconawa.bff_act.connect(buff_icon_remove)
 	%Baconawa.stn.connect(stun_burn)
 	%Baconawa.cnfsd.connect(stun_bird)
-	
+
 	rice1.alive.connect(rice1_respawn)
 	rice2.alive.connect(rice2_respawn)
 	rice3.alive.connect(rice3_respawn)
@@ -107,7 +107,7 @@ func buff_icon_remove():
 	if %Baconawa.buffs.size() == 1:
 		baconawa_buff.texture = null
 		run_cd()
-		
+
 	elif %Baconawa.buffs.size() == 2:
 		baconawa_nextbuff.texture = null
 		baconawa_buff.texture = current_t
@@ -153,7 +153,7 @@ func icon_states():
 #eating animation
 func eat():
 	b_portrait.play_once("%s_eat" % b_state, "%s_idle" % b_state)
-	
+
 
 
 
@@ -175,7 +175,7 @@ func rice2_die():
 	r_portrait[1].play_once("default_die", "default_dead")
 func rice3_die():
 	r_portrait[2].play_once("default_die", "default_dead")
-	
+
 
 func r1_item_identify ():
 	if rice1.item != null:

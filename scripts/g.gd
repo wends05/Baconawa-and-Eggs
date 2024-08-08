@@ -8,8 +8,8 @@ var baconawa_win = null
 
 func display_time(time_left: int):
 	var minutes = floori(time_left / 60)
-	var seconds = time % 60
-	return "%s min %s sec" % [minutes,seconds]
+	var seconds = time_left % 60
+	return "%s min %s sec" % [minutes, seconds]
 
 func _ready() -> void:
 	set_results.connect(final_results)

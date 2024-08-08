@@ -4,7 +4,7 @@ extends State
 func enter(_msg := {}) -> void:
 	# We must declare all the properties we access through `owner` in the `Player.gd` script.
 	owner.velocity = Vector2.ZERO
-	owner.anim.play("Idle")
+	owner.anim.play("idle")
 	if owner is Rice:
 		owner.item = null
 
