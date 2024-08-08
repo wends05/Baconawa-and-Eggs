@@ -5,23 +5,19 @@ class_name BaconawaBody
 @export var head: PackedScene
 @onready var anim = $AnimatedSprite2D
 
-var positionarr : Array = []
-
 func _ready():
-	pass
-	#%Baconawa.fst.connect(clr_speed)
-	#%Baconawa.gld.connect(clr_gold)
-	#%Baconawa.ghst.connect(clr_ghost)
-	#%Baconawa.nrml.connect(clr_normal)
-	#positionarr.append(head.position)
+	Controlcontainer.fst.connect(clr_speed)
+	Controlcontainer.gld.connect(clr_gold)
+	Controlcontainer.ghst.connect(clr_ghost)
+	Controlcontainer.nrml.connect(clr_normal)
 	clr_normal()
 
 func _physics_process(_delta) -> void:
-	pass
-	#if positionarr.size() > 1:
-		#if positionarr[0] == positionarr[1]:
-			#positionarr.pop_front()
-		#position = positionarr[0]
+	var head_parent = get_parent()
+	for i in head_parent.get_child_count():
+		if i > 6:
+			var x = get_parent().get_child(i)
+			x.global_position = head_parent.position_array[-10*(i-6)]
 
 
 func clr_normal():

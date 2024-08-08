@@ -247,10 +247,6 @@ func clr_gold():
 	anim.material.set_shader_parameter("eye2B", bacon_color[3][6])
 
 func addbody():
-	print("test")
 	var new_body = body_node.instantiate()
-	new_body.velocity = velocity
-
 	add_child(new_body)
-	print(new_body.velocity)
-	child_count += 1
+	move_child(new_body, -1)

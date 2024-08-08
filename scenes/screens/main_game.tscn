@@ -703,6 +703,7 @@ floor_constant_speed = true
 game = NodePath("..")
 
 [node name="UI" parent="." node_paths=PackedStringArray("baconawa", "timer") instance=ExtResource("4_1ovr0")]
+visible = false
 offset_right = 736.0
 baconawa = NodePath("../Baconawa")
 timer = NodePath("../Timer")
