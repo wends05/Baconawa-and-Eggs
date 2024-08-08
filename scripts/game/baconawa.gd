@@ -205,7 +205,7 @@ func _on_collector_body_exited(_body: Node2D) -> void:
 	nrml.emit()
 	clr_normal()
 	set_collision_mask_value(2, true)
-	
+
 
 #percentage/chance editor for buffs
 func buff_percent():

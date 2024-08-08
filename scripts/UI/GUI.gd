@@ -153,7 +153,7 @@ func icon_states():
 #eating animation
 func eat():
 	b_portrait.play_once("%s_eat" % b_state, "%s_idle" % b_state)
-	
+
 
 
 
@@ -175,7 +175,7 @@ func rice2_die():
 	r_portrait[1].play_once("default_die", "default_dead")
 func rice3_die():
 	r_portrait[2].play_once("default_die", "default_dead")
-	
+
 
 func r1_item_identify ():
 	if rice1.item != null:
