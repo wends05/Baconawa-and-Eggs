@@ -50,9 +50,12 @@ func _process(delta):
 	if index != 4:
 		toggleselect()
 		
-	if index != 0:
-		if Input.is_action_just_released("esc"):
+	
+	if Input.is_action_just_released("esc"):
+		if index != 0:
 			back_select()
+		else:
+			get_tree().change_scene_to_file("res://scenes/screens/main _menu.tscn")
 	
 func toggleselect():
 	for i in range(8):
@@ -63,9 +66,10 @@ func toggleselect():
 			stored_controls.append(control_list[i])
 			labels[index].hide()
 			character_ctrls[index].texture = load("res://assets/main_sprites/char_select/controls/spr_controlselect%d.png" % (i+1))
-			if index != 3:
+			if index != 4:
 				index += 1
-				characters[index].modulate = Color(1, 1, 1, 1)
+				if index != 4:
+					characters[index].modulate = Color(1, 1, 1, 1)
 			if contnum.size() == 4:
 				play_button.show()
 			break
@@ -73,13 +77,14 @@ func toggleselect():
 
 func back_select():
 	sfx.play()
-	if index == 3:
+	if index == 4:
 		play_button.hide()
-	characters[index].modulate = Color(0.5, 0.5, 0.5, 0.5)
-	character_ctrls[index].texture = null
-	labels[index].show()
+	else:
+		characters[index].modulate = Color(0.5, 0.5, 0.5, 1.0)
+	character_ctrls[index-1].texture = null
+	labels[index-1].show()
 	stored_controls.pop_back()
-	contconfirm[contnum[index]] = false
+	contconfirm[contnum[index-1]] = false
 	contnum.pop_back()
 	index -= 1
 	

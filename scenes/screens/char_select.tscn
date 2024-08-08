@@ -8,7 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://bewh20em4j8e4" path="res://assets/sfx/sfx_slct.wav" id="6_bgl4n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uqxwp"]
-font_size = 11
+line_spacing = 4.0
+font_size = 9
 shadow_size = 0
 
 [node name="CharSelect" type="Control"]
@@ -46,15 +47,16 @@ offset_bottom = 144.0
 
 [node name="Panel" type="Panel" parent="Bacon_char"]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 88.0
-offset_right = 272.0
+offset_left = 184.0
+offset_top = 104.0
+offset_right = 306.0
 offset_bottom = 144.0
 
 [node name="Label" type="Label" parent="Bacon_char/Panel"]
 layout_mode = 0
+offset_left = 8.0
 offset_top = 8.0
-offset_right = 80.0
+offset_right = 116.0
 offset_bottom = 43.0
 text = "PRESS ACTION
 TO SELECT"
@@ -62,7 +64,7 @@ label_settings = SubResource("LabelSettings_uqxwp")
 horizontal_alignment = 1
 
 [node name="R1_char" type="TextureRect" parent="."]
-modulate = Color(0.501961, 0.501961, 0.501961, 0.501961)
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 layout_mode = 0
 offset_left = 40.0
 offset_top = 256.0
@@ -72,22 +74,23 @@ texture = ExtResource("3_87lm2")
 
 [node name="ctrl" type="TextureRect" parent="R1_char"]
 layout_mode = 0
-offset_left = 104.0
+offset_left = 98.0
 offset_top = 64.0
-offset_right = 186.0
+offset_right = 180.0
 offset_bottom = 116.0
 
 [node name="Panel" type="Panel" parent="R1_char"]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 64.0
-offset_right = 184.0
-offset_bottom = 120.0
+offset_left = 80.0
+offset_top = 72.0
+offset_right = 200.0
+offset_bottom = 112.0
 
 [node name="Label" type="Label" parent="R1_char/Panel"]
 layout_mode = 0
+offset_left = 8.0
 offset_top = 8.0
-offset_right = 80.0
+offset_right = 116.0
 offset_bottom = 43.0
 text = "PRESS ACTION
 TO SELECT"
@@ -95,7 +98,7 @@ label_settings = SubResource("LabelSettings_uqxwp")
 horizontal_alignment = 1
 
 [node name="R2_char" type="TextureRect" parent="."]
-modulate = Color(0.501961, 0.501961, 0.501961, 0.501961)
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 layout_mode = 0
 offset_left = 280.0
 offset_top = 256.0
@@ -105,22 +108,23 @@ texture = ExtResource("4_hu0cc")
 
 [node name="ctrl" type="TextureRect" parent="R2_char"]
 layout_mode = 0
-offset_left = 104.0
+offset_left = 98.0
 offset_top = 64.0
-offset_right = 186.0
+offset_right = 180.0
 offset_bottom = 116.0
 
 [node name="Panel" type="Panel" parent="R2_char"]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 64.0
-offset_right = 184.0
-offset_bottom = 120.0
+offset_left = 80.0
+offset_top = 72.0
+offset_right = 200.0
+offset_bottom = 112.0
 
 [node name="Label" type="Label" parent="R2_char/Panel"]
 layout_mode = 0
+offset_left = 8.0
 offset_top = 8.0
-offset_right = 80.0
+offset_right = 116.0
 offset_bottom = 43.0
 text = "PRESS ACTION
 TO SELECT"
@@ -128,7 +132,7 @@ label_settings = SubResource("LabelSettings_uqxwp")
 horizontal_alignment = 1
 
 [node name="R3_char" type="TextureRect" parent="."]
-modulate = Color(0.501961, 0.501961, 0.501961, 0.501961)
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 layout_mode = 0
 offset_left = 512.0
 offset_top = 256.0
@@ -138,22 +142,23 @@ texture = ExtResource("5_i6pdy")
 
 [node name="ctrl" type="TextureRect" parent="R3_char"]
 layout_mode = 0
-offset_left = 104.0
+offset_left = 98.0
 offset_top = 64.0
-offset_right = 186.0
+offset_right = 180.0
 offset_bottom = 116.0
 
 [node name="Panel" type="Panel" parent="R3_char"]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 64.0
-offset_right = 184.0
-offset_bottom = 120.0
+offset_left = 80.0
+offset_top = 72.0
+offset_right = 200.0
+offset_bottom = 112.0
 
 [node name="Label" type="Label" parent="R3_char/Panel"]
 layout_mode = 0
+offset_left = 8.0
 offset_top = 8.0
-offset_right = 80.0
+offset_right = 116.0
 offset_bottom = 43.0
 text = "PRESS ACTION
 TO SELECT"

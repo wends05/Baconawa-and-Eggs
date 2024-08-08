@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://q3tm2ls5w7x"]
+
+[ext_resource type="Texture2D" uid="uid://b5swl8sq7oh1p" path="res://assets/main_sprites/menus/main_menu.png" id="1_6vsml"]
+[ext_resource type="PackedScene" uid="uid://degkpav83o423" path="res://scenes/screens/start.tscn" id="2_kyrsr"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MainMenu" type="Sprite2D" parent="."]
+position = Vector2(384, 216)
+texture = ExtResource("1_6vsml")
+
+[node name="Start" parent="." instance=ExtResource("2_kyrsr")]
+offset_left = 384.0
+offset_top = 232.0
+offset_right = 384.0
+offset_bottom = 232.0

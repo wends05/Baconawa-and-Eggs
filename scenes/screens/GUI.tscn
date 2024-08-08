@@ -1,13 +1,25 @@
-[gd_scene load_steps=129 format=3 uid="uid://bq3ski4oyihxf"]
+[gd_scene load_steps=141 format=3 uid="uid://bq3ski4oyihxf"]
 
 [ext_resource type="Script" path="res://scripts/UI/GUI.gd" id="1_sinjn"]
+[ext_resource type="Texture2D" uid="uid://dwumk4ebbjx77" path="res://assets/main_sprites/ui/spr_scrollbgrice.png" id="2_6x50j"]
 [ext_resource type="Texture2D" uid="uid://dxmvgg6cy0xo" path="res://assets/main_sprites/ui/spr_baconawa_portrait.png" id="2_bpquh"]
 [ext_resource type="Script" path="res://scripts/UI/Animated_Rect.gd" id="2_jbus7"]
 [ext_resource type="Texture2D" uid="uid://dwybmhf5yalfk" path="res://assets/main_sprites/ui/spr_riceportrait.png" id="3_exapj"]
+[ext_resource type="Texture2D" uid="uid://0j4t1hfp7m32" path="res://assets/main_sprites/ui/spr_baconuiframe.png" id="4_kb3ci"]
+[ext_resource type="Texture2D" uid="uid://b6iaorn0hcelw" path="res://assets/main_sprites/ui/spr_leavesui.png" id="5_wyhtr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4meq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3y1x"]
+bg_color = Color(0.729412, 0.462745, 0.407843, 1)
+border_color = Color(0.916114, 0.801418, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10jcf"]
 atlas = ExtResource("3_exapj")
-region = Rect2(384, 0, 48, 48)
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0f8w"]
 atlas = ExtResource("3_exapj")
@@ -49,10 +61,6 @@ region = Rect2(336, 48, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(384, 48, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_10jcf"]
-atlas = ExtResource("3_exapj")
-region = Rect2(0, 0, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vmqb6"]
 atlas = ExtResource("3_exapj")
 region = Rect2(48, 0, 48, 48)
@@ -80,6 +88,10 @@ region = Rect2(288, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gdhkj"]
 atlas = ExtResource("3_exapj")
 region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4meq"]
+atlas = ExtResource("3_exapj")
+region = Rect2(384, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6uuru"]
 atlas = ExtResource("3_exapj")
@@ -210,9 +222,25 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vv0kg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0ns3"]
+bg_color = Color(0.729412, 0.462745, 0.407843, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gsr7"]
+bg_color = Color(0.729412, 0.462745, 0.407843, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfhww"]
 atlas = ExtResource("3_exapj")
-region = Rect2(384, 144, 48, 48)
+region = Rect2(0, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjtgc"]
 atlas = ExtResource("3_exapj")
@@ -254,10 +282,6 @@ region = Rect2(336, 192, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(384, 192, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mfhww"]
-atlas = ExtResource("3_exapj")
-region = Rect2(0, 144, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqmgi"]
 atlas = ExtResource("3_exapj")
 region = Rect2(48, 144, 48, 48)
@@ -285,6 +309,10 @@ region = Rect2(288, 144, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_f63ky"]
 atlas = ExtResource("3_exapj")
 region = Rect2(336, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv0kg"]
+atlas = ExtResource("3_exapj")
+region = Rect2(384, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kopye"]
 atlas = ExtResource("3_exapj")
@@ -415,9 +443,17 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ww4t5"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhds2"]
+bg_color = Color(0.729412, 0.462745, 0.407843, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ae71u"]
 atlas = ExtResource("3_exapj")
-region = Rect2(384, 288, 48, 48)
+region = Rect2(0, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gewfg"]
 atlas = ExtResource("3_exapj")
@@ -459,10 +495,6 @@ region = Rect2(336, 336, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(384, 336, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ae71u"]
-atlas = ExtResource("3_exapj")
-region = Rect2(0, 288, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1dqck"]
 atlas = ExtResource("3_exapj")
 region = Rect2(48, 288, 48, 48)
@@ -490,6 +522,10 @@ region = Rect2(288, 288, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ng015"]
 atlas = ExtResource("3_exapj")
 region = Rect2(336, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww4t5"]
+atlas = ExtResource("3_exapj")
+region = Rect2(384, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7ed5"]
 atlas = ExtResource("3_exapj")
@@ -619,6 +655,14 @@ animations = [{
 "name": &"default_revive",
 "speed": 12.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwpmm"]
+bg_color = Color(0.670588, 0.701961, 0.780392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ieduj"]
 atlas = ExtResource("2_bpquh")
@@ -967,6 +1011,32 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uuw8"]
+bg_color = Color(0.580392, 0.584314, 0.713726, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wnwlg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7e3fb"]
+bg_color = Color(0.36848, 0.3381, 0.49, 0.776471)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_endjw"]
+bg_color = Color(0.580392, 0.584314, 0.713726, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
 [node name="GUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -983,24 +1053,17 @@ offset_top = 13.0
 offset_right = 746.0
 offset_bottom = 77.0
 
+[node name="Scroll" type="Sprite2D" parent="Rice"]
+position = Vector2(144, 31)
+texture = ExtResource("2_6x50j")
+
 [node name="Rice1" type="Panel" parent="Rice"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 6.0
 offset_right = 56.0
 offset_bottom = 54.0
-
-[node name="Item" type="Panel" parent="Rice/Rice1"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 17.0
-offset_right = 87.0
-offset_bottom = 49.0
-
-[node name="TextureRect" type="TextureRect" parent="Rice/Rice1/Item"]
-layout_mode = 0
-offset_right = 32.0
-offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k3y1x")
 
 [node name="Ctrl" type="TextureRect" parent="Rice/Rice1"]
 layout_mode = 0
@@ -1012,31 +1075,33 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_j4meq")
+texture = SubResource("AtlasTexture_10jcf")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_k3fo8")
 current_animation = "default_idle"
 auto_play = true
 playing = true
 
-[node name="Rice2" type="Panel" parent="Rice"]
+[node name="Item" type="Panel" parent="Rice/Rice1"]
 layout_mode = 0
-offset_left = 116.0
-offset_top = 6.0
-offset_right = 164.0
-offset_bottom = 54.0
+offset_left = 52.0
+offset_top = 16.0
+offset_right = 84.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q0ns3")
 
-[node name="Item" type="Panel" parent="Rice/Rice2"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 17.0
-offset_right = 87.0
-offset_bottom = 49.0
-
-[node name="TextureRect" type="TextureRect" parent="Rice/Rice2/Item"]
+[node name="TextureRect" type="TextureRect" parent="Rice/Rice1/Item"]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
+
+[node name="Rice2" type="Panel" parent="Rice"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 6.0
+offset_right = 152.0
+offset_bottom = 54.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5gsr7")
 
 [node name="Ctrl" type="TextureRect" parent="Rice/Rice2"]
 layout_mode = 0
@@ -1048,31 +1113,32 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_vv0kg")
+texture = SubResource("AtlasTexture_mfhww")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_glqf2")
 current_animation = "default_idle"
 auto_play = true
 playing = true
 
-[node name="Rice3" type="Panel" parent="Rice"]
-layout_mode = 0
-offset_left = 223.0
-offset_top = 6.0
-offset_right = 271.0
-offset_bottom = 54.0
+[node name="Item" type="Panel" parent="Rice/Rice2"]
+offset_left = 52.0
+offset_top = 16.0
+offset_right = 84.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q0ns3")
 
-[node name="Item" type="Panel" parent="Rice/Rice3"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 17.0
-offset_right = 87.0
-offset_bottom = 49.0
-
-[node name="TextureRect" type="TextureRect" parent="Rice/Rice3/Item"]
+[node name="TextureRect" type="TextureRect" parent="Rice/Rice2/Item"]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
+
+[node name="Rice3" type="Panel" parent="Rice"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 6.0
+offset_right = 248.0
+offset_bottom = 54.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dhds2")
 
 [node name="Ctrl" type="TextureRect" parent="Rice/Rice3"]
 layout_mode = 0
@@ -1084,12 +1150,32 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_ww4t5")
+texture = SubResource("AtlasTexture_ae71u")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_fqdhb")
 current_animation = "default_idle"
 auto_play = true
 playing = true
+
+[node name="Item" type="Panel" parent="Rice/Rice3"]
+offset_left = 52.0
+offset_top = 16.0
+offset_right = 84.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q0ns3")
+
+[node name="TextureRect" type="TextureRect" parent="Rice/Rice3/Item"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="Leaves" type="Sprite2D" parent="."]
+position = Vector2(288, 44)
+texture = ExtResource("5_wyhtr")
+
+[node name="Clouds" type="Sprite2D" parent="."]
+position = Vector2(113, 62)
+texture = ExtResource("4_kb3ci")
 
 [node name="Baconawa" type="Panel" parent="."]
 layout_mode = 0
@@ -1097,6 +1183,7 @@ offset_left = 18.0
 offset_top = 9.0
 offset_right = 88.0
 offset_bottom = 79.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dwpmm")
 
 [node name="Portrait" type="TextureRect" parent="Baconawa"]
 layout_mode = 0
@@ -1119,6 +1206,7 @@ offset_left = 75.0
 offset_top = 37.0
 offset_right = 107.0
 offset_bottom = 69.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6uuw8")
 
 [node name="Buff_Icon" type="TextureRect" parent="Baconawa/Buff"]
 layout_mode = 0
@@ -1127,9 +1215,10 @@ offset_bottom = 32.0
 
 [node name="ProgressBar" type="ProgressBar" parent="Baconawa/Buff"]
 layout_mode = 0
-offset_top = -8.0
 offset_right = 32.0
-offset_bottom = -2.0
+offset_bottom = 32.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_wnwlg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7e3fb")
 max_value = 360.0
 show_percentage = false
 
@@ -1145,6 +1234,7 @@ offset_left = 110.0
 offset_top = 53.0
 offset_right = 126.0
 offset_bottom = 69.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_endjw")
 
 [node name="TextureRect" type="TextureRect" parent="Baconawa/Buff_n"]
 layout_mode = 0
