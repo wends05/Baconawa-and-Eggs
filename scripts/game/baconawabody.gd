@@ -6,19 +6,23 @@ class_name BaconawaBody
 @onready var anim = $AnimatedSprite2D
 
 func _ready():
-	pass
-	#Controlcontainer.fst.connect(clr_speed)
-	#Controlcontainer.gld.connect(clr_gold)
-	#Controlcontainer.ghst.connect(clr_ghost)
-	#Controlcontainer.nrml.connect(clr_normal)
-	#clr_normal()
+	var shader = load("res://scripts/shaders/baconawa.gdshader")
+	var shader_mat = ShaderMaterial.new()
+	shader_mat.shader = shader
+	anim.material = shader_mat
+	var head_node = get_parent()
+	head_node.fst.connect(clr_speed)
+	head_node.gld.connect(clr_gold)
+	head_node.ghst.connect(clr_ghost)
+	head_node.nrml.connect(clr_normal)
+	clr_normal()
 
 func _physics_process(_delta) -> void:
 	var head_parent = get_parent()
 	for i in head_parent.get_child_count():
 		if i > 6:
 			var x = get_parent().get_child(i)
-			x.global_position = head_parent.position_array[-10*(i-6)]
+			x.global_position = head_parent.position_array[-15*(i-6)]
 
 
 func clr_normal():
