@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Sukad.mp3-5b6ca1a2552d7e350b46f71a0d5dcdf0.mp
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

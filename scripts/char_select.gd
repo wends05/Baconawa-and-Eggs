@@ -90,6 +90,7 @@ func back_select():
 	
 
 func _on_button_button_up() -> void:
+	LoadMusic.stop_music()
 	sfx.play()
 	await sfx.finished
 	Controlcontainer.control_contain = stored_controls

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu5wpcbq6lkjs"]
+[gd_scene load_steps=3 format=3 uid="uid://cu5wpcbq6lkjs"]
 
 [ext_resource type="Script" path="res://scripts/instructions_start.gd" id="1_0wd8n"]
+[ext_resource type="Texture2D" uid="uid://b5swl8sq7oh1p" path="res://assets/main_sprites/menus/main_menu.png" id="2_d4pgj"]
 
 [node name="Instructions" type="Control"]
 layout_mode = 3
@@ -14,6 +15,9 @@ grow_vertical = 2
 size_flags_vertical = 0
 script = ExtResource("1_0wd8n")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_d4pgj")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 clip_contents = true
 layout_mode = 1
@@ -22,12 +26,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -113.0
-offset_top = -59.0
-offset_right = 113.0
-offset_bottom = 60.0
+offset_left = -176.0
+offset_top = -41.075
+offset_right = 176.0
+offset_bottom = 77.925
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 11
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
@@ -38,7 +43,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 2
 size_flags_stretch_ratio = 0.0
 text = "Would you like to read
-the instructions"
+the instructions?"
 horizontal_alignment = 1
 
 [node name="Yes" type="Button" parent="VBoxContainer"]

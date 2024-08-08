@@ -17,9 +17,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_10jcf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4meq"]
 atlas = ExtResource("3_exapj")
-region = Rect2(0, 0, 48, 48)
+region = Rect2(384, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0f8w"]
 atlas = ExtResource("3_exapj")
@@ -61,6 +61,10 @@ region = Rect2(336, 48, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(384, 48, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_10jcf"]
+atlas = ExtResource("3_exapj")
+region = Rect2(0, 0, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vmqb6"]
 atlas = ExtResource("3_exapj")
 region = Rect2(48, 0, 48, 48)
@@ -88,10 +92,6 @@ region = Rect2(288, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gdhkj"]
 atlas = ExtResource("3_exapj")
 region = Rect2(336, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4meq"]
-atlas = ExtResource("3_exapj")
-region = Rect2(384, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6uuru"]
 atlas = ExtResource("3_exapj")
@@ -238,9 +238,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mfhww"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv0kg"]
 atlas = ExtResource("3_exapj")
-region = Rect2(0, 144, 48, 48)
+region = Rect2(384, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjtgc"]
 atlas = ExtResource("3_exapj")
@@ -282,6 +282,10 @@ region = Rect2(336, 192, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(384, 192, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfhww"]
+atlas = ExtResource("3_exapj")
+region = Rect2(0, 144, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqmgi"]
 atlas = ExtResource("3_exapj")
 region = Rect2(48, 144, 48, 48)
@@ -309,10 +313,6 @@ region = Rect2(288, 144, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_f63ky"]
 atlas = ExtResource("3_exapj")
 region = Rect2(336, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vv0kg"]
-atlas = ExtResource("3_exapj")
-region = Rect2(384, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kopye"]
 atlas = ExtResource("3_exapj")
@@ -451,9 +451,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ae71u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww4t5"]
 atlas = ExtResource("3_exapj")
-region = Rect2(0, 288, 48, 48)
+region = Rect2(384, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gewfg"]
 atlas = ExtResource("3_exapj")
@@ -495,6 +495,10 @@ region = Rect2(336, 336, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(384, 336, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ae71u"]
+atlas = ExtResource("3_exapj")
+region = Rect2(0, 288, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1dqck"]
 atlas = ExtResource("3_exapj")
 region = Rect2(48, 288, 48, 48)
@@ -522,10 +526,6 @@ region = Rect2(288, 288, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ng015"]
 atlas = ExtResource("3_exapj")
 region = Rect2(336, 288, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ww4t5"]
-atlas = ExtResource("3_exapj")
-region = Rect2(384, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7ed5"]
 atlas = ExtResource("3_exapj")
@@ -1075,10 +1075,11 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_10jcf")
+texture = SubResource("AtlasTexture_j4meq")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_k3fo8")
 current_animation = "default_idle"
+frame_index = 8
 auto_play = true
 playing = true
 
@@ -1113,14 +1114,16 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_mfhww")
+texture = SubResource("AtlasTexture_vv0kg")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_glqf2")
 current_animation = "default_idle"
+frame_index = 8
 auto_play = true
 playing = true
 
 [node name="Item" type="Panel" parent="Rice/Rice2"]
+layout_mode = 0
 offset_left = 52.0
 offset_top = 16.0
 offset_right = 84.0
@@ -1150,14 +1153,16 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_ae71u")
+texture = SubResource("AtlasTexture_ww4t5")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_fqdhb")
 current_animation = "default_idle"
+frame_index = 8
 auto_play = true
 playing = true
 
 [node name="Item" type="Panel" parent="Rice/Rice3"]
+layout_mode = 0
 offset_left = 52.0
 offset_top = 16.0
 offset_right = 84.0
