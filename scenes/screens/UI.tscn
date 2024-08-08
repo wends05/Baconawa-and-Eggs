@@ -126,7 +126,6 @@ offset_bottom = 23.0
 grow_horizontal = 0
 
 [node name="Transition" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,22 +138,24 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Button" type="Button" parent="."]
+[node name="b win" type="Button" parent="."]
 layout_mode = 0
 offset_left = 688.0
 offset_top = 240.0
 offset_right = 712.0
 offset_bottom = 264.0
-text = ":D"
+text = "b"
 
-[node name="Button2" type="Button" parent="."]
+[node name="r win" type="Button" parent="."]
 layout_mode = 0
 offset_left = 688.0
 offset_top = 288.0
 offset_right = 713.0
 offset_bottom = 319.0
-text = "(:"
+text = "r"
 
 [connection signal="button_up" from="Pause" to="." method="_on_pause_button_up"]
 [connection signal="button_up" from="Pause Screen/VBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_button_up"]
 [connection signal="button_up" from="Pause Screen/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="b win" to="." method="_on_b_win_button_up"]
+[connection signal="button_up" from="r win" to="." method="_on_r_win_button_up"]
