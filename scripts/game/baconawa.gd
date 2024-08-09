@@ -241,8 +241,7 @@ func _on_collector_body_exited(_body: Node2D) -> void:
 #percentage/chance editor for buffs
 func buff_percent():
 	#speed = gold > ghost > instakill
-	#var chances = [1, 1, 1, 4, 4, 4, 2, 3, 3]
-	var chances = [3]
+	var chances = [1, 1, 1, 4, 4, 4, 2, 3, 3]
 
 	return chances[randi() % chances.size()]
 
