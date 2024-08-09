@@ -10,9 +10,11 @@ class_name UI
 # Pause screen functions
 
 func _ready() -> void:
-	transition.visible= false
+	transition.visible = true
 	var tween = create_tween()
 	tween.tween_property(transition, "color", Color(0,0,0,0), 1).set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
+	transition.visible = false
 func _on_resume_button_up() -> void:
 	pause_game(false)
 
@@ -33,8 +35,6 @@ func pause_game(isPaused: bool) -> void:
 func _process(_delta: float) -> void:
 	$Time.text = "%s" % G.display_time(ceili(timer.time_left))
 	moons_collected_label.text = "%s" % baconawa.moons_collected
-	if Input.is_action_just_released("esc"):
-		pause_game(not get_tree().paused)
 
 	debugTexts.text = "top:%s
 	down:%s
