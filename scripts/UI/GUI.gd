@@ -42,7 +42,8 @@ var cd_speed = 1 #/deduct that percent of overall
 ]
 var item_icons = [
 	"res://assets/main_sprites/item/spr_lantern.png",
-	"res://assets/main_sprites/item/spr_drum.png"
+	"res://assets/main_sprites/item/spr_drum.png",
+	"res://assets/main_sprites/item/spr_bambooicon.png"
 ]
 
 
@@ -208,7 +209,7 @@ func r1_item_identify ():
 					"Flashlight":
 						rice_item[0].texture = load(item_icons[0])
 					"Barrier":
-						rice_item[0].texture = null
+						rice_item[0].texture = load(item_icons[2])
 func r2_item_identify ():
 	if rice2.item != null:
 		match rice2.item.item_name:
@@ -218,7 +219,7 @@ func r2_item_identify ():
 					"Flashlight":
 						rice_item[1].texture = load(item_icons[0])
 					"Barrier":
-						rice_item[1].texture = null
+						rice_item[1].texture = load(item_icons[2])
 func r3_item_identify ():
 	if rice3.item != null:
 		match rice3.item.item_name:
@@ -228,7 +229,7 @@ func r3_item_identify ():
 					"Flashlight":
 						rice_item[2].texture = load(item_icons[0])
 					"Barrier":
-						rice_item[2].texture = null
+						rice_item[2].texture = load(item_icons[2])
 
 func r1_item_use ():
 	rice_item[0].texture = null
