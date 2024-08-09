@@ -11,6 +11,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6qu7q")
 
+[node name="vic_bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -42,6 +47,10 @@ layout_mode = 2
 [node name="Stats" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 35.58)
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
