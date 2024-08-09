@@ -270,8 +270,8 @@ func clr_gold():
 
 func addbody():
 	var new_body = body_node.instantiate()
-	add_child(new_body)
-	move_child(new_body, -2)
+	call_deferred("add_child", new_body)
+	call_deferred("move_child", new_body, -2)
 
 func getvelo():
 	if velocity.x > 0:
