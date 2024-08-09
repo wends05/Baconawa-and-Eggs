@@ -61,6 +61,7 @@ text = "Next"
 flat = true
 
 [node name="Prev" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 88.0
 offset_top = 168.0
