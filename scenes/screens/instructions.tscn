@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://2rt12fn4a8fa"]
+[gd_scene load_steps=8 format=3 uid="uid://2rt12fn4a8fa"]
 
 [ext_resource type="Script" path="res://scripts/instructions.gd" id="1_jkhjs"]
 [ext_resource type="Texture2D" uid="uid://b82orjdqjvejp" path="res://assets/main_sprites/instructions/spr_baconawainstruct.png" id="2_1xbcv"]
 [ext_resource type="Texture2D" uid="uid://bck3xedbdh6av" path="res://assets/main_sprites/instructions/spr_scrollbg.png" id="2_nvu38"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4aut"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1qwm7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ki2xh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e01uc"]
 
 [node name="Instructions" type="Control"]
 layout_mode = 3
@@ -47,10 +55,13 @@ theme_override_colors/font_color = Color(0.129412, 0.0509804, 0.203922, 1)
 theme_override_colors/font_pressed_color = Color(0.301961, 0.364706, 0.521569, 1)
 theme_override_colors/font_hover_color = Color(0.22548, 0.1476, 0.36, 1)
 theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f4aut")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1qwm7")
 text = "Next"
 flat = true
 
 [node name="Prev" type="Button" parent="."]
+layout_mode = 0
 offset_left = 88.0
 offset_top = 168.0
 offset_right = 224.0
@@ -59,6 +70,8 @@ theme_override_colors/font_color = Color(0.129412, 0.0509804, 0.203922, 1)
 theme_override_colors/font_pressed_color = Color(0.3016, 0.36348, 0.52, 1)
 theme_override_colors/font_hover_color = Color(0.223529, 0.14902, 0.360784, 1)
 theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ki2xh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e01uc")
 text = "Back"
 flat = true
 

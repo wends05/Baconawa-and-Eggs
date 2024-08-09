@@ -1,4 +1,4 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 class_name Flashlight
 

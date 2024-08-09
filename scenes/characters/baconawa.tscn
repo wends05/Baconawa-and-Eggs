@@ -101,7 +101,7 @@ shape = SubResource("RectangleShape2D_osxse")
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_go01w")
 sprite_frames = SubResource("SpriteFrames_skxty")
-animation = &"idle"
+animation = &"move_down"
 autoplay = "idle"
 
 [node name="Colliders" type="Node2D" parent="."]

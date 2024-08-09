@@ -22,7 +22,9 @@ class_name Baconawa
 @onready var state_machine : StateMachine = $StateMachine
 
 @onready var body_node = preload("res://scenes/characters/baconawa_body.tscn")
+@onready var tail_node = preload("res://scenes/characters/baconawa_tail.tscn")
 var position_array = []
+var input_array = []
 
 var controls = Controlcontainer.control_contain[0]
 
@@ -80,6 +82,18 @@ func _ready() -> void:
 	# connect the game ended signal to disallow inputs from player
 	# and play the idle animation
 	game.game_ended.connect(finish_game)
+	
+	var new_tail = tail_node.instantiate()
+	add_child(new_tail)
+	move_child(new_tail, -1)
+	
+	for i in range(0, 30):
+		position_array.append(position)
+	for i in range(0, 30):
+		input_array.append("")
+	
+	addbody()
+	addbody()
 
 func finish_game():
 	game_finished = true
@@ -91,9 +105,14 @@ func _physics_process(_delta: float) -> void:
 		return
 
 	move_and_slide()
+	
 	position_array.append(position)
 	if position_array.size() > 100:
 		position_array.pop_front()
+	
+	input_array.append(anim.animation)
+	if input_array.size() > 100:
+		input_array.pop_front()
 
 func colliding(_body, collider: Area2D, isColliding):
 	if moving_through_wall or debuffed:
@@ -248,4 +267,4 @@ func clr_gold():
 func addbody():
 	var new_body = body_node.instantiate()
 	add_child(new_body)
-	move_child(new_body, -1)
+	move_child(new_body, -2)
