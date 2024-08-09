@@ -8,17 +8,20 @@ func enter(_msg := {}) -> void:
 	# for type safety lang
 	if not owner is Rice:
 		return
-	owner.anim.play("idle")
 	var direction = owner.direction
 	match direction:
 		"up":
 			flashlight.set_rotation_degrees(-90)
+			owner.anim.play("move_up", 0)
 		"left":
 			flashlight.set_rotation_degrees(180)
+			owner.anim.play("idle")
 		"right":
 			flashlight.set_rotation_degrees(00)
+			owner.anim.play("idle")
 		"down":
 			flashlight.set_rotation_degrees(90)
+			owner.anim.play("move_down", 0)
 
 	owner.item_cooldown = true
 	owner.velocity = Vector2(0, 0)
