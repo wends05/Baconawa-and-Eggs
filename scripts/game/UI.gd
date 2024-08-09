@@ -9,6 +9,10 @@ class_name UI
 @onready var transition = $Transition
 # Pause screen functions
 
+func _ready() -> void:
+	transition.visible= false
+	var tween = create_tween()
+	tween.tween_property(transition, "color", Color(0,0,0,0), 1).set_ease(Tween.EASE_IN_OUT)
 func _on_resume_button_up() -> void:
 	pause_game(false)
 
