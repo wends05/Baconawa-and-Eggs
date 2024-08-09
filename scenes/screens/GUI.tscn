@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://bq3ski4oyihxf"]
+[gd_scene load_steps=144 format=3 uid="uid://bq3ski4oyihxf"]
 
 [ext_resource type="Script" path="res://scripts/UI/GUI.gd" id="1_sinjn"]
 [ext_resource type="Texture2D" uid="uid://dwumk4ebbjx77" path="res://assets/main_sprites/ui/spr_scrollbgrice.png" id="2_6x50j"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://0j4t1hfp7m32" path="res://assets/main_sprites/ui/spr_baconuiframe.png" id="4_kb3ci"]
 [ext_resource type="Texture2D" uid="uid://b6iaorn0hcelw" path="res://assets/main_sprites/ui/spr_leavesui.png" id="5_wyhtr"]
 [ext_resource type="Texture2D" uid="uid://cgfhy1pnovoh3" path="res://assets/main_sprites/item/spr_egg.png" id="6_vy4uc"]
+[ext_resource type="Texture2D" uid="uid://xa07chq2qehl" path="res://assets/main_sprites/ui/spr_pause.png" id="9_01dqi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3y1x"]
 bg_color = Color(0.729412, 0.462745, 0.407843, 1)
@@ -18,9 +19,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdhkj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cy8o"]
 atlas = ExtResource("3_exapj")
-region = Rect2(336, 0, 48, 48)
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0f8w"]
 atlas = ExtResource("3_exapj")
@@ -82,13 +83,13 @@ region = Rect2(144, 0, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(192, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7cy8o"]
-atlas = ExtResource("3_exapj")
-region = Rect2(240, 0, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8id00"]
 atlas = ExtResource("3_exapj")
 region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdhkj"]
+atlas = ExtResource("3_exapj")
+region = Rect2(336, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4meq"]
 atlas = ExtResource("3_exapj")
@@ -239,9 +240,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f63ky"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgxqv"]
 atlas = ExtResource("3_exapj")
-region = Rect2(336, 144, 48, 48)
+region = Rect2(240, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjtgc"]
 atlas = ExtResource("3_exapj")
@@ -303,13 +304,13 @@ region = Rect2(144, 144, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(192, 144, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bgxqv"]
-atlas = ExtResource("3_exapj")
-region = Rect2(240, 144, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ss6qn"]
 atlas = ExtResource("3_exapj")
 region = Rect2(288, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f63ky"]
+atlas = ExtResource("3_exapj")
+region = Rect2(336, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vv0kg"]
 atlas = ExtResource("3_exapj")
@@ -452,9 +453,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ng015"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dh5p"]
 atlas = ExtResource("3_exapj")
-region = Rect2(336, 288, 48, 48)
+region = Rect2(240, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gewfg"]
 atlas = ExtResource("3_exapj")
@@ -516,13 +517,13 @@ region = Rect2(144, 288, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(192, 288, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8dh5p"]
-atlas = ExtResource("3_exapj")
-region = Rect2(240, 288, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h84j"]
 atlas = ExtResource("3_exapj")
 region = Rect2(288, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng015"]
+atlas = ExtResource("3_exapj")
+region = Rect2(336, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ww4t5"]
 atlas = ExtResource("3_exapj")
@@ -669,9 +670,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0s6k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieduj"]
 atlas = ExtResource("2_bpquh")
-region = Rect2(64, 0, 64, 64)
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekp47"]
 atlas = ExtResource("2_bpquh")
@@ -753,9 +754,9 @@ region = Rect2(256, 0, 64, 64)
 atlas = ExtResource("2_bpquh")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ieduj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0s6k"]
 atlas = ExtResource("2_bpquh")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x2l6d"]
 atlas = ExtResource("2_bpquh")
@@ -1080,11 +1081,11 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_gdhkj")
+texture = SubResource("AtlasTexture_7cy8o")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_k3fo8")
 current_animation = "default_idle"
-frame_index = 7
+frame_index = 5
 auto_play = true
 playing = true
 
@@ -1119,11 +1120,11 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_f63ky")
+texture = SubResource("AtlasTexture_bgxqv")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_glqf2")
 current_animation = "default_idle"
-frame_index = 7
+frame_index = 5
 auto_play = true
 playing = true
 
@@ -1158,11 +1159,11 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_ng015")
+texture = SubResource("AtlasTexture_8dh5p")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_fqdhb")
 current_animation = "default_idle"
-frame_index = 7
+frame_index = 5
 auto_play = true
 playing = true
 
@@ -1212,9 +1213,13 @@ stretch_mode = 5
 layout_mode = 2
 text = "0"
 
+[node name="Control" type="Control" parent="Leaves/Control/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
 [node name="Timer Display" type="Label" parent="Leaves/Control/HBoxContainer"]
 layout_mode = 2
-text = "10 sec"
+text = "10"
 
 [node name="Clouds" type="Sprite2D" parent="."]
 position = Vector2(113, 62)
@@ -1234,13 +1239,12 @@ offset_left = 3.0
 offset_top = 4.0
 offset_right = 67.0
 offset_bottom = 68.0
-texture = SubResource("AtlasTexture_m0s6k")
+texture = SubResource("AtlasTexture_ieduj")
 stretch_mode = 1
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_ossm4")
 default_anim = "default"
 current_animation = "default_idle"
-frame_index = 1
 auto_play = true
 playing = true
 
@@ -1285,3 +1289,12 @@ layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
 expand_mode = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 392.0
+offset_right = 752.0
+offset_bottom = 424.0
+icon = ExtResource("9_01dqi")
+flat = true

@@ -37,4 +37,4 @@ func _on_retry_button_up() -> void:
 	change_game_scene("res://scenes/screens/main_game.tscn")
 
 func _on_quit_button_up() -> void:
-	change_game_scene("res://scenes/screens/main_menu.tscn")
+	change_game_scene("res://scenes/screens/main _menu.tscn")

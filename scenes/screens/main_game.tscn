@@ -674,7 +674,7 @@ sources/0 = SubResource("TileSetAtlasSource_vgenw")
 script = ExtResource("1_no8oh")
 baconawa = NodePath("Baconawa")
 timer = NodePath("Timer")
-ui = NodePath("UI")
+ui = NodePath("UI2")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -701,13 +701,6 @@ position = Vector2(216, 248)
 slide_on_ceiling = false
 floor_constant_speed = true
 game = NodePath("..")
-
-[node name="UI" parent="." node_paths=PackedStringArray("baconawa", "timer") instance=ExtResource("4_1ovr0")]
-visible = false
-offset_right = 736.0
-baconawa = NodePath("../Baconawa")
-timer = NodePath("../Timer")
-metadata/_edit_lock_ = true
 
 [node name="Moons" type="Node2D" parent="." node_paths=PackedStringArray("baconawa")]
 script = ExtResource("10_slq7m")
@@ -827,7 +820,8 @@ stream = ExtResource("11_ev48k")
 volume_db = -8.0
 autoplay = true
 
-[node name="UI" parent="." node_paths=PackedStringArray("baconawa", "timer") instance=ExtResource("4_1ovr0")]
+[node name="UI2" parent="." node_paths=PackedStringArray("baconawa", "timer") instance=ExtResource("4_1ovr0")]
+visible = false
 offset_right = 736.0
 baconawa = NodePath("../Baconawa")
 timer = NodePath("../Timer")
