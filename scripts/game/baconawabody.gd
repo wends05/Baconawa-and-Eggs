@@ -23,18 +23,15 @@ func _physics_process(_delta) -> void:
 			var x = get_parent().get_child(i)
 			x.global_position = head_parent.position_array[-10*(i-6)]
 			match head_parent.input_array[-10*(i-6)]:
-				"up":
+				"move_up":
 					anim.play("body_up")
 					anim.flip_h = false
-				"down":
+				"move_down":
 					anim.play("body_down")
 					anim.flip_h = false
-				"left":
+				"move_side":
 					anim.play("body_side")
-					anim.flip_h = false
-				"right":
-					anim.play("body_side")
-					anim.flip_h = true
+					anim.flip_h = true if head_parent.anim.flip_h else false
 				"":
 					anim.play("body_side")
 					anim.flip_h = false

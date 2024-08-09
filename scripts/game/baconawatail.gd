@@ -22,18 +22,16 @@ func _physics_process(_delta) -> void:
 	for i in head_parent.get_child_count():
 		if i == last_child:
 			match head_parent.input_array[-10*(i-6)]:
-				"up":
+				"move_up":
 					anim.play("tail_up")
 					anim.flip_h = false
-				"down":
+				"move_down":
 					anim.play("tail_down")
 					anim.flip_h = false
-				"left":
+				"move_side":
 					anim.play("tail_side")
-					anim.flip_h = false
-				"right":
-					anim.play("tail_side")
-					anim.flip_h = true
+					anim.flip_h = true if head_parent.anim.flip_h else false
+				
 				"":
 					anim.play("tail_side")
 					anim.flip_h = false

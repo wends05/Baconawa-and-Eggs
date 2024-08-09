@@ -110,7 +110,7 @@ func _physics_process(_delta: float) -> void:
 	if position_array.size() > 100:
 		position_array.pop_front()
 	
-	input_array.append(last_input)
+	input_array.append(anim.animation)
 	if input_array.size() > 100:
 		input_array.pop_front()
 

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgr0ajijj2d6h"]
+[gd_scene load_steps=7 format=3 uid="uid://bgr0ajijj2d6h"]
 
 [ext_resource type="Script" path="res://scripts/game/baconawabody.gd" id="1_dpi8b"]
 [ext_resource type="Texture2D" uid="uid://dn5eakfwpjrn0" path="res://assets/main_sprites/character/spr_baconawa.png" id="2_ol0kd"]
-[ext_resource type="PackedScene" uid="uid://bi37f5gm8dmgk" path="res://scenes/characters/baconawa.tscn" id="3_yxyks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ercqw"]
 atlas = ExtResource("2_ol0kd")
