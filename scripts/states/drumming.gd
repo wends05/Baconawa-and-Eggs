@@ -4,6 +4,7 @@ extends State
 
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
+
 func enter(_msg = {}):
 	owner.item_cooldown = true
 	owner.velocity = Vector2(0, 0)

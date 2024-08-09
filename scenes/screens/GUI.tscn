@@ -1243,8 +1243,7 @@ script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_ossm4")
 default_anim = "default"
 current_animation = "default_idle"
-frame_index = 1
-auto_play = true
+dauto_play = true
 playing = true
 
 [node name="Buff" type="Panel" parent="Baconawa"]

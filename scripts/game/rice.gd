@@ -14,10 +14,10 @@ class_name Rice
 @onready var down_collider = $Colliders/Down
 @onready var left_collider = $Colliders/Left
 @onready var right_collider = $Colliders/Right
+@onready var baconawa : Area2D = $Colliders/Baconawa
 
 # will be used for delays
 @onready var internal_timer = $InternalTimer
-
 @onready var spawn_position = global_position
 @onready var state_machine : StateMachine = $StateMachine
 
@@ -51,6 +51,7 @@ signal use
 
 var item : Item = null
 var item_cooldown = false
+var invincible = false
 
 func _ready() -> void:
 	#colliders
@@ -67,10 +68,7 @@ func _ready() -> void:
 	item = [b,d,l].pick_random().instantiate()
 	item.visible = false
 	add_child(item)
-	if item is Item:
-
-		pickup.emit()
-		print(typeof(item))
+	pickup.emit()
 
 	#controls for multiplayer
 	#controls are taken from Controlcontainer.gd
@@ -80,9 +78,6 @@ func _ready() -> void:
 	anim.material.set_shader_parameter("headB", bandcolors[player_number-1][0])
 	anim.material.set_shader_parameter("tail_upB", bandcolors[player_number-1][1])
 	anim.material.set_shader_parameter("tail_downB", bandcolors[player_number-1][2])
-
-
-
 
 
 # loop event
@@ -128,7 +123,9 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		pickup.emit()
 
 func _on_baconawa_area_entered(area: Area2D) -> void:
+
 	var node = area.owner
-	if node is Baconawa:
+	if node is Baconawa and not invincible:
+		invincible = true
 		sfx.die.play()
 		state_machine.transition_to("Respawning")
