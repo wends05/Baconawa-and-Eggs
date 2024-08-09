@@ -13,6 +13,7 @@ script = ExtResource("1_1sxl1")
 
 [node name="drums" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_idgyo")
+volume_db = 10.92
 
 [node name="flashlight" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_l3x8v")
