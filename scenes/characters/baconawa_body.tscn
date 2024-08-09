@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgr0ajijj2d6h"]
+[gd_scene load_steps=8 format=3 uid="uid://bgr0ajijj2d6h"]
 
 [ext_resource type="Script" path="res://scripts/game/baconawabody.gd" id="1_dpi8b"]
 [ext_resource type="Texture2D" uid="uid://dn5eakfwpjrn0" path="res://assets/main_sprites/character/spr_baconawa.png" id="2_ol0kd"]
@@ -42,9 +42,17 @@ animations = [{
 "speed": 0.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um2cf"]
+size = Vector2(16, 10)
+
 [node name="BaconawaBody" type="CharacterBody2D"]
+collision_layer = 128
+collision_mask = 0
 script = ExtResource("1_dpi8b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f0dxc")
 animation = &"body_side"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_um2cf")
