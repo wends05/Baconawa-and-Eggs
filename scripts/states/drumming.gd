@@ -12,6 +12,7 @@ func enter(_msg = {}):
 	owner.anim.play("idle")
 	var drum_instance = preload("res://scenes/characters/drums.tscn").instantiate()
 	owner.add_child(drum_instance)
+	owner.sfx.drums.play()
 	internal_timer.start(3)
 	await internal_timer.timeout
 	owner.item_cooldown = false

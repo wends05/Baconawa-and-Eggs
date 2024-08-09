@@ -121,6 +121,7 @@ func _on_collector_area_entered(area: Area2D) -> void:
 	if node is Item:
 		item = node
 		pickup.emit()
+		sfx.collect.play()
 
 func _on_baconawa_area_entered(area: Area2D) -> void:
 
