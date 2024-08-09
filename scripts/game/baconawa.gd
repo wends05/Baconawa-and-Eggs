@@ -164,6 +164,8 @@ func _input(event: InputEvent) -> void:
 				sfx.instakill.play()
 				buffs.pop_front()
 				kill_someone.emit()
+				internal_timer.start(3)
+				await internal_timer.timeout
 			3: #Move to a wall
 				print("Collision mask 2 set to false")
 				sfx.ghost.play()
