@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://djphae246a8yq"]
+
+[ext_resource type="Texture2D" uid="uid://bck3xedbdh6av" path="res://assets/main_sprites/instructions/spr_scrollbg.png" id="1_5xymf"]
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_ek2k7"]
+[ext_resource type="Texture2D" uid="uid://bex4h08e3hjfm" path="res://assets/main_sprites/ui/spr_credits.png" id="2_mt8iw"]
+[ext_resource type="AudioStream" uid="uid://b08k7i7vwh7ct" path="res://assets/sfx/music/Sukad.mp3" id="4_ms8ks"]
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ek2k7")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(384, 216)
+texture = ExtResource("1_5xymf")
+
+[node name="Creds" type="Sprite2D" parent="."]
+position = Vector2(384, 216)
+texture = ExtResource("2_mt8iw")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 376.0
+offset_right = 672.0
+offset_bottom = 400.0
+text = "Back"
+
+[node name="bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ms8ks")
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
