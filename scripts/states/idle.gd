@@ -6,6 +6,10 @@ func enter(_msg := {}) -> void:
 	owner.velocity = Vector2.ZERO
 	if owner is Rice:
 		owner.item = null
+		for n in owner.get_node("FlAnchor").get_children():
+			n.queue_free()
+		for n in owner.get_node("WallAnchor").get_children():
+			n.queue_free()
 
 func update(_delta: float) -> void:
 	for input in range(4):
