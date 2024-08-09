@@ -55,7 +55,6 @@ func _ready():
 	%Baconawa.nrml.connect(normal_icon)
 	%Baconawa.bff.connect(buff_identify)
 	%Baconawa.bff_act.connect(buff_icon_remove)
-	%Baconawa.stn.connect(stun_burn)
 	%Baconawa.cnfsd.connect(stun_bird)
 
 	rice1.alive.connect(rice1_respawn)
@@ -137,10 +136,6 @@ func run_cd():
 	cooldownbar.show()
 	is_cd = true
 	prog_val = 360
-
-#stunned1
-func stun_burn():
-	b_portrait.play("burn_stunned")
 
 #stunned2
 func stun_bird():

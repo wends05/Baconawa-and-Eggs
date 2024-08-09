@@ -8,7 +8,7 @@ func enter(_msg = {}):
 	var internal_timer = owner.get_node("InternalTimer")
 	owner.sfx.stunned.play()
 	owner.confused.show()
-	owner.stn.emit()
+	owner.cnfsd.emit()
 	owner.velocity = Vector2(0, 0)
 	owner.anim.play("idle")
 	owner.clr_normal()
