@@ -8,6 +8,7 @@ font_size = 10
 
 [node name="UI" type="Control"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 16.0

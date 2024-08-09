@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://colsv18qq74ve"]
+
+[ext_resource type="Script" path="res://scripts/game/teleporter.gd" id="1_8u263"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhhwj"]
+
+[node name="Teleporter" type="Node2D"]
+position = Vector2(0, 248)
+script = ExtResource("1_8u263")
+
+[node name="From" type="Area2D" parent="."]
+position = Vector2(-16, 0)
+collision_layer = 0
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="From"]
+shape = SubResource("RectangleShape2D_hhhwj")
+
+[node name="To" type="Node2D" parent="."]
+position = Vector2(16, 0)
+
+[connection signal="body_entered" from="From" to="." method="_on_from_body_entered"]
