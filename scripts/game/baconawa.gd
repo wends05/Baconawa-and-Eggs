@@ -4,7 +4,8 @@ extends CharacterBody2D
 # be able to reference this in other scripts
 
 class_name Baconawa
-@export var SPEED: int = 75
+#@export var SPEED: int = 75
+@export var SPEED: int = 70
 @export var game: Game
 
 # Reference on children
@@ -150,7 +151,7 @@ func _input(event: InputEvent) -> void:
 				sfx.fast.play()
 				clr_speed()
 				fst.emit()
-				SPEED = 120
+				SPEED += 45
 				internal_timer.start(3)
 				buffs.pop_front()
 				#this needs to be moved
@@ -158,7 +159,7 @@ func _input(event: InputEvent) -> void:
 				await internal_timer.timeout
 				clr_normal()
 				nrml.emit()
-				SPEED = 75
+				SPEED = 70
 			2: #Kill someone
 				sfx.instakill.play()
 				buffs.pop_front()
