@@ -215,7 +215,7 @@ shape = SubResource("RectangleShape2D_eni0p")
 
 [node name="Top" type="Area2D" parent="Colliders"]
 collision_layer = 4
-collision_mask = 34
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Top"]
 position = Vector2(0, -9)
@@ -223,7 +223,7 @@ shape = SubResource("RectangleShape2D_bmtdr")
 
 [node name="Down" type="Area2D" parent="Colliders"]
 collision_layer = 4
-collision_mask = 34
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Down"]
 position = Vector2(0, 9)
@@ -231,7 +231,7 @@ shape = SubResource("RectangleShape2D_bmtdr")
 
 [node name="Right" type="Area2D" parent="Colliders"]
 collision_layer = 4
-collision_mask = 34
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Right"]
 position = Vector2(9, 0)
@@ -239,7 +239,7 @@ shape = SubResource("RectangleShape2D_qv72o")
 
 [node name="Left" type="Area2D" parent="Colliders"]
 collision_layer = 4
-collision_mask = 34
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Left"]
 position = Vector2(-9, 0)

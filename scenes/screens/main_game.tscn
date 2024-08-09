@@ -54,6 +54,23 @@ layer_1/tile_data = PackedInt32Array(983042, 393218, 1, 983041, 327682, 1, 98304
 layer_2/name = "Blue Grass"
 layer_2/tile_data = PackedInt32Array(983041, 196608, 1342177288, 983040, 196608, 1342177289, 983086, 196610, 1610612744, 983087, 196610, 1610612745)
 
+[node name="Rice Players" type="Node2D" parent="." node_paths=PackedStringArray("baconawa")]
+script = ExtResource("6_4ayyw")
+baconawa = NodePath("../Baconawa")
+
+[node name="Timer" type="Timer" parent="Rice Players"]
+
+[node name="Rice" parent="Rice Players" instance=ExtResource("7_86cue")]
+position = Vector2(408, 248)
+
+[node name="Rice2" parent="Rice Players" instance=ExtResource("7_86cue")]
+position = Vector2(384, 248)
+player_number = 2
+
+[node name="Rice3" parent="Rice Players" instance=ExtResource("7_86cue")]
+position = Vector2(360, 248)
+player_number = 3
+
 [node name="Moons" type="Node2D" parent="." node_paths=PackedStringArray("baconawa")]
 script = ExtResource("10_slq7m")
 baconawa = NodePath("../Baconawa")
@@ -101,23 +118,6 @@ position = Vector2(160, 312)
 position = Vector2(264, 344)
 
 [node name="Cooldown" type="Timer" parent="Moons"]
-
-[node name="Rice Players" type="Node2D" parent="." node_paths=PackedStringArray("baconawa")]
-script = ExtResource("6_4ayyw")
-baconawa = NodePath("../Baconawa")
-
-[node name="Timer" type="Timer" parent="Rice Players"]
-
-[node name="Rice" parent="Rice Players" instance=ExtResource("7_86cue")]
-position = Vector2(408, 248)
-
-[node name="Rice2" parent="Rice Players" instance=ExtResource("7_86cue")]
-position = Vector2(384, 248)
-player_number = 2
-
-[node name="Rice3" parent="Rice Players" instance=ExtResource("7_86cue")]
-position = Vector2(360, 248)
-player_number = 3
 
 [node name="Items" type="Node2D" parent="."]
 script = ExtResource("14_til08")
