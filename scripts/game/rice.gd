@@ -60,6 +60,18 @@ func _ready() -> void:
 		collider.connect("body_exited", colliding.bind(collider, false))
 
 
+	var b = preload("res://scenes/collectibles/barrier.tscn")
+	var d = preload("res://scenes/collectibles/drum.tscn")
+	var l = preload("res://scenes/collectibles/lantern.tscn")
+
+	item = [b,d,l].pick_random().instantiate()
+	item.visible = false
+	add_child(item)
+	if item is Item:
+
+		pickup.emit()
+		print(typeof(item))
+
 	#controls for multiplayer
 	#controls are taken from Controlcontainer.gd
 	controls = Controlcontainer.control_contain[player_number]
@@ -68,6 +80,10 @@ func _ready() -> void:
 	anim.material.set_shader_parameter("headB", bandcolors[player_number-1][0])
 	anim.material.set_shader_parameter("tail_upB", bandcolors[player_number-1][1])
 	anim.material.set_shader_parameter("tail_downB", bandcolors[player_number-1][2])
+
+
+
+
 
 # loop event
 func _physics_process(_delta: float) -> void:
