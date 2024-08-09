@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://beu0cmqv78nca"]
 
-[ext_resource type="Texture2D" uid="uid://bli5l5s86mrrm" path="res://assets/main_sprites/tiles/tilemap.png" id="1_2n4bi"]
+[ext_resource type="Texture2D" uid="uid://b3njunh5vhs6s" path="res://assets/main_sprites/item/spr_bamboowall.png" id="1_8chth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8s34"]
 size = Vector2(16, 16)
@@ -13,6 +13,5 @@ collision_mask = 12
 shape = SubResource("RectangleShape2D_k8s34")
 
 [node name="Wall" type="Sprite2D" parent="."]
-texture = ExtResource("1_2n4bi")
-region_enabled = true
+texture = ExtResource("1_8chth")
 region_rect = Rect2(16, 16, 16, 16)
