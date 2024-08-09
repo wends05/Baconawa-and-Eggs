@@ -83,16 +83,16 @@ func _ready() -> void:
 	# connect the game ended signal to disallow inputs from player
 	# and play the idle animation
 	game.game_ended.connect(finish_game)
-	
+
 	var new_tail = tail_node.instantiate()
 	add_child(new_tail)
 	move_child(new_tail, -1)
-	
+
 	for i in range(0, 30):
 		position_array.append(position)
 	for i in range(0, 30):
 		input_array.append("")
-	
+
 	addbody()
 	addbody()
 
@@ -106,7 +106,7 @@ func _physics_process(_delta: float) -> void:
 		return
 
 	move_and_slide()
-	
+
 	if velocity != 	Vector2.ZERO:
 		position_array.append(position)
 		input_array.append(getvelo())

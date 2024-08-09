@@ -49,17 +49,17 @@ func _ready():
 func _process(delta):
 	if index != 4:
 		toggleselect()
-		
-	
+
+
 	if Input.is_action_just_released("esc"):
 		if index != 0:
 			back_select()
 		else:
 			get_tree().change_scene_to_file("res://scenes/screens/main _menu.tscn")
-	
+
 func toggleselect():
 	for i in range(8):
-		if Input.is_action_pressed("action_" + str(i + 1)) and contconfirm[i] == false: 
+		if Input.is_action_pressed("action_" + str(i + 1)) and contconfirm[i] == false:
 			sfx.play()
 			contnum.append(i)
 			contconfirm[i] = true
@@ -87,7 +87,7 @@ func back_select():
 	contconfirm[contnum[index-1]] = false
 	contnum.pop_back()
 	index -= 1
-	
+
 
 func _on_button_button_up() -> void:
 	LoadMusic.stop_music()
