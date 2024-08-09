@@ -22,7 +22,8 @@ func _ready() -> void:
 
 
 func add_moon(isCollected = null):
-	if isCollected and not get_child_count() == 0:
+	print(isCollected, get_child_count(), " ", get_children().size())
+	if isCollected and get_child_count() > 2:
 		return
 	moons_spawned += 1
 	if get_child_count() <= 3:
