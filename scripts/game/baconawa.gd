@@ -10,6 +10,7 @@ class_name Baconawa
 # Reference on children
 @onready var anim = $Animations
 @onready var sfx = $Bacon_sfx
+@onready var confused = $Confused
 
 @onready var top_collider = $Colliders/Top
 @onready var down_collider = $Colliders/Down
@@ -26,7 +27,7 @@ class_name Baconawa
 var position_array = []
 var input_array = []
 
-var controls = Controlcontainer.control_contain[0]
+var controls = Controlcontainer.control_contain[0].duplicate(true)
 
 # information used if baconawa can change directions
 var down_colliding = false
@@ -228,7 +229,7 @@ func _on_collector_body_exited(_body: Node2D) -> void:
 #percentage/chance editor for buffs
 func buff_percent():
 	#speed = gold > ghost > instakill
-	var chances = [1,1,2,3,4,4]
+	var chances = [1,1,1,4,4,4,2,3,3]
 	return chances[randi() % chances.size()]
 
 func clr_normal():

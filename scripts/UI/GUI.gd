@@ -181,10 +181,13 @@ func rice3_respawn():
 #rice items
 func rice1_die():
 	r_portrait[0].play_once("default_die", "default_dead")
+	r1_item_use ()
 func rice2_die():
 	r_portrait[1].play_once("default_die", "default_dead")
+	r2_item_use ()
 func rice3_die():
 	r_portrait[2].play_once("default_die", "default_dead")
+	r3_item_use ()
 
 
 func r1_item_identify ():

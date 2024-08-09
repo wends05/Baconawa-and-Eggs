@@ -103,7 +103,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_63rrn")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 24.0
 }]
@@ -111,6 +111,7 @@ animations = [{
 [node name="Lightning" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -200)
 sprite_frames = SubResource("SpriteFrames_us65b")
 autoplay = "default"
 frame = 8

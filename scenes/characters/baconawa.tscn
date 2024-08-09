@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bi37f5gm8dmgk"]
+[gd_scene load_steps=35 format=3 uid="uid://bi37f5gm8dmgk"]
 
 [ext_resource type="Script" path="res://scripts/game/baconawa.gd" id="1_2ge8w"]
 [ext_resource type="Texture2D" uid="uid://dn5eakfwpjrn0" path="res://assets/main_sprites/character/spr_baconawa.png" id="2_ghkiq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/states/moving.gd" id="5_kurwn"]
 [ext_resource type="Script" path="res://scripts/states/stunned.gd" id="6_ktbn7"]
 [ext_resource type="Script" path="res://scripts/states/confused.gd" id="7_bul5g"]
+[ext_resource type="Texture2D" uid="uid://tl4vhf1kuyh5" path="res://assets/main_sprites/effects/spr_stun.png" id="9_0pv4u"]
 [ext_resource type="PackedScene" uid="uid://cceg6b2hp6l64" path="res://scenes/audio/bacon_sfx.tscn" id="9_ne2nk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osxse"]
@@ -90,6 +91,105 @@ size = Vector2(14, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qv72o"]
 size = Vector2(4, 14)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqjyf"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(0, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndkdj"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(16, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcsub"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(32, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anxj8"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(48, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk1wb"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(64, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdx3t"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(80, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2myaw"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(96, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k1b1"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(112, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgpp1"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(128, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8xcj"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(144, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukcct"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(160, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw0lo"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(176, 0, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5hej"]
+atlas = ExtResource("9_0pv4u")
+region = Rect2(192, 0, 16, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohlk6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqjyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndkdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcsub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anxj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk1wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdx3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2myaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k1b1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgpp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8xcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukcct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw0lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5hej")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Baconawa" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 34
@@ -101,7 +201,7 @@ shape = SubResource("RectangleShape2D_osxse")
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_go01w")
 sprite_frames = SubResource("SpriteFrames_skxty")
-animation = &"move_down"
+animation = &"move_side"
 autoplay = "idle"
 
 [node name="Colliders" type="Node2D" parent="."]
@@ -166,6 +266,12 @@ script = ExtResource("6_ktbn7")
 
 [node name="Confused" type="Node" parent="StateMachine"]
 script = ExtResource("7_bul5g")
+
+[node name="Confused" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_ohlk6")
+autoplay = "default"
 
 [node name="Bacon_sfx" parent="." instance=ExtResource("9_ne2nk")]
 

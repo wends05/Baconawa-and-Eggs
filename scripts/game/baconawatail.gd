@@ -21,8 +21,8 @@ func _physics_process(_delta) -> void:
 	var head_parent = get_parent()
 
 	var i = get_index()
-	global_position = head_parent.position_array[-10*(i-6)]
-	match head_parent.input_array[-10*(i-6)]:
+	global_position = head_parent.position_array[-10*(i-7)]
+	match head_parent.input_array[-10*(i-7)]:
 		"up":
 			anim.play("tail_up")
 			anim.flip_h = false
