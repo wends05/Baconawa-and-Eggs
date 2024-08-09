@@ -702,12 +702,6 @@ slide_on_ceiling = false
 floor_constant_speed = true
 game = NodePath("..")
 
-[node name="UI" parent="." node_paths=PackedStringArray("baconawa", "timer") instance=ExtResource("4_1ovr0")]
-offset_right = 736.0
-baconawa = NodePath("../Baconawa")
-timer = NodePath("../Timer")
-metadata/_edit_lock_ = true
-
 [node name="Moons" type="Node2D" parent="." node_paths=PackedStringArray("baconawa")]
 script = ExtResource("10_slq7m")
 baconawa = NodePath("../Baconawa")
@@ -814,7 +808,9 @@ position = Vector2(312, 392)
 
 [node name="Cooldown" type="Timer" parent="Items"]
 
-[node name="GUI" parent="." node_paths=PackedStringArray("rice1", "rice2", "rice3") instance=ExtResource("14_5f1l6")]
+[node name="GUI" parent="." node_paths=PackedStringArray("baconawa", "game_time", "rice1", "rice2", "rice3") instance=ExtResource("14_5f1l6")]
+baconawa = NodePath("../Baconawa")
+game_time = NodePath("../Timer")
 rice1 = NodePath("../Rice Players/Rice")
 rice2 = NodePath("../Rice Players/Rice2")
 rice3 = NodePath("../Rice Players/Rice3")
@@ -823,3 +819,9 @@ rice3 = NodePath("../Rice Players/Rice3")
 stream = ExtResource("11_ev48k")
 volume_db = -8.0
 autoplay = true
+
+[node name="UI" parent="." node_paths=PackedStringArray("baconawa", "timer") instance=ExtResource("4_1ovr0")]
+offset_right = 736.0
+baconawa = NodePath("../Baconawa")
+timer = NodePath("../Timer")
+metadata/_edit_lock_ = true

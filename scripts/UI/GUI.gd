@@ -14,6 +14,12 @@ var buff_icons = [
 	"res://assets/main_sprites/ui/spr_shield.png"
 ]
 
+@onready var time_display = $"Leaves/Control/HBoxContainer/Timer Display"
+@onready var eggs_display = $Leaves/Control/HBoxContainer/Eggs
+
+@export var baconawa : Baconawa
+@export var game_time : Timer
+
 var prog_val = 0
 var is_cd = false
 var cd_speed = 1 #/deduct that percent of overall
@@ -63,12 +69,16 @@ func _ready():
 	rice3.use.connect(r3_item_use)
 
 func _process(_delta):
+
 	cooldownbar.value = prog_val
 	if is_cd:
 		prog_val -= cd_speed
 		if prog_val <= 0:
 			cooldownbar.hide()
 			is_cd = false
+
+	time_display.text = "%s" % G.display_time(ceili(game_time.time_left))
+	eggs_display.text = "%s" % baconawa.moons_collected
 
 #power up icon
 func buff_identify ():
