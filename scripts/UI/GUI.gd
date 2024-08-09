@@ -16,9 +16,11 @@ var buff_icons = [
 
 @onready var time_display = $"Leaves/Control/HBoxContainer/Timer Display"
 @onready var eggs_display = $Leaves/Control/HBoxContainer/Eggs
-
+@onready var transition = $Transition
+@onready var pause_screen = $"Pause Screen"
 @export var baconawa : Baconawa
 @export var game_time : Timer
+
 
 var prog_val = 0
 var is_cd = false
@@ -68,6 +70,12 @@ func _ready():
 	rice2.use.connect(r2_item_use)
 	rice3.use.connect(r3_item_use)
 
+	transition.visible = true
+	var tween = create_tween()
+	tween.tween_property(transition, "color", Color(0,0,0,0), 1).set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
+	transition.visible = false
+
 func _process(_delta):
 
 	cooldownbar.value = prog_val
@@ -79,6 +87,7 @@ func _process(_delta):
 
 	time_display.text = "%s" % G.display_time(ceili(game_time.time_left))
 	eggs_display.text = "%s" % baconawa.moons_collected
+
 
 #power up icon
 func buff_identify ():
@@ -224,3 +233,28 @@ func r2_item_use ():
 	rice_item[1].texture = null
 func r3_item_use ():
 	rice_item[2].texture = null
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		pause_game()
+
+func pause_game():
+	get_tree().paused = not get_tree().paused
+	pause_screen.visible = get_tree().paused
+
+func _on_pause_button_down() -> void:
+	pause_game()
+
+
+func _on_resume_button_up() -> void:
+	pause_game()
+
+
+func _on_restart_button_up() -> void:
+	pause_game()
+	get_tree().reload_current_scene()
+
+
+func _on_quit_button_up() -> void:
+	pause_game()
+	get_tree().change_scene_to_file("res://scenes/screens/main _menu.tscn")

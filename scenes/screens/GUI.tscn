@@ -19,9 +19,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7cy8o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aod03"]
 atlas = ExtResource("3_exapj")
-region = Rect2(240, 0, 48, 48)
+region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0f8w"]
 atlas = ExtResource("3_exapj")
@@ -79,9 +79,9 @@ region = Rect2(96, 0, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aod03"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cy8o"]
 atlas = ExtResource("3_exapj")
-region = Rect2(192, 0, 48, 48)
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8id00"]
 atlas = ExtResource("3_exapj")
@@ -240,9 +240,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bgxqv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m62gh"]
 atlas = ExtResource("3_exapj")
-region = Rect2(240, 144, 48, 48)
+region = Rect2(192, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjtgc"]
 atlas = ExtResource("3_exapj")
@@ -300,9 +300,9 @@ region = Rect2(96, 144, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(144, 144, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m62gh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgxqv"]
 atlas = ExtResource("3_exapj")
-region = Rect2(192, 144, 48, 48)
+region = Rect2(240, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ss6qn"]
 atlas = ExtResource("3_exapj")
@@ -453,9 +453,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8dh5p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nttkm"]
 atlas = ExtResource("3_exapj")
-region = Rect2(240, 288, 48, 48)
+region = Rect2(192, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gewfg"]
 atlas = ExtResource("3_exapj")
@@ -513,9 +513,9 @@ region = Rect2(96, 288, 48, 48)
 atlas = ExtResource("3_exapj")
 region = Rect2(144, 288, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nttkm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dh5p"]
 atlas = ExtResource("3_exapj")
-region = Rect2(192, 288, 48, 48)
+region = Rect2(240, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h84j"]
 atlas = ExtResource("3_exapj")
@@ -670,9 +670,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ieduj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0s6k"]
 atlas = ExtResource("2_bpquh")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekp47"]
 atlas = ExtResource("2_bpquh")
@@ -754,9 +754,9 @@ region = Rect2(256, 0, 64, 64)
 atlas = ExtResource("2_bpquh")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0s6k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieduj"]
 atlas = ExtResource("2_bpquh")
-region = Rect2(64, 0, 64, 64)
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x2l6d"]
 atlas = ExtResource("2_bpquh")
@@ -1044,6 +1044,7 @@ corner_radius_bottom_left = 4
 anti_aliasing = false
 
 [node name="GUI" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1081,11 +1082,11 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_7cy8o")
+texture = SubResource("AtlasTexture_aod03")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_k3fo8")
 current_animation = "default_idle"
-frame_index = 5
+frame_index = 4
 auto_play = true
 playing = true
 
@@ -1120,11 +1121,11 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_bgxqv")
+texture = SubResource("AtlasTexture_m62gh")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_glqf2")
 current_animation = "default_idle"
-frame_index = 5
+frame_index = 4
 auto_play = true
 playing = true
 
@@ -1159,11 +1160,11 @@ offset_bottom = 14.0
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
-texture = SubResource("AtlasTexture_8dh5p")
+texture = SubResource("AtlasTexture_nttkm")
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_fqdhb")
 current_animation = "default_idle"
-frame_index = 5
+frame_index = 4
 auto_play = true
 playing = true
 
@@ -1239,12 +1240,13 @@ offset_left = 3.0
 offset_top = 4.0
 offset_right = 67.0
 offset_bottom = 68.0
-texture = SubResource("AtlasTexture_ieduj")
+texture = SubResource("AtlasTexture_m0s6k")
 stretch_mode = 1
 script = ExtResource("2_jbus7")
 sprites = SubResource("SpriteFrames_ossm4")
 default_anim = "default"
 current_animation = "default_idle"
+frame_index = 1
 auto_play = true
 playing = true
 
@@ -1290,7 +1292,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 expand_mode = 3
 
-[node name="Button" type="Button" parent="."]
+[node name="Pause" type="Button" parent="."]
 layout_mode = 0
 offset_left = 720.0
 offset_top = 392.0
@@ -1298,3 +1300,49 @@ offset_right = 752.0
 offset_bottom = 424.0
 icon = ExtResource("9_01dqi")
 flat = true
+
+[node name="Transition" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 432.0
+color = Color(0, 0, 0, 1)
+
+[node name="Pause Screen" type="ColorRect" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 432.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -40.0
+offset_right = 60.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="Pause Screen/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Restart" type="Button" parent="Pause Screen/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="Quit" type="Button" parent="Pause Screen/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="button_down" from="Pause" to="." method="_on_pause_button_down"]
+[connection signal="button_up" from="Pause Screen/VBoxContainer/Resume" to="." method="_on_resume_button_up"]
+[connection signal="button_up" from="Pause Screen/VBoxContainer/Restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="Pause Screen/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
