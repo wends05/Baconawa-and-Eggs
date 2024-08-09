@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/instructions_start.gd" id="1_0wd8n"]
 [ext_resource type="Texture2D" uid="uid://b5swl8sq7oh1p" path="res://assets/main_sprites/menus/main_menu.png" id="2_d4pgj"]
 
-[node name="Instructions" type="Control"]
+[node name="Instructions2" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

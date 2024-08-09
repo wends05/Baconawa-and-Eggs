@@ -106,11 +106,11 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 	
-	position_array.append(position)
+	if velocity != 	Vector2.ZERO:
+		position_array.append(position)
+		input_array.append(getvelo())
 	if position_array.size() > 100:
 		position_array.pop_front()
-	
-	input_array.append(anim.animation)
 	if input_array.size() > 100:
 		input_array.pop_front()
 
@@ -268,3 +268,13 @@ func addbody():
 	var new_body = body_node.instantiate()
 	add_child(new_body)
 	move_child(new_body, -2)
+
+func getvelo():
+	if velocity.x > 0:
+		return "right"
+	if velocity.x < 0:
+		return "left"
+	if velocity.y > 0:
+		return "down"
+	if velocity.y < 0:
+		return "up"

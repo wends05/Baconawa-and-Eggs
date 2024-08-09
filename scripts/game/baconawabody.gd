@@ -18,23 +18,26 @@ func _ready():
 
 func _physics_process(_delta) -> void:
 	var head_parent = get_parent()
-	for i in head_parent.get_child_count():
-		if i > 6:
-			var x = get_parent().get_child(i)
-			x.global_position = head_parent.position_array[-10*(i-6)]
-			match head_parent.input_array[-10*(i-6)]:
-				"move_up":
-					anim.play("body_up")
-					anim.flip_h = false
-				"move_down":
-					anim.play("body_down")
-					anim.flip_h = false
-				"move_side":
-					anim.play("body_side")
-					anim.flip_h = true if head_parent.anim.flip_h else false
-				"":
-					anim.play("body_side")
-					anim.flip_h = false
+
+	var i = get_index()
+	global_position = head_parent.position_array[-10*(i-6)]
+	match head_parent.input_array[-10*(i-6)]:
+		"up":
+			anim.play("body_up")
+			anim.flip_h = false
+		"down":
+			anim.play("body_down")
+			anim.flip_h = false
+		"left":
+			anim.play("body_side")
+			anim.flip_h = false
+		"right":
+			anim.play("body_side")
+			anim.flip_h = true
+		"":
+			anim.play("body_side")
+			anim.flip_h = false
+	
 
 func clr_normal():
 	anim.material.set_shader_parameter("red1B", Controlcontainer.bacon_color[0][0])

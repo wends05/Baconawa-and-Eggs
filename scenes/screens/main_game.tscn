@@ -700,6 +700,7 @@ unique_name_in_owner = true
 position = Vector2(216, 248)
 slide_on_ceiling = false
 floor_constant_speed = true
+SPEED = null
 game = NodePath("..")
 
 [node name="Moons" type="Node2D" parent="." node_paths=PackedStringArray("baconawa")]
