@@ -4,24 +4,48 @@
 [ext_resource type="Texture2D" uid="uid://dn5eakfwpjrn0" path="res://assets/main_sprites/character/spr_baconawa.png" id="2_ol0kd"]
 [ext_resource type="PackedScene" uid="uid://bi37f5gm8dmgk" path="res://scenes/characters/baconawa.tscn" id="3_yxyks"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eur3r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ercqw"]
 atlas = ExtResource("2_ol0kd")
-region = Rect2(24, 0, 24, 12)
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr83i"]
+atlas = ExtResource("2_ol0kd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enngm"]
+atlas = ExtResource("2_ol0kd")
+region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f0dxc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eur3r")
+"texture": SubResource("AtlasTexture_ercqw")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"body_down",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr83i")
+}],
+"loop": true,
+"name": &"body_side",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enngm")
+}],
+"loop": true,
+"name": &"body_up",
+"speed": 0.0
 }]
 
 [node name="BaconawaBody" type="CharacterBody2D"]
 script = ExtResource("1_dpi8b")
-head = ExtResource("3_yxyks")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f0dxc")
+animation = &"body_side"

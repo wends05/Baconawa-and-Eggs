@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-class_name BaconawaBody
 @export var SPEED: int = 100
 @onready var anim = $AnimatedSprite2D
 
@@ -18,25 +17,25 @@ func _ready():
 
 func _physics_process(_delta) -> void:
 	var head_parent = get_parent()
+	var tail = head_parent.get_child(-1)
+	var last_child = head_parent.get_child_count() - 1
 	for i in head_parent.get_child_count():
-		if i > 6:
-			var x = get_parent().get_child(i)
-			x.global_position = head_parent.position_array[-10*(i-6)]
+		if i == last_child:
 			match head_parent.input_array[-10*(i-6)]:
 				"up":
-					anim.play("body_up")
+					anim.play("tail_up")
 					anim.flip_h = false
 				"down":
-					anim.play("body_down")
+					anim.play("tail_down")
 					anim.flip_h = false
 				"left":
-					anim.play("body_side")
+					anim.play("tail_side")
 					anim.flip_h = false
 				"right":
-					anim.play("body_side")
+					anim.play("tail_side")
 					anim.flip_h = true
 				"":
-					anim.play("body_side")
+					anim.play("tail_side")
 					anim.flip_h = false
 
 func clr_normal():
