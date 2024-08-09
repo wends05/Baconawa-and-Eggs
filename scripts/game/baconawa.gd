@@ -21,7 +21,7 @@ class_name Baconawa
 @onready var internal_timer = $InternalTimer
 @onready var buff_timer = $BuffTimer
 
-@onready var state_machine : StateMachine = $StateMachine
+@onready var state_machine: StateMachine = $StateMachine
 
 @onready var body_node = preload("res://scenes/characters/baconawa_body.tscn")
 @onready var tail_node = preload("res://scenes/characters/baconawa_tail.tscn")
@@ -46,7 +46,7 @@ var moons_collected: int = 0
 var game_finished = false
 
 # Buffs and debuffs
-var buffs : Array[int] = []
+var buffs: Array[int] = []
 var buff_cooldown = false
 const BUFFS = {
 	0: "No Buff",
@@ -55,8 +55,10 @@ const BUFFS = {
 	3: "Move to a Wall"
 }
 signal kill_someone
-var moving_through_wall = false
+
+var buff_on_wall = false
 var moved_through_first_wall = false
+var moving_through_wall = false
 var invincible = false
 
 var debuffed = false
@@ -108,7 +110,7 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
-	if velocity != 	Vector2.ZERO:
+	if velocity != Vector2.ZERO:
 		position_array.append(position)
 		input_array.append(getvelo())
 	if position_array.size() > 100:
@@ -117,7 +119,7 @@ func _physics_process(_delta: float) -> void:
 		input_array.pop_front()
 
 func colliding(_body, collider: Area2D, isColliding):
-	if moving_through_wall or debuffed:
+	if buff_on_wall or debuffed:
 		return
 	match collider.name:
 		"Top":
@@ -147,7 +149,7 @@ func _input(event: InputEvent) -> void:
 		buff_cooldown = true
 		bff_act.emit()
 		match buffs[0]:
-			1: #Speed
+			1: # Speed
 				sfx.fast.play()
 				clr_speed()
 				fst.emit()
@@ -160,13 +162,13 @@ func _input(event: InputEvent) -> void:
 				clr_normal()
 				nrml.emit()
 				SPEED = 70
-			2: #Kill someone
+			2: # Kill someone
 				sfx.instakill.play()
 				buffs.pop_front()
 				kill_someone.emit()
 				internal_timer.start(3)
 				await internal_timer.timeout
-			3: #Move to a wall
+			3: # Move to a wall
 				print("Collision mask 2 set to false")
 				sfx.ghost.play()
 				ghst.emit()
@@ -177,7 +179,7 @@ func _input(event: InputEvent) -> void:
 				right_colliding = false
 				set_collision_mask_value(2, false)
 				buffs.pop_front()
-				moving_through_wall = true
+				buff_on_wall = true
 				moved_through_first_wall = false
 			4:
 				print("Immune to stun and confucius")
@@ -212,27 +214,36 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		if len(buffs) != 2:
 			buffs.append(buff_percent())
 			bff.emit()
-
 		addbody()
+
+
+func _on_collector_body_entered(body: Node2D) -> void:
+	if not moving_through_wall: moving_through_wall = true
 
 
 # If exited a wall, add the collision mask value again
 func _on_collector_body_exited(_body: Node2D) -> void:
+	print(buff_on_wall, moving_through_wall, moved_through_first_wall)
+	moving_through_wall = false
+	if not buff_on_wall and not moving_through_wall:
+		set_collision_mask_value(2, true)
+
 	if moved_through_first_wall:
 		return
 	moved_through_first_wall = true
 	internal_timer.start(3)
 	await internal_timer.timeout
-	moving_through_wall = false
+	buff_on_wall = false
 	nrml.emit()
 	clr_normal()
-	set_collision_mask_value(2, true)
 
 
 #percentage/chance editor for buffs
 func buff_percent():
 	#speed = gold > ghost > instakill
-	var chances = [1,1,1,4,4,4,2,3,3]
+	#var chances = [1, 1, 1, 4, 4, 4, 2, 3, 3]
+	var chances = [3]
+
 	return chances[randi() % chances.size()]
 
 func clr_normal():
@@ -282,3 +293,4 @@ func getvelo():
 		return "down"
 	if velocity.y < 0:
 		return "up"
+

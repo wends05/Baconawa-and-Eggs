@@ -276,4 +276,5 @@ autoplay = "default"
 [node name="Bacon_sfx" parent="." instance=ExtResource("9_ne2nk")]
 
 [connection signal="area_entered" from="Colliders/Collector" to="." method="_on_collector_area_entered"]
+[connection signal="body_entered" from="Colliders/Collector" to="." method="_on_collector_body_entered"]
 [connection signal="body_exited" from="Colliders/Collector" to="." method="_on_collector_body_exited"]
