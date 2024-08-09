@@ -28,7 +28,7 @@ func physics_update(_delta: float) -> void:
 		var barrier_instance = preload("res://scenes/characters/wall.tscn").instantiate()
 		owner.owner.add_child(barrier_instance)
 		barrier_instance.global_position = barrier_check_instance.global_position
-		owner.internal_timer.start(5)
+		owner.internal_timer.start(10)
 		await owner.internal_timer.timeout
 		barrier_instance.queue_free()
 
