@@ -6,7 +6,7 @@ var moons_spawned = 0
 
 var moons: Array[Moon] = []
 func _ready() -> void:
-	baconawa.moon_collected.connect(add_moon)
+	baconawa.moon_collected.connect(add_moon.bind(true))
 	# tinak an akomag buhat spawners so...
 	for moon in get_children():
 		if not moon is Moon:
@@ -15,16 +15,17 @@ func _ready() -> void:
 		remove_child(moon)
 	moons.shuffle()
 	add_child(moons.pop_front())
-
 	while moons and G.baconawa_win == null and moons_spawned < 7:
 		reset_timer()
 		await cd.timeout
 		add_moon()
 
 
-func add_moon():
+func add_moon(isCollected = null):
+	if isCollected and not get_child_count() == 0:
+		return
 	moons_spawned += 1
-	if get_children().size() <= 3:
+	if get_child_count() <= 3:
 		call_deferred("add_child", moons.pop_front())
 	reset_timer()
 
