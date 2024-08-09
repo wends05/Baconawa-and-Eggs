@@ -4,7 +4,8 @@ extends CharacterBody2D
 # be able to reference this in other scripts
 
 class_name Baconawa
-@export var SPEED: int = 75
+#@export var SPEED: int = 75
+@export var SPEED: int = 70
 @export var game: Game
 
 # Reference on children
@@ -83,16 +84,16 @@ func _ready() -> void:
 	# connect the game ended signal to disallow inputs from player
 	# and play the idle animation
 	game.game_ended.connect(finish_game)
-	
+
 	var new_tail = tail_node.instantiate()
 	add_child(new_tail)
 	move_child(new_tail, -1)
-	
+
 	for i in range(0, 30):
 		position_array.append(position)
 	for i in range(0, 30):
 		input_array.append("")
-	
+
 	addbody()
 	addbody()
 
@@ -106,7 +107,7 @@ func _physics_process(_delta: float) -> void:
 		return
 
 	move_and_slide()
-	
+
 	if velocity != 	Vector2.ZERO:
 		position_array.append(position)
 		input_array.append(getvelo())
@@ -150,7 +151,7 @@ func _input(event: InputEvent) -> void:
 				sfx.fast.play()
 				clr_speed()
 				fst.emit()
-				SPEED = 120
+				SPEED += 45
 				internal_timer.start(3)
 				buffs.pop_front()
 				#this needs to be moved
@@ -158,11 +159,13 @@ func _input(event: InputEvent) -> void:
 				await internal_timer.timeout
 				clr_normal()
 				nrml.emit()
-				SPEED = 75
+				SPEED = 70
 			2: #Kill someone
 				sfx.instakill.play()
 				buffs.pop_front()
 				kill_someone.emit()
+				internal_timer.start(3)
+				await internal_timer.timeout
 			3: #Move to a wall
 				print("Collision mask 2 set to false")
 				sfx.ghost.play()

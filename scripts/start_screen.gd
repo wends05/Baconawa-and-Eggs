@@ -17,7 +17,7 @@ func _on_instructions_button_up() -> void:
 	sfx.play()
 	await sfx.finished
 	bgmsc.stop()
-	get_tree().change_scene_to_file("res://scenes/screens/instructions.tscn")
+	get_tree().change_scene_to_file("res://scenes/screens/credits.tscn")
 
 
 func _on_quit_button_up():

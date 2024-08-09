@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk7ldj2ukae37"]
+[gd_scene load_steps=8 format=3 uid="uid://dk7ldj2ukae37"]
 
-[ext_resource type="Script" path="res://scenes/audio/rice_sfx.gd" id="1_clcqu"]
+[ext_resource type="Script" path="res://scripts/audio/rice_sfx.gd" id="1_1sxl1"]
 [ext_resource type="AudioStream" uid="uid://bf0roq132ugqd" path="res://assets/sfx/sfx_flashlight.wav" id="1_l3x8v"]
 [ext_resource type="AudioStream" uid="uid://cx4vhw87lga6t" path="res://assets/sfx/sfx_bamboo.wav" id="2_3st4k"]
+[ext_resource type="AudioStream" uid="uid://c1clisgcfs64v" path="res://assets/sfx/sfx_drums.wav" id="2_idgyo"]
 [ext_resource type="AudioStream" uid="uid://c67nnyetcypmn" path="res://assets/sfx/sfx_eatrice.wav" id="3_lfyjf"]
 [ext_resource type="AudioStream" uid="uid://tsqd062mxmjn" path="res://assets/sfx/sfx_ricevive.wav" id="4_gt3tt"]
+[ext_resource type="AudioStream" uid="uid://cohbja1xc6fsv" path="res://assets/sfx/sfx_collect.wav" id="7_oxrvu"]
 
 [node name="rice_sfx" type="Node"]
-script = ExtResource("1_clcqu")
+script = ExtResource("1_1sxl1")
 
 [node name="drums" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_idgyo")
+volume_db = 10.92
 
 [node name="flashlight" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_l3x8v")
@@ -25,3 +29,7 @@ pitch_scale = 0.89
 [node name="live" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_gt3tt")
 pitch_scale = 1.11
+
+[node name="collect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_oxrvu")
+volume_db = 1.0

@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_no8oh"]
 [ext_resource type="PackedScene" uid="uid://bi37f5gm8dmgk" path="res://scenes/characters/baconawa.tscn" id="2_7ra4s"]
-[ext_resource type="TileSet" path="res://resources/tile_map.res" id="2_7rj74"]
+[ext_resource type="TileSet" uid="uid://bdykkvfy4a1qm" path="res://resources/tile_map.res" id="2_7rj74"]
 [ext_resource type="PackedScene" uid="uid://cwfpw16sb0fu5" path="res://scenes/screens/UI.tscn" id="4_1ovr0"]
 [ext_resource type="PackedScene" uid="uid://biurlxqhbna7a" path="res://scenes/collectibles/moon.tscn" id="5_865dh"]
 [ext_resource type="Script" path="res://scripts/game/rice_players.gd" id="6_4ayyw"]
 [ext_resource type="PackedScene" uid="uid://cwbbda5vd2ofb" path="res://scenes/characters/rice.tscn" id="7_86cue"]
 [ext_resource type="Script" path="res://scripts/game/moonhandler.gd" id="10_slq7m"]
 [ext_resource type="AudioStream" uid="uid://cb7da2omp3pak" path="res://assets/sfx/music/Pamahaw.mp3.mp3" id="11_ev48k"]
-[ext_resource type="PackedScene" path="res://scenes/effects/teleporter.tscn" id="12_lltyj"]
+[ext_resource type="PackedScene" uid="uid://colsv18qq74ve" path="res://scenes/effects/teleporter.tscn" id="12_lltyj"]
 [ext_resource type="PackedScene" uid="uid://bq3ski4oyihxf" path="res://scenes/screens/GUI.tscn" id="14_5f1l6"]
 [ext_resource type="Script" path="res://scripts/game/itemspawner.gd" id="14_til08"]
 

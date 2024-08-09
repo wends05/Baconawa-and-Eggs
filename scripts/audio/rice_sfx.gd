@@ -5,3 +5,4 @@ extends Node
 @onready var bamboo = $bamboo
 @onready var die = $die
 @onready var live = $live
+@onready var collect = $collect

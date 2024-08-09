@@ -15,5 +15,5 @@ func enter(_msg = {}):
 	await owner.get_node("InternalTimer").timeout
 	owner.confused.hide()
 	owner.nrml.emit()
-	owner.controls = Controlcontainer.control_contain[0]
+	owner.controls = Controlcontainer.control_contain[0].duplicate(true)
 	print(owner.controls)

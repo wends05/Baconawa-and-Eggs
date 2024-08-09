@@ -34,7 +34,7 @@ func add_item():
 		if not spawner.get_child_count() == 0:
 			spawned += 1
 
-	if spawned > 2:
+	if spawned > 4:
 		return
 	reset_timer()
 	var random = getRandom().instantiate()
@@ -44,4 +44,4 @@ func add_item():
 	current = (current + 1) % spawners.size()
 
 func reset_timer():
-	cd.start(randi_range(10, 15))
+	cd.start(randi_range(5, 7))

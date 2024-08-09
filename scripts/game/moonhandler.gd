@@ -24,9 +24,9 @@ func _ready() -> void:
 
 func add_moon():
 	moons_spawned += 1
-	if get_children().size() < 3:
+	if get_children().size() <= 3:
 		call_deferred("add_child", moons.pop_front())
 	reset_timer()
 
 func reset_timer():
-	cd.start(randi_range(10,15))
+	cd.start(randi_range(27,33))
