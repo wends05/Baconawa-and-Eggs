@@ -40,7 +40,7 @@ layer_4/tile_data = PackedInt32Array(327680, 327680, 805306374, 262144, 327680, 
 
 [node name="Baconawa" parent="." node_paths=PackedStringArray("game") instance=ExtResource("2_7ra4s")]
 unique_name_in_owner = true
-position = Vector2(216, 248)
+position = Vector2(119.01, 248)
 slide_on_ceiling = false
 floor_constant_speed = true
 game = NodePath("..")
@@ -150,7 +150,7 @@ position = Vector2(232, 184)
 position = Vector2(112, 216)
 
 [node name="Spawn10" type="Node2D" parent="Items"]
-position = Vector2(168, 248)
+position = Vector2(119.01, 248)
 
 [node name="Spawn11" type="Node2D" parent="Items"]
 position = Vector2(120, 376)
